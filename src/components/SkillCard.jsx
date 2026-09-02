@@ -1,35 +1,85 @@
 import { useNavigate } from "react-router-dom";
 
-export default function SkillCard({ icon, title, desc, to }) {
+export default function SkillCard({
+  image,
+  title,
+  desc,
+  to,
+}) {
   const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (!to) return;
+
+    navigate(to);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div
-      onClick={() => to && navigate(to)}
+      onClick={handleClick}
       className="
-        cursor-pointer
-        bg-[#1b0040]/60 
-        p-6 
-        rounded-2xl 
-        border border-purple-700/40
-        backdrop-blur
-        transition-all duration-300
-        hover:scale-105 
-        hover:border-purple-500
-        hover:shadow-[0_0_30px_rgba(168,85,247,0.35)]
+      group
+      cursor-pointer
+      overflow-hidden
+      rounded-3xl
+      bg-[#170036]/70
+      border border-purple-700/30
+      backdrop-blur-md
+      transition-all
+      duration-500
+      hover:-translate-y-3
+      hover:border-purple-500
+      hover:shadow-[0_0_40px_rgba(168,85,247,.35)]
       "
     >
-      <div className="text-3xl mb-4 text-purple-400">
-        {icon}
+      {/* Cover */}
+      <div className="relative h-56 overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          className="
+          w-full
+          h-full
+          object-cover
+          transition-transform
+          duration-700
+          group-hover:scale-110
+          "
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-[#170036] via-transparent to-transparent" />
       </div>
 
-      <h3 className="text-xl font-semibold mb-2">
-        {title}
-      </h3>
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="text-2xl font-bold mb-3 group-hover:text-purple-300 transition-colors">
+          {title}
+        </h3>
 
-      <p className="text-gray-300 text-sm leading-relaxed">
-        {desc}
-      </p>
+        <p className="text-gray-300 text-sm leading-7">
+          {desc}
+        </p>
+
+        {to && (
+          <button
+            className="
+            mt-6
+            text-purple-400
+            font-medium
+            group-hover:translate-x-2
+            transition-transform
+            duration-300
+            "
+          >
+            View Details →
+          </button>
+        )}
+      </div>
     </div>
   );
 }

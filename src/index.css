@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: "Poppins", sans-serif;
   }
@@ -9,6 +13,7 @@
 /* =========================
    STAR INTRO BACKGROUND
    ========================= */
+
 .star-bg {
   background:
     radial-gradient(2px 2px at 20% 30%, white, transparent),
@@ -23,6 +28,7 @@
   from {
     background-position: 0 0;
   }
+
   to {
     background-position: -1000px 1000px;
   }

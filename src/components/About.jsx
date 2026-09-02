@@ -1,67 +1,574 @@
-import SkillCard from "./SkillCard";
 import {
-  FaCode,
-  FaServer,
-  FaDatabase,
-  FaPalette,
+  FaPhone,
+  FaEnvelope,
+  FaLinkedin,
+  FaGithub,
+  FaInstagram,
+  FaYoutube,
 } from "react-icons/fa";
 
 export default function About() {
   return (
     <section
       id="about"
-      className="bg-gradient-to-br from-[#0a0118] to-[#26006a] text-white py-24 px-6"
+      className="
+        bg-gradient-to-br
+        from-[#0a0118]
+        to-[#26006a]
+        text-white
+        py-24
+        px-6
+
+        /* =========================
+           TABLET
+           768px - 1023px
+        ========================== */
+        max-lg:py-20
+        max-lg:px-8
+
+        /* =========================
+           MOBILE
+           375px - 767px
+        ========================== */
+        max-md:py-16
+        max-md:px-6
+
+        /* =========================
+           MOBILE KECIL
+           <= 374px
+        ========================== */
+        max-[374px]:py-14
+        max-[374px]:px-4
+      "
     >
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-        
-        {/* About Text */}
+      <div
+        className="
+          max-w-7xl
+          mx-auto
+          grid
+          lg:grid-cols-2
+          gap-20
+
+          /* =========================
+             TABLET
+          ========================== */
+          max-lg:grid-cols-1
+          max-lg:gap-16
+
+          /* =========================
+             MOBILE
+          ========================== */
+          max-md:gap-14
+
+          /* =========================
+             MOBILE KECIL
+          ========================== */
+          max-[374px]:gap-12
+        "
+      >
+        {/* ==================================================
+            LEFT CONTENT
+        ================================================== */}
         <div>
-          <h2 className="text-4xl font-bold mb-6">About Me</h2>
+          {/* Label */}
+          <p
+            className="
+              text-cyan-400
+              font-semibold
+              uppercase
+              tracking-wider
+              mb-3
 
-          <p className="text-gray-300 leading-relaxed mb-4">
-            Saya merupakan mahasiswa <span className="text-white font-semibold">Teknik Informatika</span> 
-            yang memiliki ketertarikan kuat di bidang <span className="text-cyan-400">rekayasa perangkat lunak</span>.
-            Selama proses belajar, saya terbiasa mengembangkan aplikasi berbasis web dan sistem interaktif.
+              /* Mobile kecil */
+              max-[374px]:text-xs
+              max-[374px]:mb-2
+            "
+          >
+            Tentang Saya
           </p>
 
-          <p className="text-gray-300 leading-relaxed mb-4">
-            Selain kemampuan teknis, saya juga memiliki keahlian di bidang 
-            <span className="text-pink-400"> desain grafis, motion graphic, dan UI/UX design</span>.
-            Kombinasi antara logika dan kreativitas membuat saya mampu menghasilkan solusi yang fungsional
-            sekaligus menarik secara visual.
+          {/* Heading */}
+          <h2
+            className="
+              text-5xl
+              font-bold
+              leading-tight
+              mb-8
+
+              /* Tablet */
+              max-lg:text-5xl
+              max-lg:max-w-3xl
+
+              /* Mobile */
+              max-md:text-4xl
+              max-md:leading-[1.15]
+              max-md:mb-6
+
+              /* Mobile kecil */
+              max-[374px]:text-[30px]
+              max-[374px]:leading-[1.15]
+              max-[374px]:mb-5
+            "
+          >
+            IT Programmer & <br className="hidden sm:block" />
+            Lulusan Teknik Informatika
+          </h2>
+
+          {/* Paragraph 1 */}
+          <p
+            className="
+              text-gray-300
+              leading-8
+              mb-5
+
+              /* Tablet */
+              max-lg:text-base
+              max-lg:leading-7
+
+              /* Mobile */
+              max-md:text-sm
+              max-md:leading-6
+              max-md:mb-4
+
+              /* Mobile kecil */
+              max-[374px]:text-[13px]
+              max-[374px]:leading-5
+            "
+          >
+            Saya merupakan mahasiswa{" "}
+            <b className="text-white">Teknik Informatika</b> dengan ketertarikan
+            pada pengembangan aplikasi berbasis web, rekayasa perangkat lunak,
+            dan teknologi modern.
           </p>
 
-          <p className="text-gray-300 leading-relaxed">
-            Saya mudah beradaptasi, senang mempelajari hal baru, dan siap menghadapi tantangan
-            untuk terus berkembang di dunia teknologi dan industri kreatif.
+          {/* Paragraph 2 */}
+          <p
+            className="
+              text-gray-300
+              leading-8
+
+              /* Tablet */
+              max-lg:text-base
+              max-lg:leading-7
+
+              /* Mobile */
+              max-md:text-sm
+              max-md:leading-6
+
+              /* Mobile kecil */
+              max-[374px]:text-[13px]
+              max-[374px]:leading-5
+            "
+          >
+            Selain kemampuan teknis, saya juga memiliki pengalaman dalam UI/UX
+            Design, Motion Graphic, serta Graphic Design sehingga mampu
+            menggabungkan logika sistem dengan tampilan yang menarik.
+          </p>
+
+          {/* Sub Heading */}
+          <h3
+            className="
+              text-4xl
+              font-bold
+              mt-16
+              mb-6
+
+              /* Tablet */
+              max-lg:text-4xl
+              max-lg:mt-12
+              max-lg:mb-5
+
+              /* Mobile */
+              max-md:text-3xl
+              max-md:mt-10
+              max-md:mb-5
+
+              /* Mobile kecil */
+              max-[374px]:text-[26px]
+              max-[374px]:mt-9
+              max-[374px]:mb-4
+            "
+          >
+            Kontribusi Profesional
+          </h3>
+
+          {/* Paragraph 3 */}
+          <p
+            className="
+              text-gray-300
+              leading-8
+
+              /* Tablet */
+              max-lg:text-base
+              max-lg:leading-7
+
+              /* Mobile */
+              max-md:text-sm
+              max-md:leading-6
+
+              /* Mobile kecil */
+              max-[374px]:text-[13px]
+              max-[374px]:leading-5
+            "
+          >
+            Saya aktif mengembangkan website, dashboard, sistem administrasi,
+            aplikasi monitoring, serta berbagai solusi digital menggunakan
+            prinsip Clean Code dan Software Development Life Cycle (SDLC).
           </p>
         </div>
 
-        {/* Skill Highlight */}
-        <div className="grid sm:grid-cols-2 gap-6">
-          <SkillCard
-            icon={<FaCode className="text-cyan-400 text-2xl" />}
-            title="Programming"
-            desc="React, Laravel, JavaScript"
-          />
+        {/* ==================================================
+            RIGHT CONTENT
+        ================================================== */}
+        <div>
+          {/* Heading */}
+          <h2
+            className="
+              text-5xl
+              font-bold
+              leading-tight
+              mb-8
 
-          <SkillCard
-            icon={<FaServer className="text-indigo-400 text-2xl" />}
-            title="Backend Development"
-            desc="Node.js, Express, REST API"
-          />
+              /* Tablet */
+              max-lg:text-5xl
+              max-lg:max-w-3xl
 
-          <SkillCard
-            icon={<FaDatabase className="text-green-400 text-2xl" />}
-            title="Database"
-            desc="MySQL, MongoDB"
-          />
+              /* Mobile */
+              max-md:text-4xl
+              max-md:leading-[1.15]
+              max-md:mb-6
 
-          <SkillCard
-            icon={<FaPalette className="text-pink-400 text-2xl" />}
-            title="Creative Design"
-            desc="UI/UX, Graphic & Motion Design"
-          />
+              /* Mobile kecil */
+              max-[374px]:text-[30px]
+              max-[374px]:leading-[1.15]
+              max-[374px]:mb-5
+            "
+          >
+            Spesialisasi & <br className="hidden sm:block" />
+            Tech Stack Inti
+          </h2>
+
+          {/* Description */}
+          <p
+            className="
+              text-gray-300
+              leading-8
+              mb-8
+
+              /* Tablet */
+              max-lg:text-base
+              max-lg:leading-7
+              max-lg:mb-7
+
+              /* Mobile */
+              max-md:text-sm
+              max-md:leading-6
+              max-md:mb-6
+
+              /* Mobile kecil */
+              max-[374px]:text-[13px]
+              max-[374px]:leading-5
+              max-[374px]:mb-5
+            "
+          >
+            Sebagai Full Stack Web Developer, saya memiliki pengalaman
+            mengembangkan aplikasi menggunakan teknologi berikut.
+          </p>
+
+          {/* Tech Stack */}
+          <div
+            className="
+              space-y-4
+              text-gray-300
+              leading-8
+
+              /* Tablet */
+              max-lg:space-y-3
+              max-lg:text-base
+              max-lg:leading-7
+
+              /* Mobile */
+              max-md:space-y-3
+              max-md:text-sm
+              max-md:leading-6
+
+              /* Mobile kecil */
+              max-[374px]:space-y-2.5
+              max-[374px]:text-[13px]
+              max-[374px]:leading-5
+            "
+          >
+            <p>
+              <span className="font-bold text-white">Backend :</span>{" "}
+              PHP, Laravel, CodeIgniter, REST API.
+            </p>
+
+            <p>
+              <span className="font-bold text-white">Database :</span>{" "}
+              MySQL, MariaDB, Query Optimization.
+            </p>
+
+            <p>
+              <span className="font-bold text-white">Frontend :</span>{" "}
+              HTML, CSS, JavaScript, React, Tailwind CSS, Bootstrap.
+            </p>
+
+            <p>
+              <span className="font-bold text-white">Metodologi :</span>{" "}
+              Clean Code, Git, SDLC.
+            </p>
+          </div>
+
+          {/* Sub Heading */}
+          <h3
+            className="
+              text-4xl
+              font-bold
+              mt-16
+              mb-6
+
+              /* Tablet */
+              max-lg:text-4xl
+              max-lg:mt-12
+              max-lg:mb-5
+
+              /* Mobile */
+              max-md:text-3xl
+              max-md:mt-10
+              max-md:mb-5
+
+              /* Mobile kecil */
+              max-[374px]:text-[26px]
+              max-[374px]:mt-9
+              max-[374px]:mb-4
+            "
+          >
+            Mari Terkoneksi
+          </h3>
+
+          {/* Description */}
+          <p
+            className="
+              text-gray-300
+              leading-8
+              mb-8
+
+              /* Tablet */
+              max-lg:text-base
+              max-lg:leading-7
+              max-lg:mb-7
+
+              /* Mobile */
+              max-md:text-sm
+              max-md:leading-6
+              max-md:mb-6
+
+              /* Mobile kecil */
+              max-[374px]:text-[13px]
+              max-[374px]:leading-5
+              max-[374px]:mb-5
+            "
+          >
+            Saya selalu terbuka untuk kolaborasi, diskusi proyek, maupun peluang
+            karier baru.
+          </p>
+
+          {/* ==================================================
+              SOCIAL MEDIA
+          ================================================== */}
+          <div
+            className="
+              flex
+              flex-wrap
+              gap-5
+              text-xl
+
+              /* Tablet */
+              max-lg:gap-4
+
+              /* Mobile */
+              max-md:gap-3
+
+              /* Mobile kecil */
+              max-[374px]:gap-2.5
+            "
+          >
+            {/* Phone */}
+            <a
+              href="#"
+              aria-label="Phone"
+              className="
+                w-11
+                h-11
+                rounded-full
+                border
+                border-white/20
+                flex
+                items-center
+                justify-center
+                hover:bg-cyan-400
+                hover:text-black
+                transition
+
+                /* Mobile */
+                max-md:w-10
+                max-md:h-10
+                max-md:text-base
+
+                /* Mobile kecil */
+                max-[374px]:w-9
+                max-[374px]:h-9
+                max-[374px]:text-sm
+              "
+            >
+              <FaPhone />
+            </a>
+
+            {/* Email */}
+            <a
+              href="#"
+              aria-label="Email"
+              className="
+                w-11
+                h-11
+                rounded-full
+                border
+                border-white/20
+                flex
+                items-center
+                justify-center
+                hover:bg-cyan-400
+                hover:text-black
+                transition
+
+                max-md:w-10
+                max-md:h-10
+                max-md:text-base
+
+                max-[374px]:w-9
+                max-[374px]:h-9
+                max-[374px]:text-sm
+              "
+            >
+              <FaEnvelope />
+            </a>
+
+            {/* LinkedIn */}
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              className="
+                w-11
+                h-11
+                rounded-full
+                border
+                border-white/20
+                flex
+                items-center
+                justify-center
+                hover:bg-cyan-400
+                hover:text-black
+                transition
+
+                max-md:w-10
+                max-md:h-10
+                max-md:text-base
+
+                max-[374px]:w-9
+                max-[374px]:h-9
+                max-[374px]:text-sm
+              "
+            >
+              <FaLinkedin />
+            </a>
+
+            {/* GitHub */}
+            <a
+              href="#"
+              aria-label="GitHub"
+              className="
+                w-11
+                h-11
+                rounded-full
+                border
+                border-white/20
+                flex
+                items-center
+                justify-center
+                hover:bg-cyan-400
+                hover:text-black
+                transition
+
+                max-md:w-10
+                max-md:h-10
+                max-md:text-base
+
+                max-[374px]:w-9
+                max-[374px]:h-9
+                max-[374px]:text-sm
+              "
+            >
+              <FaGithub />
+            </a>
+
+            {/* Instagram */}
+            <a
+              href="#"
+              aria-label="Instagram"
+              className="
+                w-11
+                h-11
+                rounded-full
+                border
+                border-white/20
+                flex
+                items-center
+                justify-center
+                hover:bg-cyan-400
+                hover:text-black
+                transition
+
+                max-md:w-10
+                max-md:h-10
+                max-md:text-base
+
+                max-[374px]:w-9
+                max-[374px]:h-9
+                max-[374px]:text-sm
+              "
+            >
+              <FaInstagram />
+            </a>
+
+            {/* YouTube */}
+            <a
+              href="#"
+              aria-label="YouTube"
+              className="
+                w-11
+                h-11
+                rounded-full
+                border
+                border-white/20
+                flex
+                items-center
+                justify-center
+                hover:bg-cyan-400
+                hover:text-black
+                transition
+
+                max-md:w-10
+                max-md:h-10
+                max-md:text-base
+
+                max-[374px]:w-9
+                max-[374px]:h-9
+                max-[374px]:text-sm
+              "
+            >
+              <FaYoutube />
+            </a>
+          </div>
         </div>
       </div>
     </section>

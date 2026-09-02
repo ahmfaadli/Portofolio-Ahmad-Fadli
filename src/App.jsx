@@ -4,17 +4,24 @@ import { Routes, Route } from "react-router-dom";
 import StarIntro from "./components/StarIntro";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Experience from "./components/Experience";
 import Skill from "./components/Skill";
+import Education from "./components/Education";
+import Work from "./components/Work";
+import Certificates from "./components/Certificates";
+import Portfolio from "./components/Portfolio";
 import Tools from "./components/Tools";
+import Footer from "./components/Footer";
 
-// pages
-import MicrosoftOffice from "./pages/Skills/MicrosoftOffice";
-import WebDeveloper from "./Pages/Skills/WebDeveloper";
-import FrontendDeveloper from "./Pages/Skills/FrontendDeveloper";
-import BackendDeveloper from "./Pages/Skills/BackendDeveloper";
-import IoT from "./Pages/Skills/IoT";
-import DesainGrafis from "./Pages/Skills/DesainGrafis";
+// Pages
+import IoT from "./pages/Skills/IoT";
+import LaptopStore from "./pages/Skills/LaptopStore";
+import Covidid from "./pages/Skills/Covidid";
+import Moveapp from "./pages/Skills/Moveapp";
+import Sembako from "./pages/Skills/Sembako";
+import Nusaloka from "./pages/Skills/Nusaloka";
+import Restauran from "./pages/Skills/Restauran";
+import Projects from "./pages/Project/Projects";
+import CertificatesPage from "./pages/Certificate/Certificates";
 
 function App() {
   const [introDone, setIntroDone] = useState(false);
@@ -25,47 +32,43 @@ function App() {
 
   return (
     <Routes>
+      {/* Home */}
       <Route
         path="/"
         element={
           <>
             <Hero />
             <About />
-            <Experience />
             <Skill />
+            <Education />
+            <Work />
+            <Certificates />
+            <Portfolio />
             <Tools />
+            <Footer />
           </>
         }
       />
-      <Route
-        path="/skills/microsoft-office"
-        element={<MicrosoftOffice />}
-        />
 
-      <Route
-        path="/skills/WebDeveloper"
-        element={<WebDeveloper />}
-      />
+      {/* Skills */}
+      <Route path="/skills/IoT" element={<IoT />} />
 
-      <Route
-        path="/skills/FrontendDeveloper"
-        element={<FrontendDeveloper />}
-      />
+      <Route path="/skills/LaptopStore" element={<LaptopStore />} />
 
-       <Route
-        path="/skills/BackendDeveloper"
-        element={<BackendDeveloper />}
-      />
+      <Route path="/skills/Covidid" element={<Covidid />} />
 
-        <Route
-        path="/skills/IoT"
-        element={<IoT />}
-      />
+      <Route path="/skills/Moveapp" element={<Moveapp />} />
 
-      <Route
-        path="/skills/DesainGrafis"
-        element={<DesainGrafis />}
-      />
+      <Route path="/skills/Sembako" element={<Sembako />} />
+
+      <Route path="/skills/Nusaloka" element={<Nusaloka />} />
+
+      <Route path="/skills/Restauran" element={<Restauran />} />
+
+      {/* Projects */}
+      <Route path="/projects" element={<Projects />} />
+
+      <Route path="/certificates" element={<CertificatesPage />} />
     </Routes>
   );
 }

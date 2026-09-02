@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { X, ExternalLink, BookOpen } from "lucide-react";
+import { X, ExternalLink, Github } from "lucide-react";
 import Footer from "../../components/Footer";
+
 export default function HTML5() {
   const [activeImage, setActiveImage] = useState(null);
 
@@ -34,7 +35,7 @@ export default function HTML5() {
         {/* Header */}
         <div className="max-w-7xl mx-auto text-center mb-24">
           <span className="inline-block mb-4 px-4 py-1 rounded-full bg-purple-700/20 text-purple-300 text-sm">
-            Internet of Things
+            Fullstack Web Developer
           </span>
 
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6">
@@ -46,7 +47,7 @@ export default function HTML5() {
         <div className="max-w-6xl mx-auto mb-24">
           <div className="group relative overflow-hidden rounded-3xl border border-purple-700/30 hover:border-purple-500 transition-all duration-500">
             <img
-              src="/assets/proyek/smartroom.jpg"
+              src="/assets/proyek/Restauran.png"
               alt="Smart Room Project"
               className="w-full h-[550px] object-cover group-hover:scale-105 transition duration-700"
             />
@@ -54,10 +55,10 @@ export default function HTML5() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end">
               <div className="p-10 w-full">
                 <span className="inline-block mb-3 px-4 py-1 rounded-full bg-purple-600/30 text-purple-200 text-sm">
-                  C++ • NodeRed
+                  React • Laravel
                 </span>
 
-                <h3 className="text-4xl font-bold mb-4">Smart Room</h3>
+                <h3 className="text-4xl font-bold mb-4">Restauran MPOROSS</h3>
 
                 <p className="text-gray-300 max-w-2xl mb-6">
                   Sistem Smart Room berbasis IoT untuk monitoring dan kontrol
@@ -71,15 +72,15 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://drive.google.com/file/d/1u8h-xzz3sdD4H_07MSnCR50wp1a9seCv/view?usp=sharing",
+                        "https://github.com/ahmfaadli/UAS_FRONTEND2025.git",
                         "_blank",
                         "noopener,noreferrer",
                       )
                     }
                     className="cursor-pointer inline-flex items-center gap-3 bg-gray-900/90 hover:bg-gray-800 border border-gray-700 hover:border-gray-500 px-6 py-3 rounded-xl transition-all duration-300"
                   >
-                    <BookOpen size={20} />
-                    <span>User Guide dan Source Code</span>
+                    <Github size={20} />
+                    <span>GitHub</span>
                   </button>
 
                   <button

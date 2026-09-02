@@ -11,10 +11,8 @@ import "remixicon/fonts/remixicon.css";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-      <div className="container max-auto px-4">
-        <Navbar />
-        <App />
-      </div>
+      <Navbar />
+      <App />
     </BrowserRouter>
   </StrictMode>
 );
