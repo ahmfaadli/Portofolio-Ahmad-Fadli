@@ -55,28 +55,92 @@ export default function Certificates() {
   return (
     <section
       id="certificates"
-      className="py-28 bg-gradient-to-br from-[#0a0118] via-[#18002e] to-[#26006a]"
+      className="
+        py-20
+        sm:py-24
+        lg:py-28
+        px-4
+        sm:px-5
+        bg-gradient-to-br
+        from-[#0a0118]
+        via-[#18002e]
+        to-[#26006a]
+        text-white
+      "
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-1 sm:px-2 lg:px-6">
 
         {/* Header */}
         <div className="text-center">
-          <span className="inline-block px-4 py-1 rounded-full bg-purple-600/20 text-purple-300 border border-purple-500/30">
+
+          {/* Badge */}
+          <span
+            className="
+              inline-block
+              px-3
+              sm:px-4
+              py-1
+              rounded-full
+              bg-purple-600/20
+              text-purple-300
+              border
+              border-purple-500/30
+              text-xs
+              sm:text-sm
+            "
+          >
             Sertifikat
           </span>
 
-          <h2 className="mt-5 text-5xl font-extrabold">
+          {/* Title */}
+          <h2
+            className="
+              mt-4
+              sm:mt-5
+              text-3xl
+              sm:text-4xl
+              md:text-5xl
+              font-extrabold
+              leading-tight
+            "
+          >
             My Certificates
           </h2>
 
-          <p className="text-gray-400 mt-5 max-w-2xl mx-auto">
+          {/* Description */}
+          <p
+            className="
+              text-gray-400
+              mt-4
+              sm:mt-5
+              max-w-2xl
+              mx-auto
+              text-xs
+              sm:text-sm
+              md:text-base
+              leading-6
+              sm:leading-7
+            "
+          >
             Beberapa sertifikat pelatihan, workshop, dan kompetensi
             yang pernah saya peroleh.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+        <div
+          className="
+            grid
+            grid-cols-3
+            gap-2
+            sm:gap-4
+            md:gap-6
+            lg:gap-8
+            mt-12
+            sm:mt-16
+            lg:mt-20
+          "
+        >
           {certificates.map((item) => (
             <div
               key={item.id}
@@ -84,7 +148,9 @@ export default function Certificates() {
               className="
                 cursor-pointer
                 group
-                rounded-2xl
+                rounded-lg
+                sm:rounded-xl
+                lg:rounded-2xl
                 overflow-hidden
                 bg-white/5
                 border
@@ -92,15 +158,20 @@ export default function Certificates() {
                 hover:border-purple-500
                 transition
                 duration-300
+                min-w-0
               "
             >
+              {/* Image */}
               <div className="overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="
                     w-full
-                    h-64
+                    h-24
+                    sm:h-32
+                    md:h-44
+                    lg:h-64
                     object-cover
                     group-hover:scale-110
                     transition
@@ -109,8 +180,26 @@ export default function Certificates() {
                 />
               </div>
 
-              <div className="p-5">
-                <h3 className="text-lg font-semibold">
+              {/* Title */}
+              <div
+                className="
+                  p-2
+                  sm:p-3
+                  md:p-4
+                  lg:p-5
+                "
+              >
+                <h3
+                  className="
+                    text-[10px]
+                    sm:text-xs
+                    md:text-sm
+                    lg:text-lg
+                    font-semibold
+                    leading-tight
+                    line-clamp-2
+                  "
+                >
                   {item.title}
                 </h3>
               </div>
@@ -119,24 +208,39 @@ export default function Certificates() {
         </div>
 
         {/* Show More Certificates */}
-        <div className="flex justify-center mt-14">
+        <div
+          className="
+            flex
+            justify-center
+            mt-10
+            sm:mt-12
+            lg:mt-14
+          "
+        >
           <Link
             to="/certificates"
             className="
               group
               inline-flex
               items-center
-              gap-3
-              px-7
-              py-3.5
+              justify-center
+              gap-2
+              sm:gap-3
+              px-4
+              sm:px-6
+              lg:px-7
+              py-2.5
+              sm:py-3
+              lg:py-3.5
               rounded-full
               border
               border-purple-400/40
               bg-purple-500/10
               text-white
               font-semibold
-              text-sm
-              sm:text-base
+              text-[10px]
+              sm:text-sm
+              lg:text-base
               backdrop-blur-sm
               transition-all
               duration-300
@@ -145,13 +249,15 @@ export default function Certificates() {
               hover:shadow-lg
               hover:shadow-purple-500/30
               hover:-translate-y-1
+              whitespace-nowrap
             "
           >
             <span>Show More Certificates</span>
 
             <span
               className="
-                text-lg
+                text-sm
+                sm:text-lg
                 transition-transform
                 duration-300
                 group-hover:translate-x-1
@@ -175,40 +281,70 @@ export default function Certificates() {
             flex
             items-center
             justify-center
-            p-6
+            p-3
+            sm:p-6
           "
           onClick={() => setSelected(null)}
         >
           <div
-            className="relative max-w-6xl"
+            className="
+              relative
+              w-full
+              max-w-6xl
+              flex
+              flex-col
+              items-center
+            "
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close Button */}
             <button
               onClick={() => setSelected(null)}
               className="
                 absolute
-                -top-12
+                -top-10
+                sm:-top-12
                 right-0
                 text-white
-                text-4xl
+                text-2xl
+                sm:text-4xl
                 hover:text-purple-400
+                transition
+                z-10
               "
+              aria-label="Close"
             >
               ✕
             </button>
 
+            {/* Certificate Image */}
             <img
               src={selected.image}
               alt={selected.title}
               className="
-                rounded-2xl
-                max-h-[90vh]
+                rounded-xl
+                sm:rounded-2xl
+                max-h-[80vh]
+                sm:max-h-[85vh]
+                lg:max-h-[90vh]
+                max-w-full
                 w-auto
+                object-contain
                 shadow-2xl
               "
             />
 
-            <p className="text-center mt-5 text-lg text-gray-300">
+            {/* Certificate Title */}
+            <p
+              className="
+                text-center
+                mt-3
+                sm:mt-5
+                text-sm
+                sm:text-lg
+                text-gray-300
+              "
+            >
               {selected.title}
             </p>
           </div>

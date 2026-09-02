@@ -60,29 +60,106 @@ export default function Skill() {
   return (
     <section
       id="skills"
-      className="min-h-screen bg-gradient-to-br from-[#0a0118] via-[#170036] to-[#26006a] py-20 sm:py-24 px-5 text-white"
+      className="
+        min-h-screen
+        bg-gradient-to-br
+        from-[#0a0118]
+        via-[#170036]
+        to-[#26006a]
+        py-16
+        sm:py-20
+        md:py-24
+        lg:py-28
+        px-4
+        sm:px-6
+        lg:px-8
+        text-white
+      "
     >
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 rounded-full bg-purple-600/20 text-purple-300 text-sm font-medium border border-purple-500/30">
+        <div
+          className="
+            text-center
+            mb-10
+            sm:mb-12
+            md:mb-16
+            lg:mb-20
+            px-1
+          "
+        >
+          {/* Badge */}
+          <span
+            className="
+              inline-block
+              px-3
+              sm:px-4
+              py-1
+              rounded-full
+              bg-purple-600/20
+              text-purple-300
+              text-xs
+              sm:text-sm
+              font-medium
+              border
+              border-purple-500/30
+            "
+          >
             Portfolio
           </span>
 
-          <h2 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
+          {/* Title */}
+          <h2
+            className="
+              mt-4
+              sm:mt-5
+              text-3xl
+              sm:text-4xl
+              md:text-5xl
+              lg:text-6xl
+              font-extrabold
+              leading-tight
+            "
+          >
             My Projects
           </h2>
 
-          <p className="mt-5 max-w-3xl mx-auto text-gray-300 text-base sm:text-lg leading-8">
+          {/* Description */}
+          <p
+            className="
+              mt-4
+              sm:mt-5
+              max-w-3xl
+              mx-auto
+              text-gray-300
+              text-sm
+              sm:text-base
+              lg:text-lg
+              leading-7
+              sm:leading-8
+              px-1
+              sm:px-4
+            "
+          >
             Explore some of the technologies, tools, and projects that I have
             worked on in software development, Internet of Things, multimedia,
             and digital design.
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Project Grid */}
+        <div
+          className="
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-3
+            gap-5
+            sm:gap-6
+            lg:gap-8
+          "
+        >
           {skills.map((skill, index) => (
             <SkillCard
               key={index}
@@ -95,24 +172,40 @@ export default function Skill() {
         </div>
 
         {/* Show More Button */}
-        <div className="flex justify-center mt-14">
+        <div
+          className="
+            flex
+            justify-center
+            mt-10
+            sm:mt-12
+            md:mt-14
+            lg:mt-16
+            px-4
+          "
+        >
           <Link
-            to="/Projects"
+            to="/projects"
             className="
               group
               inline-flex
               items-center
-              gap-3
-              px-7
-              py-3.5
+              justify-center
+              gap-2
+              sm:gap-3
+              px-5
+              sm:px-6
+              md:px-7
+              py-3
+              sm:py-3.5
               rounded-full
               border
               border-purple-400/40
               bg-purple-500/10
               text-white
               font-semibold
-              text-sm
-              sm:text-base
+              text-xs
+              sm:text-sm
+              md:text-base
               backdrop-blur-sm
               transition-all
               duration-300
@@ -121,13 +214,17 @@ export default function Skill() {
               hover:shadow-lg
               hover:shadow-purple-500/30
               hover:-translate-y-1
+              active:scale-95
+              whitespace-nowrap
             "
           >
             <span>Show More Projects</span>
 
             <span
               className="
-                text-lg
+                text-base
+                sm:text-lg
+                md:text-xl
                 transition-transform
                 duration-300
                 group-hover:translate-x-1
@@ -137,7 +234,6 @@ export default function Skill() {
             </span>
           </Link>
         </div>
-
       </div>
     </section>
   );

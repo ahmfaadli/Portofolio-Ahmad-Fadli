@@ -73,26 +73,27 @@ export default function CertificatesPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0a0118] via-[#18002e] to-[#26006a] text-white py-28">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
-        <div className="text-center mb-20">
-          <span className="inline-block px-4 py-1 rounded-full bg-purple-600/20 text-purple-300 border border-purple-500/30">
+        <div className="text-center mb-16 sm:mb-20">
+          <span className="inline-block px-3 sm:px-4 py-1 rounded-full bg-purple-600/20 text-purple-300 border border-purple-500/30 text-xs sm:text-sm">
             Portfolio
           </span>
 
-          <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
+          <h1 className="mt-5 text-3xl sm:text-5xl lg:text-6xl font-extrabold">
             All Certificates
           </h1>
 
-          <p className="mt-5 max-w-2xl mx-auto text-gray-400">
+          <p className="mt-4 sm:mt-5 max-w-2xl mx-auto text-sm sm:text-base text-gray-400">
             Koleksi sertifikat pelatihan, workshop, dan kompetensi
             yang pernah saya peroleh.
           </p>
         </div>
 
         {/* Certificate Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* 3 kolom di SEMUA ukuran layar */}
+        <div className="grid grid-cols-3 gap-3 sm:gap-5 md:gap-6 lg:gap-8">
           {certificates.map((item) => (
             <div
               key={item.id}
@@ -100,7 +101,7 @@ export default function CertificatesPage() {
               className="
                 cursor-pointer
                 group
-                rounded-2xl
+                rounded-xl sm:rounded-2xl
                 overflow-hidden
                 bg-white/5
                 border
@@ -111,13 +112,17 @@ export default function CertificatesPage() {
                 duration-300
               "
             >
+              {/* Image */}
               <div className="overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="
                     w-full
-                    h-72
+                    h-24
+                    sm:h-32
+                    md:h-44
+                    lg:h-72
                     object-cover
                     group-hover:scale-105
                     transition
@@ -126,12 +131,13 @@ export default function CertificatesPage() {
                 />
               </div>
 
-              <div className="p-5">
-                <h2 className="text-lg font-semibold">
+              {/* Content */}
+              <div className="p-2 sm:p-3 md:p-4 lg:p-5">
+                <h2 className="text-[10px] sm:text-xs md:text-sm lg:text-lg font-semibold truncate">
                   {item.title}
                 </h2>
 
-                <p className="text-sm text-gray-400 mt-2">
+                <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm text-gray-400 mt-1 sm:mt-2">
                   Certificate
                 </p>
               </div>
@@ -152,22 +158,23 @@ export default function CertificatesPage() {
             flex
             items-center
             justify-center
-            p-6
+            p-4 sm:p-6
           "
           onClick={() => setSelected(null)}
         >
           <div
-            className="relative max-w-6xl"
+            className="relative max-w-6xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close Button */}
             <button
               onClick={() => setSelected(null)}
               className="
                 absolute
-                -top-12
+                -top-10 sm:-top-12
                 right-0
                 text-white
-                text-4xl
+                text-3xl sm:text-4xl
                 hover:text-purple-400
                 transition
               "
@@ -175,19 +182,21 @@ export default function CertificatesPage() {
               ✕
             </button>
 
+            {/* Large Certificate */}
             <img
               src={selected.image}
               alt={selected.title}
               className="
                 max-h-[85vh]
                 max-w-full
+                mx-auto
                 object-contain
-                rounded-2xl
+                rounded-xl sm:rounded-2xl
                 shadow-2xl
               "
             />
 
-            <p className="text-center mt-5 text-lg text-gray-300">
+            <p className="text-center mt-4 sm:mt-5 text-base sm:text-lg text-gray-300">
               {selected.title}
             </p>
           </div>
