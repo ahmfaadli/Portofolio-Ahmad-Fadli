@@ -220,27 +220,26 @@ export default function Certificates() {
           <Link
             to="/certificates"
             className="
-              group
+             group
               inline-flex
               items-center
               justify-center
               gap-2
               sm:gap-3
-              px-4
+              px-5
               sm:px-6
-              lg:px-7
-              py-2.5
-              sm:py-3
-              lg:py-3.5
+              md:px-7
+              py-3
+              sm:py-3.5
               rounded-full
               border
               border-purple-400/40
               bg-purple-500/10
               text-white
               font-semibold
-              text-[10px]
+              text-xs
               sm:text-sm
-              lg:text-base
+              md:text-base
               backdrop-blur-sm
               transition-all
               duration-300
@@ -249,6 +248,7 @@ export default function Certificates() {
               hover:shadow-lg
               hover:shadow-purple-500/30
               hover:-translate-y-1
+              active:scale-95
               whitespace-nowrap
             "
           >

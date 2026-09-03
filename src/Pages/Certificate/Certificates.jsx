@@ -1,6 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function CertificatesPage() {
+  // Selalu mulai dari posisi paling atas
+  // ketika halaman Certificates dibuka
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [selected, setSelected] = useState(null);
 
   const certificates = [
@@ -72,28 +79,82 @@ export default function CertificatesPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#0a0118] via-[#18002e] to-[#26006a] text-white py-28">
+    <main
+      className="
+        min-h-screen
+        bg-gradient-to-br
+        from-[#0a0118]
+        via-[#18002e]
+        to-[#26006a]
+        text-white
+        py-28
+      "
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-        {/* Header */}
+        {/* =========================
+            HEADER
+        ========================== */}
         <div className="text-center mb-16 sm:mb-20">
-          <span className="inline-block px-3 sm:px-4 py-1 rounded-full bg-purple-600/20 text-purple-300 border border-purple-500/30 text-xs sm:text-sm">
+          <span
+            className="
+              inline-block
+              px-3
+              sm:px-4
+              py-1
+              rounded-full
+              bg-purple-600/20
+              text-purple-300
+              border
+              border-purple-500/30
+              text-xs
+              sm:text-sm
+            "
+          >
             Portfolio
           </span>
 
-          <h1 className="mt-5 text-3xl sm:text-5xl lg:text-6xl font-extrabold">
+          <h1
+            className="
+              mt-5
+              text-3xl
+              sm:text-5xl
+              lg:text-6xl
+              font-extrabold
+            "
+          >
             All Certificates
           </h1>
 
-          <p className="mt-4 sm:mt-5 max-w-2xl mx-auto text-sm sm:text-base text-gray-400">
+          <p
+            className="
+              mt-4
+              sm:mt-5
+              max-w-2xl
+              mx-auto
+              text-sm
+              sm:text-base
+              text-gray-400
+            "
+          >
             Koleksi sertifikat pelatihan, workshop, dan kompetensi
             yang pernah saya peroleh.
           </p>
         </div>
 
-        {/* Certificate Grid */}
-        {/* 3 kolom di SEMUA ukuran layar */}
-        <div className="grid grid-cols-3 gap-3 sm:gap-5 md:gap-6 lg:gap-8">
+        {/* =========================
+            CERTIFICATE GRID
+        ========================== */}
+        <div
+          className="
+            grid
+            grid-cols-3
+            gap-3
+            sm:gap-5
+            md:gap-6
+            lg:gap-8
+          "
+        >
           {certificates.map((item) => (
             <div
               key={item.id}
@@ -101,7 +162,8 @@ export default function CertificatesPage() {
               className="
                 cursor-pointer
                 group
-                rounded-xl sm:rounded-2xl
+                rounded-xl
+                sm:rounded-2xl
                 overflow-hidden
                 bg-white/5
                 border
@@ -132,21 +194,105 @@ export default function CertificatesPage() {
               </div>
 
               {/* Content */}
-              <div className="p-2 sm:p-3 md:p-4 lg:p-5">
-                <h2 className="text-[10px] sm:text-xs md:text-sm lg:text-lg font-semibold truncate">
+              <div
+                className="
+                  p-2
+                  sm:p-3
+                  md:p-4
+                  lg:p-5
+                "
+              >
+                <h2
+                  className="
+                    text-[10px]
+                    sm:text-xs
+                    md:text-sm
+                    lg:text-lg
+                    font-semibold
+                    truncate
+                  "
+                >
                   {item.title}
                 </h2>
 
-                <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm text-gray-400 mt-1 sm:mt-2">
+                <p
+                  className="
+                    text-[8px]
+                    sm:text-[10px]
+                    md:text-xs
+                    lg:text-sm
+                    text-gray-400
+                    mt-1
+                    sm:mt-2
+                  "
+                >
                   Certificate
                 </p>
               </div>
             </div>
           ))}
         </div>
+
+        {/* =========================
+            BACK BUTTON
+        ========================== */}
+        <div className="flex justify-center mt-16">
+          <Link
+            to="/#certificates"
+            className="
+              group
+              inline-flex
+              items-center
+              justify-center
+              gap-2
+              sm:gap-3
+              px-5
+              sm:px-6
+              md:px-7
+              py-3
+              sm:py-3.5
+              rounded-full
+              border
+              border-purple-400/40
+              bg-purple-500/10
+              text-white
+              font-semibold
+              text-xs
+              sm:text-sm
+              md:text-base
+              backdrop-blur-sm
+              transition-all
+              duration-300
+              hover:bg-purple-500
+              hover:border-purple-400
+              hover:shadow-lg
+              hover:shadow-purple-500/30
+              hover:-translate-y-1
+              active:scale-95
+              whitespace-nowrap
+            "
+          >
+            <span
+              className="
+                text-base
+                sm:text-lg
+                md:text-xl
+                transition-transform
+                duration-300
+                group-hover:-translate-x-1
+              "
+            >
+              ←
+            </span>
+
+            <span>Back to Home</span>
+          </Link>
+        </div>
       </div>
 
-      {/* Modal */}
+      {/* =========================
+          MODAL
+      ========================== */}
       {selected && (
         <div
           className="
@@ -158,23 +304,31 @@ export default function CertificatesPage() {
             flex
             items-center
             justify-center
-            p-4 sm:p-6
+            p-4
+            sm:p-6
           "
           onClick={() => setSelected(null)}
         >
           <div
-            className="relative max-w-6xl w-full"
+            className="
+              relative
+              max-w-6xl
+              w-full
+            "
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
+              type="button"
               onClick={() => setSelected(null)}
               className="
                 absolute
-                -top-10 sm:-top-12
+                -top-10
+                sm:-top-12
                 right-0
                 text-white
-                text-3xl sm:text-4xl
+                text-3xl
+                sm:text-4xl
                 hover:text-purple-400
                 transition
               "
@@ -191,12 +345,23 @@ export default function CertificatesPage() {
                 max-w-full
                 mx-auto
                 object-contain
-                rounded-xl sm:rounded-2xl
+                rounded-xl
+                sm:rounded-2xl
                 shadow-2xl
               "
             />
 
-            <p className="text-center mt-4 sm:mt-5 text-base sm:text-lg text-gray-300">
+            {/* Certificate Title */}
+            <p
+              className="
+                text-center
+                mt-4
+                sm:mt-5
+                text-base
+                sm:text-lg
+                text-gray-300
+              "
+            >
               {selected.title}
             </p>
           </div>

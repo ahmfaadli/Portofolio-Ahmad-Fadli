@@ -1,6 +1,14 @@
+import { useEffect } from "react";
 import SkillCard from "../../components/SkillCard";
+import { Link } from "react-router-dom";
 
 export default function Projects() {
+  // Selalu mulai dari posisi paling atas
+  // ketika halaman Projects dibuka
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const projects = [
     {
       image: "/assets/proyek/smartroom.jpg",
@@ -117,8 +125,8 @@ export default function Projects() {
             "
           >
             Jelajahi berbagai project yang telah saya kerjakan dalam bidang
-            software development, Internet of Things, multimedia, dan
-            digital design.
+            software development, Internet of Things, multimedia, dan digital
+            design.
           </p>
         </div>
 
@@ -144,23 +152,29 @@ export default function Projects() {
 
         {/* Back Button */}
         <div className="flex justify-center mt-16">
-          <a
-            href="/"
+          <Link
+            to="/#skills"
             className="
               group
               inline-flex
               items-center
-              gap-3
-              px-7
-              py-3.5
+              justify-center
+              gap-2
+              sm:gap-3
+              px-5
+              sm:px-6
+              md:px-7
+              py-3
+              sm:py-3.5
               rounded-full
               border
               border-purple-400/40
               bg-purple-500/10
               text-white
               font-semibold
-              text-sm
-              sm:text-base
+              text-xs
+              sm:text-sm
+              md:text-base
               backdrop-blur-sm
               transition-all
               duration-300
@@ -169,10 +183,15 @@ export default function Projects() {
               hover:shadow-lg
               hover:shadow-purple-500/30
               hover:-translate-y-1
+              active:scale-95
+              whitespace-nowrap
             "
           >
             <span
               className="
+                text-base
+                sm:text-lg
+                md:text-xl
                 transition-transform
                 duration-300
                 group-hover:-translate-x-1
@@ -182,7 +201,7 @@ export default function Projects() {
             </span>
 
             <span>Back to Home</span>
-          </a>
+          </Link>
         </div>
 
       </div>
