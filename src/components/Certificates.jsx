@@ -256,8 +256,9 @@ export default function Certificates() {
 
             <span
               className="
-                text-sm
+                text-base
                 sm:text-lg
+                md:text-xl
                 transition-transform
                 duration-300
                 group-hover:translate-x-1
