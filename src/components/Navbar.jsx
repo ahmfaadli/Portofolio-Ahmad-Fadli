@@ -76,6 +76,8 @@ const Navbar = () => {
           sm:px-10
           lg:px-20
           xl:px-32
+          lg:max-w-[15000px]
+          lg:px-0
           h-14
           sm:h-16
           md:h-20

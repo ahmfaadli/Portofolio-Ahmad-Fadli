@@ -123,15 +123,12 @@ export default function Projects() {
         </div>
 
         {/* Project Grid */}
-        {/* 3 card tetap sejajar di semua perangkat */}
         <div
           className="
             grid
-            grid-cols-3
-            gap-3
-            sm:gap-5
-            md:gap-6
-            lg:gap-8
+            gap-8
+            sm:grid-cols-2
+            lg:grid-cols-3
           "
         >
           {projects.map((project, index) => (
