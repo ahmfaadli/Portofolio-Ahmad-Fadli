@@ -74,63 +74,63 @@ const certificates = [
     images: [
       "https://i.top4top.io/p_39022067s1.jpg",
     ],
-    title: "Fullstack Developer",
+    title: "Linux Fundamental",
   },
   {
     id: 2,
     images: [
       "https://l.top4top.io/p_3902za7op1.jpg",
     ],
-    title: "Codeless Data Science",
+    title: "Virtual Machine Fundamental",
   },
   {
     id: 3,
     images: [
       "https://g.top4top.io/p_3902xmz1d1.jpg",
     ],
-    title: "Office Profesional",
+    title: "Simulasi Jaringan dengan PNETLab",
   },
   {
     id: 4,
     images: [
       "https://k.top4top.io/p_3902t7qc51.jpg",
     ],
-    title: "Kepala Departemen Pendidikan, Teknologi dan Olahraga",
+    title: "Network Fundamental",
   },
   {
     id: 5,
     images: [
       "https://c.top4top.io/p_3902f2hw41.jpg",
     ],
-    title: "Steering Committee ASTRO 7.0",
+    title: "Python Fundamental",
   },
   {
     id: 6,
     images: [
       "https://i.top4top.io/p_3902685x21.jpg",
     ],
-    title: "Steering Committee ICT",
+    title: "Introduction to Model Context Protocol",
   },
   {
     id: 7,
     images: [
       "https://l.top4top.io/p_39023r6d61.jpg",
     ],
-    title: "Getting Started with Azure IoT",
+    title: "Introduction to Cloude Cowork",
   },
   {
     id: 8,
     images: [
       "https://b.top4top.io/p_3902t1obz1.jpg",
     ],
-    title: "Create a Virtual Private Cloud (VPC) Using AWS",
+    title: "Cloude Patform 101",
   },
   {
     id: 9,
     images: [
       "https://a.top4top.io/p_3902rxleo1.jpg",
     ],
-    title: "AWS S3 Basics",
+    title: "Claude Code in Action",
   },
 
     {
@@ -138,42 +138,59 @@ const certificates = [
     images: [
       "https://j.top4top.io/p_39028g12v1.jpg",
     ],
-    title: "Steering Committee ICT",
+    title: "Claude Code 101",
   },
   {
     id: 7,
     images: [
       "https://c.top4top.io/p_3902nzwgr1.jpg",
     ],
-    title: "Getting Started with Azure IoT",
+    title: "Claude 101",
   },
   {
     id: 8,
     images: [
       "https://l.top4top.io/p_39023swc81.jpg",
     ],
-    title: "Create a Virtual Private Cloud (VPC) Using AWS",
+    title: "Claude with the Anthropic API",
   },
   {
     id: 9,
     images: [
       "https://e.top4top.io/p_39024bzq31.jpg",
     ],
-    title: "AWS S3 Basics",
+    title: "AI Fluency: Framework & Foundation",
   },
     {
     id: 8,
     images: [
       "https://i.top4top.io/p_3902axox01.jpg",
     ],
-    title: "Create a Virtual Private Cloud (VPC) Using AWS",
+    title: "AI Fluency for students",
   },
   {
     id: 9,
     images: [
       "https://a.top4top.io/p_3902rlbt11.jpg",
     ],
-    title: "AWS S3 Basics",
+    title: "AI Fluency for educators",
+  },
+   {
+    id: 1,
+    images: [
+      "https://i.top4top.io/p_3902ptiip1.jpg",
+      "https://k.top4top.io/p_39028f0cw1.jpg",
+      "https://b.top4top.io/p_3902mqguh1.jpg",
+    ],
+    title: "Memulai Pemrograman Dengan Java",
+  },
+  {
+    id: 2,
+    images: [
+      "https://d.top4top.io/p_39020v0291.jpg",
+      "https://g.top4top.io/p_390295mf41.jpg",
+    ],
+    title: "Belajar Prinsip Pemrograman SOLID",
   },
 ];
 
