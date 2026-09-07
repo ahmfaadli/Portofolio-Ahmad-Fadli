@@ -8,24 +8,14 @@ export default function HTML5() {
   // Project documentation
   const documentation = [
     {
-      image: "/assets/documentation1/dokumen1.png",
-      title: "Implementasi",
-      desc: "Halaman utama aplikasi.",
+      image: "/assets/documentation3/Flowchart.jpg",
+      title: "Flowchart",
+      desc: "Diagram Flow Chart.",
     },
     {
       image: "/assets/documentation1/dokumen2.png",
       title: "Product Page",
       desc: "Halaman daftar produk laptop.",
-    },
-    {
-      image: "/assets/documentation1/dokumen3.png",
-      title: "Checkout",
-      desc: "Proses checkout pelanggan.",
-    },
-    {
-      image: "/assets/documentation1/dokumen4.jpg",
-      title: "Dashboard Admin",
-      desc: "Panel admin untuk mengelola produk.",
     },
   ];
 
@@ -63,9 +53,9 @@ export default function HTML5() {
               </h3>
 
               <p className="text-gray-300 max-w-2xl mb-6">
-                Website e-commerce modern untuk penjualan laptop dengan fitur
-                autentikasi, manajemen produk, keranjang belanja, checkout,
-                dashboard admin, dan responsive design.
+                Website untuk memantau dan menyajikan data COVID-19 secara informatif 
+                dan real-time melalui integrasi REST API, dengan antarmuka responsif dan 
+                mudah digunakan.
               </p>
 
               <div className="flex flex-wrap items-center gap-4">

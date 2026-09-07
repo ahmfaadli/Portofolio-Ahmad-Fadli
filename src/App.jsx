@@ -9,7 +9,6 @@ import Education from "./components/Education";
 import Work from "./components/Work";
 import Certificates from "./components/Certificates";
 import Portfolio from "./components/Portfolio";
-import Tools from "./components/Tools";
 import Footer from "./components/Footer";
 
 // Pages
@@ -20,6 +19,7 @@ import Moveapp from "./Pages/Skills/Moveapp";
 import Sembako from "./Pages/Skills/Sembako";
 import Nusaloka from "./Pages/Skills/Nusaloka";
 import Restauran from "./Pages/Skills/Restauran";
+import Senvra from "./Pages/Skills/Senvra";
 
 import Projects from "./Pages/Project/Projects";
 import CertificatesPage from "./Pages/Certificate/Certificates";
@@ -45,7 +45,6 @@ function App() {
             <Work />
             <Certificates />
             <Portfolio />
-            <Tools />
             <Footer />
           </>
         }
@@ -59,6 +58,7 @@ function App() {
       <Route path="/skills/Sembako" element={<Sembako />} />
       <Route path="/skills/Nusaloka" element={<Nusaloka />} />
       <Route path="/skills/Restauran" element={<Restauran />} />
+      <Route path="/skills/Senvra" element={<Senvra />} />
 
       {/* Projects */}
       <Route path="/projects" element={<Projects />} />

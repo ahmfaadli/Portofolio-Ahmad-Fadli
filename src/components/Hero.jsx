@@ -27,7 +27,7 @@ export default function Hero() {
               Download CV <i className="ri-download-line ri-lg"></i>
             </Button>
 
-            <Button href="#projects" variant="outline">
+            <Button href="#skills" variant="outline">
               Lihat Proyek <i className="ri-arrow-down-line ri-lg"></i>
             </Button>
           </div>

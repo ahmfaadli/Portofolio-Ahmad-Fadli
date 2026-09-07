@@ -1,101 +1,263 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { X } from "lucide-react";
+import CertificateCard from "../../components/CertificateCard";
 
-export default function CertificatesPage() {
+const certificates = [
+  {
+    id: 1,
+    images: [
+      "https://g.top4top.io/p_3870wzjv21.jpg",
+    ],
+    title: "Fullstack Developer",
+  },
+  {
+    id: 2,
+    images: [
+      "https://i.top4top.io/p_39023667k1.jpg",
+      "https://e.top4top.io/p_39028j99r1.jpg",
+    ],
+    title: "Codeless Data Science",
+  },
+  {
+    id: 3,
+    images: [
+      "https://d.top4top.io/p_3902euq7b1.jpg",
+      "https://d.top4top.io/p_3902t9qs01.jpg",
+    ],
+    title: "Office Profesional",
+  },
+  {
+    id: 4,
+    images: [
+      "https://l.top4top.io/p_3876y1ct01.jpg",
+    ],
+    title: "Kepala Departemen Pendidikan, Teknologi dan Olahraga",
+  },
+  {
+    id: 5,
+    images: [
+      "https://e.top4top.io/p_38702pebe1.png",
+    ],
+    title: "Steering Committee ASTRO 7.0",
+  },
+  {
+    id: 6,
+    images: [
+      "https://b.top4top.io/p_38704x9gw1.png",
+    ],
+    title: "Steering Committee ICT",
+  },
+  {
+    id: 7,
+    images: [
+      "https://f.top4top.io/p_3902ty69s1.jpg",
+    ],
+    title: "Getting Started with Azure IoT",
+  },
+  {
+    id: 8,
+    images: [
+      "https://e.top4top.io/p_3902cupot1.jpg",
+    ],
+    title: "Create a Virtual Private Cloud (VPC) Using AWS",
+  },
+  {
+    id: 9,
+    images: [
+      "https://f.top4top.io/p_3876t8blu1.jpg",
+    ],
+    title: "AWS S3 Basics",
+  },
+    {
+    id: 1,
+    images: [
+      "https://i.top4top.io/p_39022067s1.jpg",
+    ],
+    title: "Fullstack Developer",
+  },
+  {
+    id: 2,
+    images: [
+      "https://l.top4top.io/p_3902za7op1.jpg",
+    ],
+    title: "Codeless Data Science",
+  },
+  {
+    id: 3,
+    images: [
+      "https://g.top4top.io/p_3902xmz1d1.jpg",
+    ],
+    title: "Office Profesional",
+  },
+  {
+    id: 4,
+    images: [
+      "https://k.top4top.io/p_3902t7qc51.jpg",
+    ],
+    title: "Kepala Departemen Pendidikan, Teknologi dan Olahraga",
+  },
+  {
+    id: 5,
+    images: [
+      "https://c.top4top.io/p_3902f2hw41.jpg",
+    ],
+    title: "Steering Committee ASTRO 7.0",
+  },
+  {
+    id: 6,
+    images: [
+      "https://i.top4top.io/p_3902685x21.jpg",
+    ],
+    title: "Steering Committee ICT",
+  },
+  {
+    id: 7,
+    images: [
+      "https://l.top4top.io/p_39023r6d61.jpg",
+    ],
+    title: "Getting Started with Azure IoT",
+  },
+  {
+    id: 8,
+    images: [
+      "https://b.top4top.io/p_3902t1obz1.jpg",
+    ],
+    title: "Create a Virtual Private Cloud (VPC) Using AWS",
+  },
+  {
+    id: 9,
+    images: [
+      "https://a.top4top.io/p_3902rxleo1.jpg",
+    ],
+    title: "AWS S3 Basics",
+  },
+
+    {
+    id: 6,
+    images: [
+      "https://j.top4top.io/p_39028g12v1.jpg",
+    ],
+    title: "Steering Committee ICT",
+  },
+  {
+    id: 7,
+    images: [
+      "https://c.top4top.io/p_3902nzwgr1.jpg",
+    ],
+    title: "Getting Started with Azure IoT",
+  },
+  {
+    id: 8,
+    images: [
+      "https://l.top4top.io/p_39023swc81.jpg",
+    ],
+    title: "Create a Virtual Private Cloud (VPC) Using AWS",
+  },
+  {
+    id: 9,
+    images: [
+      "https://e.top4top.io/p_39024bzq31.jpg",
+    ],
+    title: "AWS S3 Basics",
+  },
+    {
+    id: 8,
+    images: [
+      "https://i.top4top.io/p_3902axox01.jpg",
+    ],
+    title: "Create a Virtual Private Cloud (VPC) Using AWS",
+  },
+  {
+    id: 9,
+    images: [
+      "https://a.top4top.io/p_3902rlbt11.jpg",
+    ],
+    title: "AWS S3 Basics",
+  },
+];
+
+export default function Certificates() {
+  const [selected, setSelected] = useState(null);
+  const [currentImage, setCurrentImage] = useState(0);
+
   // Selalu mulai dari posisi paling atas
   // ketika halaman Certificates dibuka
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [selected, setSelected] = useState(null);
+  // Membuka modal
+  const handleOpen = (certificate) => {
+    setSelected(certificate);
+    setCurrentImage(0);
+  };
 
-  const certificates = [
-    {
-      id: 1,
-      image: "https://g.top4top.io/p_3870wzjv21.jpg",
-      title: "Fullstack Developer",
-    },
-    {
-      id: 2,
-      image: "https://j.top4top.io/p_3876xrur91.png",
-      title: "UI/UX Design",
-    },
-    {
-      id: 3,
-      image: "https://b.top4top.io/p_3876s592r1.jpg",
-      title: "React JS",
-    },
-    {
-      id: 4,
-      image: "https://f.top4top.io/p_3870o7ck81.jpg",
-      title: "IoT Workshop",
-    },
-    {
-      id: 5,
-      image: "https://c.top4top.io/p_3870wtw6z1.png",
-      title: "Database",
-    },
-    {
-      id: 6,
-      image: "https://f.top4top.io/p_3876t8blu1.jpg",
-      title: "JavaScript",
-    },
-    {
-      id: 7,
-      image: "https://e.top4top.io/p_38702pebe1.png",
-      title: "JavaScript",
-    },
-    {
-      id: 8,
-      image: "https://b.top4top.io/p_38704x9gw1.png",
-      title: "JavaScript",
-    },
-    {
-      id: 9,
-      image: "https://l.top4top.io/p_3876y1ct01.jpg",
-      title: "JavaScript",
-    },
-    {
-      id: 10,
-      image: "https://l.top4top.io/p_3870tedux1.jpg",
-      title: "JavaScript",
-    },
-    {
-      id: 11,
-      image: "https://i.top4top.io/p_3876rpwuz1.png",
-      title: "JavaScript",
-    },
-    {
-      id: 12,
-      image: "/certificates/certificate6.jpg",
-      title: "JavaScript",
-    },
-    {
-      id: 13,
-      image: "https://a.top4top.io/p_3876qlcj51.jpg",
-      title: "JavaScript",
-    },
-  ];
+  // Menutup modal
+  const handleClose = () => {
+    setSelected(null);
+    setCurrentImage(0);
+  };
+
+  // Gambar berikutnya
+  const handleNext = () => {
+    if (!selected || selected.images.length <= 1) return;
+
+    setCurrentImage((prev) =>
+      prev === selected.images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  // Gambar sebelumnya
+  const handlePrevious = () => {
+    if (!selected || selected.images.length <= 1) return;
+
+    setCurrentImage((prev) =>
+      prev === 0 ? selected.images.length - 1 : prev - 1
+    );
+  };
+
+  // Keyboard navigation
+  const handleKeyDown = (event) => {
+    if (!selected) return;
+
+    if (event.key === "Escape") {
+      handleClose();
+    }
+
+    if (event.key === "ArrowRight") {
+      handleNext();
+    }
+
+    if (event.key === "ArrowLeft") {
+      handlePrevious();
+    }
+  };
 
   return (
-    <main
+    <section
+      id="certificates"
       className="
-        min-h-screen
+        py-20
+        sm:py-24
+        lg:py-28
+        px-4
+        sm:px-5
         bg-gradient-to-br
         from-[#0a0118]
         via-[#18002e]
         to-[#26006a]
         text-white
-        py-28
       "
+      onKeyDown={handleKeyDown}
+      tabIndex={-1}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-1 sm:px-2 lg:px-6">
 
         {/* =========================
             HEADER
         ========================== */}
-        <div className="text-center mb-16 sm:mb-20">
+        <div className="text-center">
           <span
             className="
               inline-block
@@ -111,34 +273,39 @@ export default function CertificatesPage() {
               sm:text-sm
             "
           >
-            Portfolio
+            Sertifikat
           </span>
 
-          <h1
+          <h2
             className="
-              mt-5
+              mt-4
+              sm:mt-5
               text-3xl
-              sm:text-5xl
-              lg:text-6xl
+              sm:text-4xl
+              md:text-5xl
               font-extrabold
+              leading-tight
             "
           >
             All Certificates
-          </h1>
+          </h2>
 
           <p
             className="
+              text-gray-400
               mt-4
               sm:mt-5
               max-w-2xl
               mx-auto
-              text-sm
-              sm:text-base
-              text-gray-400
+              text-xs
+              sm:text-sm
+              md:text-base
+              leading-6
+              sm:leading-7
             "
           >
-            Koleksi sertifikat pelatihan, workshop, dan kompetensi
-            yang pernah saya peroleh.
+            Explore all certificates obtained from training sessions,
+            workshops, seminars, courses, and other professional activities.
           </p>
         </div>
 
@@ -149,96 +316,39 @@ export default function CertificatesPage() {
           className="
             grid
             grid-cols-3
-            gap-3
-            sm:gap-5
+            gap-2
+            sm:gap-4
             md:gap-6
             lg:gap-8
+            mt-12
+            sm:mt-16
+            lg:mt-20
           "
         >
-          {certificates.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => setSelected(item)}
-              className="
-                cursor-pointer
-                group
-                rounded-xl
-                sm:rounded-2xl
-                overflow-hidden
-                bg-white/5
-                border
-                border-white/10
-                hover:border-purple-500
-                hover:-translate-y-1
-                transition-all
-                duration-300
-              "
-            >
-              {/* Image */}
-              <div className="overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="
-                    w-full
-                    h-24
-                    sm:h-32
-                    md:h-44
-                    lg:h-72
-                    object-cover
-                    group-hover:scale-105
-                    transition
-                    duration-500
-                  "
-                />
-              </div>
-
-              {/* Content */}
-              <div
-                className="
-                  p-2
-                  sm:p-3
-                  md:p-4
-                  lg:p-5
-                "
-              >
-                <h2
-                  className="
-                    text-[10px]
-                    sm:text-xs
-                    md:text-sm
-                    lg:text-lg
-                    font-semibold
-                    truncate
-                  "
-                >
-                  {item.title}
-                </h2>
-
-                <p
-                  className="
-                    text-[8px]
-                    sm:text-[10px]
-                    md:text-xs
-                    lg:text-sm
-                    text-gray-400
-                    mt-1
-                    sm:mt-2
-                  "
-                >
-                  Certificate
-                </p>
-              </div>
-            </div>
+          {certificates.map((certificate) => (
+            <CertificateCard
+              key={certificate.id}
+              image={certificate.images[0]}
+              title={certificate.title}
+              onClick={() => handleOpen(certificate)}
+            />
           ))}
         </div>
 
         {/* =========================
             BACK BUTTON
         ========================== */}
-        <div className="flex justify-center mt-16">
+        <div
+          className="
+            flex
+            justify-center
+            mt-10
+            sm:mt-12
+            lg:mt-14
+          "
+        >
           <Link
-            to="/#certificates"
+            to="/"
             className="
               group
               inline-flex
@@ -285,13 +395,13 @@ export default function CertificatesPage() {
               ←
             </span>
 
-            <span>Back to Home</span>
+            <span>Back to Certificate</span>
           </Link>
         </div>
       </div>
 
       {/* =========================
-          MODAL
+          IMAGE MODAL
       ========================== */}
       {selected && (
         <div
@@ -304,69 +414,231 @@ export default function CertificatesPage() {
             flex
             items-center
             justify-center
-            p-4
+            p-3
             sm:p-6
           "
-          onClick={() => setSelected(null)}
+          onClick={handleClose}
         >
           <div
             className="
               relative
-              max-w-6xl
               w-full
+              max-w-6xl
+              flex
+              flex-col
+              items-center
+              justify-center
             "
-            onClick={(e) => e.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}
           >
-            {/* Close Button */}
+
+            {/* =========================
+                CLOSE BUTTON
+            ========================== */}
             <button
               type="button"
-              onClick={() => setSelected(null)}
+              onClick={handleClose}
+              aria-label="Close image"
               className="
                 absolute
-                -top-10
-                sm:-top-12
-                right-0
+                top-2
+                right-2
+                sm:top-4
+                sm:right-4
+                lg:top-6
+                lg:right-6
+                z-50
                 text-white
-                text-3xl
-                sm:text-4xl
                 hover:text-purple-400
                 transition
               "
             >
-              ✕
+              <X
+                size={32}
+                className="sm:w-9 sm:h-9"
+              />
             </button>
 
-            {/* Large Certificate */}
-            <img
-              src={selected.image}
-              alt={selected.title}
+            {/* =========================
+                IMAGE SLIDER
+            ========================== */}
+            <div
               className="
-                max-h-[85vh]
-                max-w-full
-                mx-auto
-                object-contain
-                rounded-xl
-                sm:rounded-2xl
-                shadow-2xl
+                relative
+                w-full
+                flex
+                items-center
+                justify-center
               "
-            />
+            >
 
-            {/* Certificate Title */}
+              {/* PREVIOUS BUTTON */}
+              {selected.images.length > 1 && (
+                <button
+                  type="button"
+                  onClick={handlePrevious}
+                  aria-label="Previous image"
+                  className="
+                    absolute
+                    left-1
+                    sm:left-4
+                    lg:left-8
+                    z-20
+                    w-10
+                    h-10
+                    sm:w-12
+                    sm:h-12
+                    rounded-full
+                    bg-black/60
+                    border
+                    border-white/10
+                    text-white
+                    text-lg
+                    sm:text-xl
+                    flex
+                    items-center
+                    justify-center
+                    hover:bg-purple-600
+                    hover:border-purple-400
+                    transition-all
+                    duration-300
+                    backdrop-blur-sm
+                  "
+                >
+                  ←
+                </button>
+              )}
+
+              {/* CURRENT IMAGE */}
+              <img
+                src={selected.images[currentImage]}
+                alt={`${selected.title} - ${currentImage + 1}`}
+                className="
+                  rounded-xl
+                  sm:rounded-2xl
+                  max-h-[75vh]
+                  sm:max-h-[82vh]
+                  lg:max-h-[88vh]
+                  max-w-[90%]
+                  sm:max-w-[88%]
+                  lg:max-w-[85%]
+                  w-auto
+                  object-contain
+                  shadow-2xl
+                  transition-all
+                  duration-300
+                  select-none
+                "
+              />
+
+              {/* NEXT BUTTON */}
+              {selected.images.length > 1 && (
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label="Next image"
+                  className="
+                    absolute
+                    right-1
+                    sm:right-4
+                    lg:right-8
+                    z-20
+                    w-10
+                    h-10
+                    sm:w-12
+                    sm:h-12
+                    rounded-full
+                    bg-black/60
+                    border
+                    border-white/10
+                    text-white
+                    text-lg
+                    sm:text-xl
+                    flex
+                    items-center
+                    justify-center
+                    hover:bg-purple-600
+                    hover:border-purple-400
+                    transition-all
+                    duration-300
+                    backdrop-blur-sm
+                  "
+                >
+                  →
+                </button>
+              )}
+            </div>
+
+            {/* =========================
+                IMAGE INDICATOR
+            ========================== */}
+            {selected.images.length > 1 && (
+              <div
+                className="
+                  flex
+                  items-center
+                  justify-center
+                  gap-2
+                  mt-4
+                  sm:mt-5
+                "
+              >
+                {selected.images.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => setCurrentImage(index)}
+                    aria-label={`Go to image ${index + 1}`}
+                    className={`
+                      rounded-full
+                      transition-all
+                      duration-300
+                      ${
+                        currentImage === index
+                          ? "w-6 h-2 bg-purple-500"
+                          : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                      }
+                    `}
+                  />
+                ))}
+              </div>
+            )}
+
+            {/* =========================
+                TITLE
+            ========================== */}
             <p
               className="
                 text-center
-                mt-4
-                sm:mt-5
-                text-base
+                mt-3
+                sm:mt-4
+                text-sm
                 sm:text-lg
                 text-gray-300
+                font-medium
               "
             >
               {selected.title}
             </p>
+
+            {/* =========================
+                IMAGE COUNTER
+            ========================== */}
+            {selected.images.length > 1 && (
+              <p
+                className="
+                  text-xs
+                  sm:text-sm
+                  text-gray-500
+                  mt-1
+                "
+              >
+                {currentImage + 1} / {selected.images.length}
+              </p>
+            )}
           </div>
         </div>
       )}
-    </main>
+    </section>
   );
 }

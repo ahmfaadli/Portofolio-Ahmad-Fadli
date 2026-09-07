@@ -58,12 +58,11 @@ export default function HTML5() {
                   Rest API • React
                 </span>
 
-                <h3 className="text-4xl font-bold mb-4">Move App</h3>
+                <h3 className="text-4xl font-bold mb-4">Movie App</h3>
 
                 <p className="text-gray-300 max-w-2xl mb-6">
-                  Website e-commerce modern untuk penjualan laptop dengan fitur
-                  autentikasi, manajemen produk, keranjang belanja, checkout,
-                  dashboard admin, dan responsive design.
+                  Aplikasi katalog film berbasis React & REST API untuk menampilkan informasi 
+                  film secara interaktif dengan tampilan responsif dan modern.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4">

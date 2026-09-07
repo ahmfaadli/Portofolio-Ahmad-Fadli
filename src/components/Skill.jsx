@@ -6,49 +6,50 @@ export default function Skill() {
     {
       image: "/assets/proyek/smartroom.jpg",
       title: "Smart Room",
-      desc: "C++, Node RED",
+      desc: "Monitoring & kontrol perangkat IoT real-time.",
       to: "/skills/IoT",
     },
     {
       image: "/assets/proyek/Laptopstore.png",
       title: "Sistem Pemesanan Laptop",
-      desc: "Web App Penjualan Laptop Moderen & Responsif.",
+      desc: "E-commerce laptop dengan katalog & pemesanan.",
       to: "/skills/LaptopStore",
     },
     {
       image: "/assets/proyek/covidid.png",
       title: "Sistem Informasi Covid id",
-      desc: "Developing secure APIs and server-side applications.",
+      desc: "Monitoring data COVID-19 berbasis REST API.",
       to: "/skills/Covidid",
     },
     {
       image: "/assets/proyek/Moveapp.png",
       title: "Move app",
-      desc: "ESP32, Arduino, sensors, and automation systems.",
+      desc: "Katalog film berbasis React & REST API.",
       to: "/skills/Moveapp",
     },
     {
       image: "/assets/proyek/Sembako.png",
       title: "Sistem Pemesanan Sembako",
-      desc: "Wireframe, prototype, and interface design.",
+      desc: "E-commerce sembako dengan sistem pemesanan.",
       to: "/skills/Sembako",
     },
     {
       image: "/assets/proyek/Nusaloka.png",
       title: "Sistem Pemesanan Kopi",
-      desc: "Poster, banner, and social media design.",
+      desc: "Sistem pemesanan kopi berbasis React & Laravel.",
       to: "/skills/Nusaloka",
     },
     {
       image: "/assets/proyek/Restauran.png",
       title: "Sistem Pemesanan Restourant",
-      desc: "Editing videos with smooth transitions and storytelling.",
+      desc: "Platform order menu berbasis web.",
       to: "/skills/Restauran",
     },
     {
-      image: "https://i.top4top.io/p_3876hw8j91.png",
+      image: "/assets/proyek/Senvra.png",
       title: "Company Profile",
-      desc: "Creating engaging animated visual content.",
+      desc: "Website profil & layanan digital agency.",
+      to: "/skills/Senvra",
     },
     {
       image: "https://e.top4top.io/p_3876oy2f01.png",
@@ -142,9 +143,9 @@ export default function Skill() {
               sm:px-4
             "
           >
-            Explore some of the technologies, tools, and projects that I have
-            worked on in software development, Internet of Things, multimedia,
-            and digital design.
+            Explore my IT projects, showcasing my experience in software 
+            development, web development, Internet of Things, and system 
+            development.
           </p>
         </div>
 

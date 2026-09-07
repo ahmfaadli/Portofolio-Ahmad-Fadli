@@ -69,8 +69,8 @@ export default function Portfolio() {
               mx-auto
             "
           >
-            Kumpulan portofolio dan hasil karya yang telah saya kerjakan
-            selama perjalanan sebagai mahasiswa dan Web Developer.
+            A collection of multimedia works encompassing graphic design, 
+            video editing, motion graphics, and various creative visual projects.
           </p>
 
         </div>
@@ -246,8 +246,8 @@ export default function Portfolio() {
                       leading-relaxed
                     "
                   >
-                    Dokumentasi project, web development, UI/UX, graphic
-                    design, motion graphic, dan project IoT.
+                    Kumpulan karya multimedia yang mencakup desain grafis, branding, video editing, 
+                    motion graphic, animasi, ilustrasi, dan berbagai produksi visual kreatif.
                   </p>
 
                 </div>

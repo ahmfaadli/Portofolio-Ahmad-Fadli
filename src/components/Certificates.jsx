@@ -1,56 +1,126 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { X } from "lucide-react";
+import CertificateCard from "./CertificateCard";
+
+const certificates = [
+  {
+    id: 1,
+    images: [
+      "https://g.top4top.io/p_3870wzjv21.jpg",
+    ],
+    title: "Fullstack Developer",
+  },
+  {
+    id: 2,
+    images: [
+      "https://i.top4top.io/p_39023667k1.jpg",
+      "https://e.top4top.io/p_39028j99r1.jpg",
+    ],
+    title: "Codeless Data Science",
+  },
+  {
+    id: 3,
+    images: [
+      "https://d.top4top.io/p_3902euq7b1.jpg",
+      "https://d.top4top.io/p_3902t9qs01.jpg",
+    ],
+    title: "Office Profesional",
+  },
+  {
+    id: 4,
+    images: [
+      "https://l.top4top.io/p_3876y1ct01.jpg",
+    ],
+    title: "Kepala Departemen Pendidikan, Tekologi dan Olahraga",
+  },
+   {
+    id: 4,
+    images: [
+      "https://e.top4top.io/p_38702pebe1.png",
+    ],
+    title: "Steering Committee ASTRO 7.0",
+  },
+    {
+    id: 4,
+    images: [
+      "https://b.top4top.io/p_38704x9gw1.png",
+    ],
+    title: "Steering Committee ICT",
+  },
+    {
+    id: 4,
+    images: [
+      "https://f.top4top.io/p_3902ty69s1.jpg",
+    ],
+    title: "Getting started with Azure IOT",
+  },
+    {
+    id: 4,
+    images: [
+      "https://e.top4top.io/p_3902cupot1.jpg",
+    ],
+    title: "Create a Virtual Private Cloud (VPC) Using AWS",
+  },
+    {
+    id: 4,
+    images: [
+      "https://f.top4top.io/p_3876t8blu1.jpg",
+    ],
+    title: "AWS S3 Basics",
+  },
+];
 
 export default function Certificates() {
   const [selected, setSelected] = useState(null);
+  const [currentImage, setCurrentImage] = useState(0);
 
-  const certificates = [
-    {
-      id: 1,
-      image: "https://g.top4top.io/p_3870wzjv21.jpg",
-      title: "Fullstack Developer",
-    },
-    {
-      id: 2,
-      image: "https://j.top4top.io/p_3876xrur91.png",
-      title: "UI/UX Design",
-    },
-    {
-      id: 3,
-      image: "https://b.top4top.io/p_3876s592r1.jpg",
-      title: "React JS",
-    },
-    {
-      id: 4,
-      image: "https://f.top4top.io/p_3870o7ck81.jpg",
-      title: "IoT Workshop",
-    },
-    {
-      id: 5,
-      image: "https://c.top4top.io/p_3870wtw6z1.png",
-      title: "Database",
-    },
-    {
-      id: 6,
-      image: "https://f.top4top.io/p_3876t8blu1.jpg",
-      title: "JavaScript",
-    },
-    {
-      id: 7,
-      image: "https://e.top4top.io/p_38702pebe1.png",
-      title: "JavaScript",
-    },
-    {
-      id: 8,
-      image: "https://b.top4top.io/p_38704x9gw1.png",
-      title: "JavaScript",
-    },
-    {
-      id: 9,
-      image: "https://l.top4top.io/p_3876y1ct01.jpg",
-      title: "JavaScript",
-    },
-  ];
+  // Membuka modal
+  const handleOpen = (certificate) => {
+    setSelected(certificate);
+    setCurrentImage(0);
+  };
+
+  // Menutup modal
+  const handleClose = () => {
+    setSelected(null);
+    setCurrentImage(0);
+  };
+
+  // Gambar berikutnya
+  const handleNext = () => {
+    if (!selected || selected.images.length <= 1) return;
+
+    setCurrentImage((prev) =>
+      prev === selected.images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  // Gambar sebelumnya
+  const handlePrevious = () => {
+    if (!selected || selected.images.length <= 1) return;
+
+    setCurrentImage((prev) =>
+      prev === 0 ? selected.images.length - 1 : prev - 1
+    );
+  };
+
+  // Keyboard navigation
+  const handleKeyDown = (event) => {
+    if (!selected) return;
+
+    if (event.key === "Escape") {
+      handleClose();
+    }
+
+    if (event.key === "ArrowRight") {
+      handleNext();
+    }
+
+    if (event.key === "ArrowLeft") {
+      handlePrevious();
+    }
+  };
 
   return (
     <section
@@ -67,13 +137,16 @@ export default function Certificates() {
         to-[#26006a]
         text-white
       "
+      onKeyDown={handleKeyDown}
+      tabIndex={-1}
     >
       <div className="max-w-7xl mx-auto px-1 sm:px-2 lg:px-6">
 
-        {/* Header */}
+        {/* =========================
+            HEADER
+        ========================== */}
         <div className="text-center">
 
-          {/* Badge */}
           <span
             className="
               inline-block
@@ -92,7 +165,6 @@ export default function Certificates() {
             Sertifikat
           </span>
 
-          {/* Title */}
           <h2
             className="
               mt-4
@@ -107,7 +179,6 @@ export default function Certificates() {
             My Certificates
           </h2>
 
-          {/* Description */}
           <p
             className="
               text-gray-400
@@ -122,12 +193,15 @@ export default function Certificates() {
               sm:leading-7
             "
           >
-            Beberapa sertifikat pelatihan, workshop, dan kompetensi
-            yang pernah saya peroleh.
+            A collection of certificates obtained from various training
+            sessions, workshops, seminars, and other activities.
           </p>
+
         </div>
 
-        {/* Grid */}
+        {/* =========================
+            CERTIFICATE GRID
+        ========================== */}
         <div
           className="
             grid
@@ -141,73 +215,19 @@ export default function Certificates() {
             lg:mt-20
           "
         >
-          {certificates.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => setSelected(item)}
-              className="
-                cursor-pointer
-                group
-                rounded-lg
-                sm:rounded-xl
-                lg:rounded-2xl
-                overflow-hidden
-                bg-white/5
-                border
-                border-white/10
-                hover:border-purple-500
-                transition
-                duration-300
-                min-w-0
-              "
-            >
-              {/* Image */}
-              <div className="overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="
-                    w-full
-                    h-24
-                    sm:h-32
-                    md:h-44
-                    lg:h-64
-                    object-cover
-                    group-hover:scale-110
-                    transition
-                    duration-500
-                  "
-                />
-              </div>
-
-              {/* Title */}
-              <div
-                className="
-                  p-2
-                  sm:p-3
-                  md:p-4
-                  lg:p-5
-                "
-              >
-                <h3
-                  className="
-                    text-[10px]
-                    sm:text-xs
-                    md:text-sm
-                    lg:text-lg
-                    font-semibold
-                    leading-tight
-                    line-clamp-2
-                  "
-                >
-                  {item.title}
-                </h3>
-              </div>
-            </div>
+          {certificates.map((certificate) => (
+            <CertificateCard
+              key={certificate.id}
+              image={certificate.images[0]}
+              title={certificate.title}
+              onClick={() => handleOpen(certificate)}
+            />
           ))}
         </div>
 
-        {/* Show More Certificates */}
+        {/* =========================
+            SHOW MORE
+        ========================== */}
         <div
           className="
             flex
@@ -220,7 +240,7 @@ export default function Certificates() {
           <Link
             to="/certificates"
             className="
-             group
+              group
               inline-flex
               items-center
               justify-center
@@ -270,22 +290,24 @@ export default function Certificates() {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* =========================
+          IMAGE MODAL
+      ========================== */}
       {selected && (
         <div
           className="
             fixed
             inset-0
+            z-50
             bg-black/80
             backdrop-blur-md
-            z-50
             flex
             items-center
             justify-center
             p-3
             sm:p-6
           "
-          onClick={() => setSelected(null)}
+          onClick={handleClose}
         >
           <div
             className="
@@ -295,59 +317,217 @@ export default function Certificates() {
               flex
               flex-col
               items-center
+              justify-center
             "
-            onClick={(e) => e.stopPropagation()}
+            onClick={(event) => event.stopPropagation()}
           >
-            {/* Close Button */}
+
+            {/* =========================
+                CLOSE BUTTON
+            ========================== */}
             <button
-              onClick={() => setSelected(null)}
+              type="button"
+              onClick={handleClose}
+              aria-label="Close image"
               className="
                 absolute
-                -top-10
-                sm:-top-12
-                right-0
+                top-2
+                right-2
+                sm:top-4
+                sm:right-4
+                lg:top-6
+                lg:right-6
+                z-50
                 text-white
-                text-2xl
-                sm:text-4xl
                 hover:text-purple-400
                 transition
-                z-10
               "
-              aria-label="Close"
             >
-              ✕
+              <X
+                size={32}
+                className="sm:w-9 sm:h-9"
+              />
             </button>
 
-            {/* Certificate Image */}
-            <img
-              src={selected.image}
-              alt={selected.title}
+            {/* =========================
+                IMAGE SLIDER
+            ========================== */}
+            <div
               className="
-                rounded-xl
-                sm:rounded-2xl
-                max-h-[80vh]
-                sm:max-h-[85vh]
-                lg:max-h-[90vh]
-                max-w-full
-                w-auto
-                object-contain
-                shadow-2xl
+                relative
+                w-full
+                flex
+                items-center
+                justify-center
               "
-            />
+            >
 
-            {/* Certificate Title */}
+              {/* PREVIOUS BUTTON */}
+              {selected.images.length > 1 && (
+                <button
+                  type="button"
+                  onClick={handlePrevious}
+                  aria-label="Previous image"
+                  className="
+                    absolute
+                    left-1
+                    sm:left-4
+                    lg:left-8
+                    z-20
+                    w-10
+                    h-10
+                    sm:w-12
+                    sm:h-12
+                    rounded-full
+                    bg-black/60
+                    border
+                    border-white/10
+                    text-white
+                    text-lg
+                    sm:text-xl
+                    flex
+                    items-center
+                    justify-center
+                    hover:bg-purple-600
+                    hover:border-purple-400
+                    transition-all
+                    duration-300
+                    backdrop-blur-sm
+                  "
+                >
+                  ←
+                </button>
+              )}
+
+              {/* CURRENT IMAGE */}
+              <img
+                src={selected.images[currentImage]}
+                alt={`${selected.title} - ${currentImage + 1}`}
+                className="
+                  rounded-xl
+                  sm:rounded-2xl
+                  max-h-[75vh]
+                  sm:max-h-[82vh]
+                  lg:max-h-[88vh]
+                  max-w-[90%]
+                  sm:max-w-[88%]
+                  lg:max-w-[85%]
+                  w-auto
+                  object-contain
+                  shadow-2xl
+                  transition-all
+                  duration-300
+                  select-none
+                "
+              />
+
+              {/* NEXT BUTTON */}
+              {selected.images.length > 1 && (
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label="Next image"
+                  className="
+                    absolute
+                    right-1
+                    sm:right-4
+                    lg:right-8
+                    z-20
+                    w-10
+                    h-10
+                    sm:w-12
+                    sm:h-12
+                    rounded-full
+                    bg-black/60
+                    border
+                    border-white/10
+                    text-white
+                    text-lg
+                    sm:text-xl
+                    flex
+                    items-center
+                    justify-center
+                    hover:bg-purple-600
+                    hover:border-purple-400
+                    transition-all
+                    duration-300
+                    backdrop-blur-sm
+                  "
+                >
+                  →
+                </button>
+              )}
+
+            </div>
+
+            {/* =========================
+                IMAGE INDICATOR
+            ========================== */}
+            {selected.images.length > 1 && (
+              <div
+                className="
+                  flex
+                  items-center
+                  justify-center
+                  gap-2
+                  mt-4
+                  sm:mt-5
+                "
+              >
+                {selected.images.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => setCurrentImage(index)}
+                    aria-label={`Go to image ${index + 1}`}
+                    className={`
+                      rounded-full
+                      transition-all
+                      duration-300
+                      ${
+                        currentImage === index
+                          ? "w-6 h-2 bg-purple-500"
+                          : "w-2 h-2 bg-white/40 hover:bg-white/70"
+                      }
+                    `}
+                  />
+                ))}
+              </div>
+            )}
+
+            {/* =========================
+                TITLE
+            ========================== */}
             <p
               className="
                 text-center
                 mt-3
-                sm:mt-5
+                sm:mt-4
                 text-sm
                 sm:text-lg
                 text-gray-300
+                font-medium
               "
             >
               {selected.title}
             </p>
+
+            {/* =========================
+                IMAGE COUNTER
+            ========================== */}
+            {selected.images.length > 1 && (
+              <p
+                className="
+                  text-xs
+                  sm:text-sm
+                  text-gray-500
+                  mt-1
+                "
+              >
+                {currentImage + 1} / {selected.images.length}
+              </p>
+            )}
+
           </div>
         </div>
       )}

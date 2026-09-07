@@ -141,8 +141,8 @@ export default function Education() {
               max-[374px]:mt-3
             "
           >
-            Beberapa organisasi, perusahaan, dan proyek yang pernah saya
-            kerjakan selama perjalanan sebagai mahasiswa dan Web Developer.
+            Educational and bootcamp background supporting competency 
+            development in the field of information technology.
           </p>
         </div>
 

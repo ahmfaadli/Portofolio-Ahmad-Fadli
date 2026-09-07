@@ -8,24 +8,19 @@ export default function HTML5() {
   // Project documentation
   const documentation = [
     {
-      image: "/assets/documentation1/dokumen1.png",
-      title: "Implementasi",
-      desc: "Halaman utama aplikasi.",
+      image: "/assets/documentation2/DiagramNiblenest.jpg",
+      title: "Flow Chart",
+      desc: "Diagram flowchart.",
     },
     {
-      image: "/assets/documentation1/dokumen2.png",
-      title: "Flowchart",
-      desc: "Halaman daftar produk laptop.",
+      image: "/assets/documentation2/UseCase.jpg",
+      title: "Use Case Diagram",
+      desc: "Use case diagram.",
     },
     {
-      image: "/assets/documentation1/dokumen3.png",
-      title: "Diagram Blok",
-      desc: "Proses checkout pelanggan.",
-    },
-    {
-      image: "/assets/documentation1/dokumen4.jpg",
-      title: "Rangkaian Elektronika",
-      desc: "Panel admin untuk mengelola produk.",
+      image: "/assets/documentation2/DatabaseSchema.jfif",
+      title: "Database Schema",
+      desc: "Database Schema.",
     },
   ];
 
@@ -61,10 +56,8 @@ export default function HTML5() {
               <h3 className="text-4xl font-bold mb-4">Laptop E-Commerce</h3>
 
               <p className="text-gray-300 max-w-2xl mb-6">
-                Sistem Smart Room berbasis IoT untuk monitoring dan kontrol
-                perangkat ruangan secara real-time menggunakan ESP32, C++, dan
-                Node-RED. Dilengkapi monitoring suhu, kelembapan, serta kontrol
-                perangkat elektronik melalui dashboard
+                Platform e-commerce modern untuk menampilkan, mengelola, dan 
+                memesan produk laptop dengan integrasi frontend React dan backend Laravel.
               </p>
 
               <div className="flex flex-wrap items-center gap-4">

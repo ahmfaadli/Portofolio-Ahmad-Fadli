@@ -70,23 +70,6 @@ export default function About() {
             LEFT CONTENT
         ================================================== */}
         <div>
-          {/* Label */}
-          <p
-            className="
-              text-cyan-400
-              font-semibold
-              uppercase
-              tracking-wider
-              mb-3
-
-              /* Mobile kecil */
-              max-[374px]:text-xs
-              max-[374px]:mb-2
-            "
-          >
-            Tentang Saya
-          </p>
-
           {/* Heading */}
           <h2
             className="
@@ -135,10 +118,9 @@ export default function About() {
               max-[374px]:leading-5
             "
           >
-            Saya merupakan mahasiswa{" "}
-            <b className="text-white">Teknik Informatika</b> dengan ketertarikan
-            pada pengembangan aplikasi berbasis web, rekayasa perangkat lunak,
-            dan teknologi modern.
+            Saya merupakan Fresh Graduate{" "}
+            <b className="text-white">Teknik Informatika</b> STT Nurul Fikri yang memiliki 
+            ketertarikan pada teknologi informasi, pemrograman, dan pengembangan sistem.
           </p>
 
           {/* Paragraph 2 */}
@@ -160,9 +142,12 @@ export default function About() {
               max-[374px]:leading-5
             "
           >
-            Selain kemampuan teknis, saya juga memiliki pengalaman dalam UI/UX
-            Design, Motion Graphic, serta Graphic Design sehingga mampu
-            menggabungkan logika sistem dengan tampilan yang menarik.
+            Selama menempuh pendidikan, saya mengembangkan berbagai proyek 
+            teknologi, mulai dari website, aplikasi berbasis web, RESTful API, 
+            sistem pengelolaan data, hingga sistem monitoring berbasis 
+            Internet of Things (IoT). Pengalaman tersebut membantu saya memahami 
+            proses pengembangan sistem mulai dari perancangan, pemrograman, 
+            pengelolaan database, hingga implementasi.
           </p>
 
           {/* Sub Heading */}
@@ -211,9 +196,10 @@ export default function About() {
               max-[374px]:leading-5
             "
           >
-            Saya aktif mengembangkan website, dashboard, sistem administrasi,
-            aplikasi monitoring, serta berbagai solusi digital menggunakan
-            prinsip Clean Code dan Software Development Life Cycle (SDLC).
+            Saya memiliki pengalaman di bidang Teknologi Informasi melalui proyek, 
+            pekerjaan,mencakup pengembangan aplikasi, website, API, IoT, serta IT Support. 
+            dan Aktif dalam beberapa organisasi salah satunya dipercaya sebagai Kepala Departemen 
+            Teknologi, Pendidikan dan Olahraga.
           </p>
         </div>
 
@@ -271,8 +257,9 @@ export default function About() {
               max-[374px]:mb-5
             "
           >
-            Sebagai Full Stack Web Developer, saya memiliki pengalaman
-            mengembangkan aplikasi menggunakan teknologi berikut.
+            Sebagai IT Programmer, saya memiliki pengalaman dalam pengembangan aplikasi, 
+            website, backend system, pengelolaan database, dan teknologi IoT menggunakan 
+            berbagai tools dan teknologi berikut:
           </p>
 
           {/* Tech Stack */}
@@ -299,23 +286,33 @@ export default function About() {
             "
           >
             <p>
-              <span className="font-bold text-white">Backend :</span>{" "}
-              PHP, Laravel, CodeIgniter, REST API.
+              <span className="font-bold text-white">Technical Skill :</span>{" "}
+              HTML, CSS, Laravel, JavaScript, PHP. React.
             </p>
 
             <p>
-              <span className="font-bold text-white">Database :</span>{" "}
-              MySQL, MariaDB, Query Optimization.
+              <span className="font-bold text-white">Programming :</span>{" "}
+              Python, C++
             </p>
 
             <p>
-              <span className="font-bold text-white">Frontend :</span>{" "}
-              HTML, CSS, JavaScript, React, Tailwind CSS, Bootstrap.
+              <span className="font-bold text-white">Database & Query Language :</span>{" "}
+              MySQL, MongoDB
             </p>
 
             <p>
-              <span className="font-bold text-white">Metodologi :</span>{" "}
-              Clean Code, Git, SDLC.
+              <span className="font-bold text-white">Version Control Software :</span>{" "}
+              Git and GitHub
+            </p>
+
+            <p>
+              <span className="font-bold text-white">Data Analysis & Visualization :</span>{" "}
+              KNIME, Power BI, Google Sheets
+            </p>
+
+             <p>
+              <span className="font-bold text-white">Microsoft Office :</span>{" "}
+              Excel, Word, and PowerPoint
             </p>
           </div>
 
@@ -538,35 +535,6 @@ export default function About() {
               "
             >
               <FaInstagram />
-            </a>
-
-            {/* YouTube */}
-            <a
-              href="#"
-              aria-label="YouTube"
-              className="
-                w-11
-                h-11
-                rounded-full
-                border
-                border-white/20
-                flex
-                items-center
-                justify-center
-                hover:bg-cyan-400
-                hover:text-black
-                transition
-
-                max-md:w-10
-                max-md:h-10
-                max-md:text-base
-
-                max-[374px]:w-9
-                max-[374px]:h-9
-                max-[374px]:text-sm
-              "
-            >
-              <FaYoutube />
             </a>
           </div>
         </div>

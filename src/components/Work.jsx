@@ -158,8 +158,8 @@ export default function Education() {
               max-[374px]:mt-3
             "
           >
-            Beberapa organisasi, perusahaan, dan proyek yang pernah saya
-            kerjakan selama perjalanan sebagai mahasiswa dan Web Developer.
+            A professional journey spanning work experience, internships, 
+            organizational involvement, and various IT projects.
           </p>
         </div>
 

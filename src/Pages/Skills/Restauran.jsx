@@ -61,10 +61,8 @@ export default function HTML5() {
                 <h3 className="text-4xl font-bold mb-4">Restauran MPOROSS</h3>
 
                 <p className="text-gray-300 max-w-2xl mb-6">
-                  Sistem Smart Room berbasis IoT untuk monitoring dan kontrol
-                  perangkat ruangan secara real-time menggunakan ESP32, C++, dan
-                  Node-RED. Dilengkapi monitoring suhu, kelembapan, serta
-                  kontrol perangkat elektronik melalui dashboard
+                  Website restoran berbasis React & Laravel untuk menampilkan menu 
+                  dan memudahkan pelanggan melakukan pemesanan secara praktis.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4">

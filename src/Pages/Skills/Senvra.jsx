@@ -14,17 +14,17 @@ export default function HTML5() {
     },
     {
       image: "/assets/documentation1/dokumen2.png",
-      title: "Product Page",
+      title: "Flowchart",
       desc: "Halaman daftar produk laptop.",
     },
     {
       image: "/assets/documentation1/dokumen3.png",
-      title: "Checkout",
+      title: "Diagram Blok",
       desc: "Proses checkout pelanggan.",
     },
     {
       image: "/assets/documentation1/dokumen4.jpg",
-      title: "Dashboard Admin",
+      title: "Rangkaian Elektronika",
       desc: "Panel admin untuk mengelola produk.",
     },
   ];
@@ -35,7 +35,7 @@ export default function HTML5() {
         {/* Header */}
         <div className="max-w-7xl mx-auto text-center mb-24">
           <span className="inline-block mb-4 px-4 py-1 rounded-full bg-purple-700/20 text-purple-300 text-sm">
-            Frontend Developer
+            Fullstack Web Developer
           </span>
 
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6">
@@ -47,22 +47,22 @@ export default function HTML5() {
         <div className="max-w-6xl mx-auto mb-24">
           <div className="group relative overflow-hidden rounded-3xl border border-purple-700/30 hover:border-purple-500 transition-all duration-500">
             <img
-              src="/assets/proyek/Sembako.png"
-              alt="Smart Room Project"
+              src="/assets/proyek/Senvra1.png"
+              alt="Senvra Project"
               className="w-full h-[550px] object-cover group-hover:scale-105 transition duration-700"
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end">
               <div className="p-10 w-full">
                 <span className="inline-block mb-3 px-4 py-1 rounded-full bg-purple-600/30 text-purple-200 text-sm">
-                  PHP • Laravel
+                  React • Laravel
                 </span>
 
-                <h3 className="text-4xl font-bold mb-4">FadMart</h3>
+                <h3 className="text-4xl font-bold mb-4">Profile Compny Digital Agency</h3>
 
                 <p className="text-gray-300 max-w-2xl mb-6">
-                  Platform e-commerce sembako berbasis PHP & Laravel dengan fitur katalog produk, 
-                  keranjang belanja, pemesanan, dan pengelolaan transaksi.
+                  Website company profile berbasis React & Laravel untuk menampilkan layanan, portofolio, 
+                  dan informasi perusahaan dengan desain modern dan responsif.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4">
@@ -70,7 +70,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://github.com/ahmfaadli/Move-app",
+                        "https://github.com/ahmfaadli/UAS_FRONTEND2025.git",
                         "_blank",
                         "noopener,noreferrer",
                       )
@@ -85,7 +85,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://move-app-khaki.vercel.app/",
+                        "https://drive.google.com/file/d/1pwoxAUZixAGQbsb4onJjplUUrlG342Z7/view?usp=drive_link",
                         "_blank",
                         "noopener,noreferrer",
                       )
