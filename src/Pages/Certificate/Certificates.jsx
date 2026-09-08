@@ -70,63 +70,63 @@ const certificates = [
     title: "AWS S3 Basics",
   },
     {
-    id: 1,
+    id: 10,
     images: [
       "https://i.top4top.io/p_39022067s1.jpg",
     ],
     title: "Linux Fundamental",
   },
   {
-    id: 2,
+    id: 11,
     images: [
       "https://l.top4top.io/p_3902za7op1.jpg",
     ],
     title: "Virtual Machine Fundamental",
   },
   {
-    id: 3,
+    id: 12,
     images: [
       "https://g.top4top.io/p_3902xmz1d1.jpg",
     ],
     title: "Simulasi Jaringan dengan PNETLab",
   },
   {
-    id: 4,
+    id: 13,
     images: [
       "https://k.top4top.io/p_3902t7qc51.jpg",
     ],
     title: "Network Fundamental",
   },
   {
-    id: 5,
+    id: 14,
     images: [
       "https://c.top4top.io/p_3902f2hw41.jpg",
     ],
     title: "Python Fundamental",
   },
   {
-    id: 6,
+    id: 15,
     images: [
       "https://i.top4top.io/p_3902685x21.jpg",
     ],
     title: "Introduction to Model Context Protocol",
   },
   {
-    id: 7,
+    id: 16,
     images: [
       "https://l.top4top.io/p_39023r6d61.jpg",
     ],
     title: "Introduction to Cloude Cowork",
   },
   {
-    id: 8,
+    id: 17,
     images: [
       "https://b.top4top.io/p_3902t1obz1.jpg",
     ],
     title: "Cloude Patform 101",
   },
   {
-    id: 9,
+    id: 18,
     images: [
       "https://a.top4top.io/p_3902rxleo1.jpg",
     ],
@@ -134,49 +134,56 @@ const certificates = [
   },
 
     {
-    id: 6,
+    id: 19,
     images: [
       "https://j.top4top.io/p_39028g12v1.jpg",
     ],
     title: "Claude Code 101",
   },
   {
-    id: 7,
+    id: 20,
     images: [
       "https://c.top4top.io/p_3902nzwgr1.jpg",
     ],
     title: "Claude 101",
   },
   {
-    id: 8,
+    id: 21,
     images: [
       "https://l.top4top.io/p_39023swc81.jpg",
     ],
     title: "Claude with the Anthropic API",
   },
   {
-    id: 9,
+    id: 22,
     images: [
       "https://e.top4top.io/p_39024bzq31.jpg",
     ],
     title: "AI Fluency: Framework & Foundation",
   },
     {
-    id: 8,
+    id: 23,
     images: [
       "https://i.top4top.io/p_3902axox01.jpg",
     ],
     title: "AI Fluency for students",
   },
   {
-    id: 9,
+    id: 24,
     images: [
       "https://a.top4top.io/p_3902rlbt11.jpg",
     ],
     title: "AI Fluency for educators",
   },
-   {
-    id: 1,
+  {
+    id: 25,
+    images: [
+      "https://b.top4top.io/p_3903af98s1.jpg",
+    ],
+    title: "Basic Proficiency in KNIME Analytics Platform",
+  },
+  {
+    id: 26,
     images: [
       "https://i.top4top.io/p_3902ptiip1.jpg",
       "https://k.top4top.io/p_39028f0cw1.jpg",
@@ -184,13 +191,84 @@ const certificates = [
     ],
     title: "Memulai Pemrograman Dengan Java",
   },
+    {
+    id: 27,
+    images: [
+      "https://i.top4top.io/p_39030xuv12.jpg",
+      "https://h.top4top.io/p_39039ydlh1.jpg",
+    ],
+    title: "Belajar dasar Au",
+  },
   {
-    id: 2,
+    id: 28,
     images: [
       "https://d.top4top.io/p_39020v0291.jpg",
       "https://g.top4top.io/p_390295mf41.jpg",
     ],
     title: "Belajar Prinsip Pemrograman SOLID",
+  },
+  {
+    id: 29,
+    images: [
+      "https://k.top4top.io/p_3903yppl31.jpg",
+    ],
+    title: "Pelatihn Graphics Design",
+  },
+  {
+    id: 30,
+    images: [
+      "https://b.top4top.io/p_39038xrbi1.jpg",
+    ],
+    title: "Staff Media Kreatif BEM STT-NF",
+  },
+  {
+    id: 31,
+    images: [
+      "https://d.top4top.io/p_39034a0et1.png",
+    ],
+    title: "Panitia Seminar SpeakUP",
+  },
+  {
+    id: 32,
+    images: [
+      "https://l.top4top.io/p_39033m5pp1.jpg",
+    ],
+    title: "Staff Media Kreatif NFSCC",
+  },
+  {
+    id: 34,
+    images: [
+      "https://e.top4top.io/p_39030sy2h1.jpg",
+    ],
+    title: "Staff Media Kreatif LDK Senada",
+  },
+    {
+    id: 35,
+    images: [
+      "https://k.top4top.io/p_39033dmwn1.jpg",
+    ],
+    title: "Panitia Rapat Pimpinan Daerah JADEBEK LDK",
+  },
+  {
+    id: 36,
+    images: [
+      "https://h.top4top.io/p_3903cdd9v1.jpg",
+    ],
+    title: "Panitia Islamic Youth Festival ",
+  },
+  {
+    id: 37,
+    images: [
+      "https://l.top4top.io/p_39038bq6e1.png",
+    ],
+    title: "Peserta Webinar Strategi Ala Haus",
+  },
+  {
+    id: 38,
+    images: [
+      "https://f.top4top.io/p_3903tt9mx1.jpg",
+    ],
+    title: "Peserta Pengabdian Masyarakat",
   },
 ];
 

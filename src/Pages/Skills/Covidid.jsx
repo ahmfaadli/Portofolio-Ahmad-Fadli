@@ -12,11 +12,6 @@ export default function HTML5() {
       title: "Flowchart",
       desc: "Diagram Flow Chart.",
     },
-    {
-      image: "/assets/documentation1/dokumen2.png",
-      title: "Product Page",
-      desc: "Halaman daftar produk laptop.",
-    },
   ];
 
   return (
@@ -49,7 +44,7 @@ export default function HTML5() {
               </span>
 
               <h3 className="text-4xl font-bold mb-4">
-                Sistem Informasi Monitoring Covid 19
+                Sistem Monitoring Covid 19
               </h3>
 
               <p className="text-gray-300 max-w-2xl mb-6">

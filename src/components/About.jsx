@@ -392,7 +392,7 @@ export default function About() {
           >
             {/* Phone */}
             <a
-              href="#"
+              href="085693757693"
               aria-label="Phone"
               className="
                 w-11
@@ -423,7 +423,7 @@ export default function About() {
 
             {/* Email */}
             <a
-              href="#"
+              href="ahmadfaadli05@gmailcom"
               aria-label="Email"
               className="
                 w-11
@@ -452,7 +452,7 @@ export default function About() {
 
             {/* LinkedIn */}
             <a
-              href="#"
+              href="https://www.linkedin.com/in/ahmad-fadli-64633a244/"
               aria-label="LinkedIn"
               className="
                 w-11
@@ -481,7 +481,7 @@ export default function About() {
 
             {/* GitHub */}
             <a
-              href="#"
+              href="https://github.com/ahmfaadli"
               aria-label="GitHub"
               className="
                 w-11
@@ -510,7 +510,7 @@ export default function About() {
 
             {/* Instagram */}
             <a
-              href="#"
+              href="https://www.instagram.com/faadlli._/"
               aria-label="Instagram"
               className="
                 w-11

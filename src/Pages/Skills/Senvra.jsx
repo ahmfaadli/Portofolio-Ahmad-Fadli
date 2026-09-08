@@ -7,26 +7,7 @@ export default function HTML5() {
 
   // Project documentation
   const documentation = [
-    {
-      image: "/assets/documentation1/dokumen1.png",
-      title: "Implementasi",
-      desc: "Halaman utama aplikasi.",
-    },
-    {
-      image: "/assets/documentation1/dokumen2.png",
-      title: "Flowchart",
-      desc: "Halaman daftar produk laptop.",
-    },
-    {
-      image: "/assets/documentation1/dokumen3.png",
-      title: "Diagram Blok",
-      desc: "Proses checkout pelanggan.",
-    },
-    {
-      image: "/assets/documentation1/dokumen4.jpg",
-      title: "Rangkaian Elektronika",
-      desc: "Panel admin untuk mengelola produk.",
-    },
+
   ];
 
   return (
@@ -70,7 +51,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://github.com/ahmfaadli/UAS_FRONTEND2025.git",
+                        "https://github.com/ahmfaadli/company-senvraid.git",
                         "_blank",
                         "noopener,noreferrer",
                       )
@@ -85,7 +66,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://drive.google.com/file/d/1pwoxAUZixAGQbsb4onJjplUUrlG342Z7/view?usp=drive_link",
+                        "http://Senvra.infinityfreeapp.com",
                         "_blank",
                         "noopener,noreferrer",
                       )

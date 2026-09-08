@@ -22,6 +22,11 @@ export default function HTML5() {
       title: "Database Schema",
       desc: "Database Schema.",
     },
+    {
+      image: "/assets/documentation2/UI.png",
+      title: "UI Figma",
+      desc: "Tamilan UI Figma.",
+    },
   ];
 
   return (
@@ -65,7 +70,7 @@ export default function HTML5() {
                   type="button"
                   onClick={() =>
                     window.open(
-                      "https://github.com/ahmfaadli/UAS_FRONTEND2025.git",
+                      "https://github.com/ahmfaadli/Niblenest_Laptop.git",
                       "_blank",
                       "noopener,noreferrer",
                     )
@@ -80,7 +85,7 @@ export default function HTML5() {
                   type="button"
                   onClick={() =>
                     window.open(
-                      "https://drive.google.com/file/d/1pwoxAUZixAGQbsb4onJjplUUrlG342Z7/view?usp=drive_link",
+                      "#",
                       "_blank",
                       "noopener,noreferrer",
                     )

@@ -7,26 +7,7 @@ export default function HTML5() {
 
   // Project documentation
   const documentation = [
-    {
-      image: "/assets/documentation1/dokumen1.png",
-      title: "Implementasi",
-      desc: "Halaman utama aplikasi.",
-    },
-    {
-      image: "/assets/documentation1/dokumen2.png",
-      title: "Product Page",
-      desc: "Halaman daftar produk laptop.",
-    },
-    {
-      image: "/assets/documentation1/dokumen3.png",
-      title: "Checkout",
-      desc: "Proses checkout pelanggan.",
-    },
-    {
-      image: "/assets/documentation1/dokumen4.jpg",
-      title: "Dashboard Admin",
-      desc: "Panel admin untuk mengelola produk.",
-    },
+
   ];
 
   return (
