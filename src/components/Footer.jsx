@@ -80,7 +80,7 @@ export default function Footer() {
             >
               <li>
                 <a
-                  href="#hero"
+                  href="#Hero"
                   className="hover:text-purple-400 transition"
                 >
                   Home
@@ -89,7 +89,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="#about"
+                  href="#About"
                   className="hover:text-purple-400 transition"
                 >
                   About
@@ -98,7 +98,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="#education"
+                  href="#Education"
                   className="hover:text-purple-400 transition"
                 >
                   Education
@@ -107,7 +107,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="#experience"
+                  href="#Work"
                   className="hover:text-purple-400 transition"
                 >
                   Experience
@@ -116,7 +116,7 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="#projects"
+                  href="#Skill"
                   className="hover:text-purple-400 transition"
                 >
                   Projects
@@ -125,21 +125,13 @@ export default function Footer() {
 
               <li>
                 <a
-                  href="#certificates"
+                  href="#Certificates"
                   className="hover:text-purple-400 transition"
                 >
                   Certificates
                 </a>
               </li>
 
-              <li>
-                <a
-                  href="#contact"
-                  className="hover:text-purple-400 transition"
-                >
-                  Contact
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -171,10 +163,10 @@ export default function Footer() {
               <p>📍 Bogor, Indonesia</p>
 
               <p className="break-words">
-                📧 ahmadfadli@example.com
+                📧 ahmadfaadli05@gmail.com
               </p>
 
-              <p>📱 +62 xxx xxxx xxxx</p>
+              <p>📱 +62 8569 3757 693</p>
             </div>
 
             {/* SOCIAL MEDIA
@@ -324,33 +316,6 @@ export default function Footer() {
                 "
               >
                 <FaWhatsapp />
-              </a>
-
-              <a
-                href="https://youtube.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="
-                  w-8
-                  h-8
-                  md:w-9
-                  md:h-9
-                  lg:w-10
-                  lg:h-10
-                  rounded-full
-                  bg-white/5
-                  border
-                  border-white/10
-                  flex
-                  items-center
-                  justify-center
-                  text-xs
-                  md:text-sm
-                  hover:bg-purple-600
-                  transition
-                "
-              >
-                <FaYoutube />
               </a>
             </div>
           </div>

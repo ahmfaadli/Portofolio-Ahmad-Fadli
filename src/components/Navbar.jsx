@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleWindowScroll = () => {
@@ -26,21 +30,42 @@ const Navbar = () => {
   ];
 
   // =========================
-  // SMOOTH SCROLL
+  // NAVIGASI NAVBAR
   // =========================
   const handleScroll = (e, link) => {
     e.preventDefault();
 
-    const target = document.querySelector(link);
+    setOpen(false);
 
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    // Jika sedang di halaman utama
+    if (location.pathname === "/") {
+      const target = document.querySelector(link);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+
+      return;
     }
 
-    setOpen(false);
+    // Jika sedang berada di halaman lain
+    // kembali ke halaman utama terlebih dahulu
+    navigate("/");
+
+    // Tunggu halaman utama selesai dirender
+    setTimeout(() => {
+      const target = document.querySelector(link);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 100);
   };
 
   return (
@@ -90,7 +115,7 @@ const Navbar = () => {
             LOGO
         ========================== */}
         <a
-          href="#hero"
+          href="/"
           onClick={(e) => handleScroll(e, "#hero")}
           className={`
             text-base
