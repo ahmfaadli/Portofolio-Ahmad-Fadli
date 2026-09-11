@@ -15,6 +15,9 @@ export default function Education() {
     {
       logo: "https://h.top4top.io/p_3876ib66d1.jpg",
     },
+    {
+      logo: "https://a.top4top.io/p_39060keld1.jpg",
+    },
   ];
 
   return (

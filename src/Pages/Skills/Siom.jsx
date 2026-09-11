@@ -16,7 +16,7 @@ export default function HTML5() {
         {/* Header */}
         <div className="max-w-7xl mx-auto text-center mb-24">
           <span className="inline-block mb-4 px-4 py-1 rounded-full bg-purple-700/20 text-purple-300 text-sm">
-            Fullstack Web Developer
+            UI/UX Design
           </span>
 
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6">
@@ -28,7 +28,7 @@ export default function HTML5() {
         <div className="max-w-6xl mx-auto mb-24">
           <div className="group relative overflow-hidden rounded-3xl border border-purple-700/30 hover:border-purple-500 transition-all duration-500">
             <img
-              src="/assets/proyek/Senvra1.png"
+              src="https://e.top4top.io/p_3906qjioo1.png"
               alt="Senvra Project"
               className="w-full h-[550px] object-cover group-hover:scale-105 transition duration-700"
             />
@@ -36,10 +36,10 @@ export default function HTML5() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end">
               <div className="p-10 w-full">
                 <span className="inline-block mb-3 px-4 py-1 rounded-full bg-purple-600/30 text-purple-200 text-sm">
-                  React • Laravel
+                  User Interface • User Experience
                 </span>
 
-                <h3 className="text-4xl font-bold mb-4">Profile Compny Digital Agency</h3>
+                <h3 className="text-4xl font-bold mb-4">UI/UX Sistem Informasii <br /> Organisasi Mahasisawa</h3>
 
                 <p className="text-gray-300 max-w-2xl mb-6">
                   Website company profile berbasis React & Laravel untuk menampilkan layanan, portofolio, 
@@ -66,7 +66,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://senvraid.vercel.app/",
+                        "https://www.figma.com/design/JgEQNAFSslfqXWYVzmkDJB/SIOM?node-id=1-2097&t=uqWvbv6DIrxgObUB-1",
                         "_blank",
                         "noopener,noreferrer",
                       )

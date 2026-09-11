@@ -20,6 +20,7 @@ import Sembako from "./Pages/Skills/Sembako";
 import Nusaloka from "./Pages/Skills/Nusaloka";
 import Restauran from "./Pages/Skills/Restauran";
 import Senvra from "./Pages/Skills/Senvra";
+import Siom from "./Pages/Skills/Siom";
 
 import Projects from "./Pages/Project/Projects";
 import CertificatesPage from "./Pages/Certificate/Certificates";
@@ -59,6 +60,7 @@ function App() {
       <Route path="/skills/Nusaloka" element={<Nusaloka />} />
       <Route path="/skills/Restauran" element={<Restauran />} />
       <Route path="/skills/Senvra" element={<Senvra />} />
+      <Route path="/skills/Siom" element={<Siom />} />
 
       {/* Projects */}
       <Route path="/projects" element={<Projects />} />

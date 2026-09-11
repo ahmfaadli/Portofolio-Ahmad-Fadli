@@ -52,9 +52,10 @@ export default function Skill() {
       to: "/skills/Senvra",
     },
     {
-      image: "https://e.top4top.io/p_3876oy2f01.png",
-      title: "Portfolio",
+      image: "https://j.top4top.io/p_3906ppbq11.jpg",
+      title: "UI/UX sistem Organisasi Mahasiswa",
       desc: "3D object modeling and rendering.",
+      to: "/skills/Siom",
     },
   ];
 
