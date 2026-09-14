@@ -23,7 +23,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
-            <Button href="./assets/CV Ahmad Fadli_IDN.pdf">
+            <Button href="./assets/CV-Ahmad Fadli-IT.pdf">
               Download CV <i className="ri-download-line ri-lg"></i>
             </Button>
 
