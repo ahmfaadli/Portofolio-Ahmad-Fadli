@@ -24,35 +24,20 @@ export default function Education() {
     <section
       id="experience"
       className="
-        py-28
+        pt-20
+        pb-20
         bg-gradient-to-br
         from-[#0a0118]
         via-[#18002e]
         to-[#26006a]
-
-        /* =========================
-           TABLET
-           768px - 1023px
-        ========================== */
-        max-lg:py-24
-
-        /* =========================
-           MOBILE BESAR
-           640px - 767px
-        ========================== */
-        max-md:py-20
-
-        /* =========================
-           MOBILE
-           375px - 639px
-        ========================== */
-        max-sm:py-16
-
-        /* =========================
-           MOBILE KECIL
-           <= 374px
-        ========================== */
-        max-[374px]:py-14
+        max-lg:pt-16
+        max-lg:pb-16
+        max-md:pt-14
+        max-md:pb-14
+        max-sm:pt-12
+        max-sm:pb-12
+        max-[374px]:pt-10
+        max-[374px]:pb-10
       "
     >
       <div

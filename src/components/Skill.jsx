@@ -1,60 +1,89 @@
 import SkillCard from "./SkillCard";
-import { Link } from "react-router-dom";
 
 export default function Skill() {
   const skills = [
     {
-      image: "/assets/proyek/smartroom.jpg",
-      title: "Smart Room",
-      desc: "Monitoring & kontrol perangkat IoT real-time.",
+      category: "Mobile App",
+      image:"https://d.top4top.io/p_39304sw2o1.jpg",
+      title: "HR Employee Management",
+      desc: "Employee management mobile application for managing attendance, jobdesk, meetings, employee data, and administrative requests",
+      to: "/skills/SenvraManagement",
+    },
+    {
+      category: "Mobile App",
+      image:"https://i.pinimg.com/736x/3a/e0/8f/3ae08fa3cf8ff746a34b929087d7f60f.jpg",
+      title: "UangQu Personal Finance Management",
+      desc: "Personal finance management application designed to help users track daily transactions, monitor monthly finances, and manage savings goals offline",
+      to: "/skills/Uangqu",
+    },
+    {
+      category: "Mobile App",
+      image:"https://h.top4top.io/p_3930r41ly1.jpg",
+      title: "dNote Personal Notes App",
+      desc: "Lightweight mobile note-taking application for creating, organizing, and managing personal notes with a simple and efficient interface ",
+      to: "/skills/Dnote",
+    },
+    {
+      category: "Web Developer",
+      image: "https://c.top4top.io/p_39247x7tw1.png",
+      title: "Building Modeling Service System",
+      desc: "Web-based platform for managing home modeling services, project information, and customer service requests.",
       to: "/skills/IoT",
     },
     {
-      image: "/assets/proyek/Laptopstore.png",
-      title: "Sistem Pemesanan Laptop",
-      desc: "E-commerce laptop dengan katalog & pemesanan.",
-      to: "/skills/LaptopStore",
-    },
-    {
-      image: "/assets/proyek/covidid.png",
-      title: "Sistem Informasi Covid id",
-      desc: "Monitoring data COVID-19 berbasis REST API.",
-      to: "/skills/Covidid",
-    },
-    {
-      image: "/assets/proyek/Moveapp.png",
-      title: "Move app",
-      desc: "Katalog film berbasis React & REST API.",
-      to: "/skills/Moveapp",
-    },
-    {
-      image: "/assets/proyek/Sembako.png",
-      title: "Sistem Pemesanan Sembako",
-      desc: "E-commerce sembako dengan sistem pemesanan.",
-      to: "/skills/Sembako",
-    },
-    {
-      image: "/assets/proyek/Nusaloka.png",
-      title: "Sistem Pemesanan Kopi",
-      desc: "Sistem pemesanan kopi berbasis React & Laravel.",
-      to: "/skills/Nusaloka",
-    },
-    {
-      image: "/assets/proyek/Restauran.png",
-      title: "Sistem Pemesanan Restourant",
-      desc: "Platform order menu berbasis web.",
-      to: "/skills/Restauran",
-    },
-    {
+      category: "Web Developer",
       image: "/assets/proyek/Senvra.png",
-      title: "Company Profile",
-      desc: "Website profil & layanan digital agency.",
+      title: "Senvra Company Profile",
+      desc: "Professional company profile website showcasing digital services, company information, and portfolio projects.",
       to: "/skills/Senvra",
     },
     {
+      category: "Web Developer",
+      image: "/assets/proyek/Restauran.png",
+      title: "Mporos Restaurant Managemen",
+      desc: "Full-stack web-based restaurant management system for managing menus, categories, orders, and operational reports",
+      to: "/skills/Restauran",
+    },
+    {
+      category: "Web Developer",
+      image: "/assets/proyek/covidid.png",
+      title: "COVID-19 Information System",
+      desc: "Web-based information system for presenting and monitoring COVID-19 data through REST API integration and dynamic data processing",
+      to: "/skills/Covidid",
+    },
+    {
+      category: "Web Developer",
+      image: "/assets/proyek/Sembako.png",
+      title: "Sembako E-Commerce",
+      desc: "E-commerce platform for browsing daily essentials, managing product catalogs, and placing orders online",
+      to: "/skills/Sembako",
+    },
+    {
+      category: "IoT Enginer",
+      image: "/assets/proyek/smartroom.jpg",
+      title: "Smart Room IoT Monitoring & Control",
+      desc: "IoT-based smart room system for real-time environmental monitoring and remote device control using ESP32, sensors, and a web-based interface",
+      to: "/skills/IoT",
+    },
+    {
+      category: "UI/UX Desigr",
+      image: "/assets/proyek/Laptopstore.png",
+      title: "Sistem Pemesanan Laptop",
+      desc: "UI/UX design for a laptop e-commerce platform, focusing on product discovery, catalog navigation, product details, and a streamlined ordering experience",
+      to: "/skills/LaptopStore",
+    },
+    {
+      category: "UI/UX Design",
+      image: "https://b.top4top.io/p_39262w1d51.png",
+      title: "Astro Event Management Platform",
+      desc: "UI/UX design for a student event management platform, focusing on intuitive navigation, event information, registration flow, and user experience",
+      to: "/skills/Siom",
+    },
+    {
+      category: "UI/UX Design",
       image: "https://j.top4top.io/p_3906ppbq11.jpg",
-      title: "UI/UX sistem Organisasi Mahasiswa",
-      desc: "3D object modeling and rendering.",
+      title: "Student Organization Management System",
+      desc: "UI/UX design for a student organization platform designed to simplify organizational activities, information management, and user navigation.",
       to: "/skills/Siom",
     },
   ];
@@ -68,10 +97,16 @@ export default function Skill() {
         from-[#0a0118]
         via-[#170036]
         to-[#26006a]
-        py-16
-        sm:py-20
-        md:py-24
-        lg:py-28
+        pt-20
+        pb-20
+        max-lg:pt-16
+        max-lg:pb-16
+        max-md:pt-14
+        max-md:pb-14
+        max-sm:pt-12
+        max-sm:pb-12
+        max-[374px]:pt-10
+        max-[374px]:pb-10
         px-4
         sm:px-6
         lg:px-8
@@ -91,7 +126,6 @@ export default function Skill() {
             px-1
           "
         >
-          {/* Badge */}
           <span
             className="
               inline-block
@@ -111,7 +145,6 @@ export default function Skill() {
             Portfolio
           </span>
 
-          {/* Title */}
           <h2
             className="
               mt-4
@@ -127,7 +160,6 @@ export default function Skill() {
             My Projects
           </h2>
 
-          {/* Description */}
           <p
             className="
               mt-4
@@ -144,9 +176,8 @@ export default function Skill() {
               sm:px-4
             "
           >
-            Explore my IT projects, showcasing my experience in software 
-            development, web development, Internet of Things, and system 
-            development.
+            Explore my IT projects, showcasing my experience in software development, 
+            web development, UI/UX design, Internet of Things, and system development
           </p>
         </div>
 
@@ -169,73 +200,11 @@ export default function Skill() {
               title={skill.title}
               desc={skill.desc}
               to={skill.to}
+              category={skill.category}
             />
           ))}
         </div>
 
-        {/* Show More Button */}
-        <div
-          className="
-            flex
-            justify-center
-            mt-10
-            sm:mt-12
-            md:mt-14
-            lg:mt-16
-            px-4
-          "
-        >
-          <Link
-            to="/projects"
-            className="
-              group
-              inline-flex
-              items-center
-              justify-center
-              gap-2
-              sm:gap-3
-              px-5
-              sm:px-6
-              md:px-7
-              py-3
-              sm:py-3.5
-              rounded-full
-              border
-              border-purple-400/40
-              bg-purple-500/10
-              text-white
-              font-semibold
-              text-xs
-              sm:text-sm
-              md:text-base
-              backdrop-blur-sm
-              transition-all
-              duration-300
-              hover:bg-purple-500
-              hover:border-purple-400
-              hover:shadow-lg
-              hover:shadow-purple-500/30
-              hover:-translate-y-1
-              active:scale-95
-              whitespace-nowrap
-            "
-          >
-            <span>Show More Projects</span>
-
-            <span
-              className="
-                text-base
-                sm:text-lg
-                md:text-xl
-                transition-transform
-                duration-300
-                group-hover:translate-x-1
-              "
-            >
-              →
-            </span>
-          </Link>
-        </div>
       </div>
     </section>
   );

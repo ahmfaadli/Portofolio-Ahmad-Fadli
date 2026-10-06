@@ -13,9 +13,6 @@ export default function Education() {
       logo: "https://j.top4top.io/p_3870cvm3s1.jpg",
     },
     {
-      logo: "https://h.top4top.io/p_3876ib66d1.jpg",
-    },
-    {
       logo: "https://a.top4top.io/p_39060keld1.jpg",
     },
   ];
@@ -24,27 +21,20 @@ export default function Education() {
     <section
       id="education"
       className="
-        py-28
-        bg-gradient-to-br from-[#0a0118] via-[#18002e] to-[#26006a]
-
-        /* =========================
-           TABLET
-           768px - 1023px
-        ========================== */
-        max-lg:py-24
-        max-md:py-20
-
-        /* =========================
-           HP BESAR
-           640px - 767px
-        ========================== */
-        max-sm:py-16
-
-        /* =========================
-           HP KECIL
-           <= 374px
-        ========================== */
-        max-[374px]:py-14
+        pt-20
+        pb-20
+        bg-gradient-to-br
+        from-[#0a0118]
+        via-[#18002e]
+        to-[#26006a]
+        max-lg:pt-16
+        max-lg:pb-16
+        max-md:pt-14
+        max-md:pb-14
+        max-sm:pt-12
+        max-sm:pb-12
+        max-[374px]:pt-10
+        max-[374px]:pb-10
       "
     >
       <div

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import SkillCard from "../../components/SkillCard";
 import { Link } from "react-router-dom";
 
@@ -9,67 +9,92 @@ export default function Projects() {
     window.scrollTo(0, 0);
   }, []);
 
+  const [activeCategory, setActiveCategory] = useState("Web");
+
+  const categories = [
+    "Web",
+    "Application",
+    "Network",
+    "Data Analyst",
+    "AI Engineer",
+  ];
+
   const projects = [
     {
       image: "/assets/proyek/smartroom.jpg",
       title: "Smart Room",
       desc: "Monitoring & kontrol perangkat IoT real-time.",
       to: "/skills/IoT",
+      category: "Network",
     },
     {
       image: "/assets/proyek/Laptopstore.png",
       title: "Sistem Pemesanan Laptop",
       desc: "E-commerce laptop dengan katalog & pemesanan.",
       to: "/skills/LaptopStore",
+      category: "Web",
     },
     {
       image: "/assets/proyek/covidid.png",
       title: "Sistem Informasi Covid id",
       desc: "Monitoring data COVID-19 berbasis REST API.",
       to: "/skills/Covidid",
+      category: "Data Analyst",
     },
     {
       image: "/assets/proyek/Moveapp.png",
       title: "Move app",
       desc: "Katalog film berbasis React & REST API.",
       to: "/skills/Moveapp",
+      category: "Application",
     },
     {
       image: "/assets/proyek/Sembako.png",
       title: "Sistem Pemesanan Sembako",
       desc: "E-commerce sembako dengan sistem pemesanan.",
       to: "/skills/Sembako",
+      category: "Web",
     },
     {
       image: "/assets/proyek/Nusaloka.png",
       title: "Sistem Pemesanan Kopi",
       desc: "Sistem pemesanan kopi berbasis React & Laravel.",
       to: "/skills/Nusaloka",
+      category: "Web",
     },
     {
       image: "/assets/proyek/Restauran.png",
       title: "Sistem Pemesanan Restourant",
       desc: "Platform order menu berbasis web.",
       to: "/skills/Restauran",
+      category: "Web",
     },
     {
       image: "/assets/proyek/Senvra.png",
       title: "Company Profile",
       desc: "Website profil & layanan digital agency.",
       to: "/skills/Senvra",
+      category: "Web",
     },
     {
       image: "https://j.top4top.io/p_3906ppbq11.jpg",
-      title: "UI/UX sistem Organisasi Mahasiswa",
+      title: "UI/UX Sistem Organisasi Mahasiswa",
       desc: "3D object modeling and rendering.",
       to: "/skills/Siom",
+      category: "Application",
     },
     {
       image: "https://e.top4top.io/p_3876oy2f01.png",
       title: "Portfolio",
-      desc: "3D object modeling and rendering.",
+      desc: "Portfolio website untuk menampilkan project dan pengalaman.",
+      category: "Web",
     },
   ];
+
+  // Filter project berdasarkan kategori
+  const filteredProjects = projects.filter(
+    (project) => project.category === activeCategory
+  );
 
   return (
     <section
@@ -89,6 +114,8 @@ export default function Projects() {
 
         {/* Header */}
         <div className="text-center mb-16">
+
+          {/* Badge */}
           <span
             className="
               inline-block
@@ -106,6 +133,7 @@ export default function Projects() {
             Portfolio
           </span>
 
+          {/* Title */}
           <h1
             className="
               mt-5
@@ -118,6 +146,7 @@ export default function Projects() {
             All Projects
           </h1>
 
+          {/* Description */}
           <p
             className="
               mt-5
@@ -133,6 +162,65 @@ export default function Projects() {
             software development, Internet of Things, multimedia, dan digital
             design.
           </p>
+
+          {/* Category Slider */}
+          <div
+            className="
+              mt-7
+              sm:mt-8
+              flex
+              justify-start
+              sm:justify-center
+              overflow-x-auto
+              scrollbar-hide
+              px-1
+              pb-2
+            "
+          >
+            <div className="flex gap-2 sm:gap-3 whitespace-nowrap">
+
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`
+                    px-4
+                    sm:px-5
+                    py-2
+                    sm:py-2.5
+                    rounded-full
+                    text-xs
+                    sm:text-sm
+                    font-medium
+                    border
+                    transition-all
+                    duration-300
+                    ${
+                      activeCategory === category
+                        ? `
+                          bg-purple-600
+                          border-purple-400
+                          text-white
+                          shadow-lg
+                          shadow-purple-500/30
+                        `
+                        : `
+                          bg-white/5
+                          border-white/10
+                          text-gray-300
+                          hover:bg-purple-500/20
+                          hover:border-purple-400/40
+                          hover:text-white
+                        `
+                    }
+                  `}
+                >
+                  {category}
+                </button>
+              ))}
+
+            </div>
+          </div>
         </div>
 
         {/* Project Grid */}
@@ -144,7 +232,7 @@ export default function Projects() {
             lg:grid-cols-3
           "
         >
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <SkillCard
               key={index}
               image={project.image}
@@ -155,8 +243,24 @@ export default function Projects() {
           ))}
         </div>
 
+        {/* Empty Category */}
+        {filteredProjects.length === 0 && (
+          <div className="flex justify-center items-center py-20">
+            <div className="text-center">
+              <p className="text-gray-400 text-sm sm:text-base">
+                Belum ada project untuk kategori{" "}
+                <span className="text-purple-400 font-semibold">
+                  {activeCategory}
+                </span>
+                .
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Back Button */}
         <div className="flex justify-center mt-16">
+
           <Link
             to="/#skills"
             className="
@@ -207,6 +311,7 @@ export default function Projects() {
 
             <span>Back to Home</span>
           </Link>
+
         </div>
 
       </div>

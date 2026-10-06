@@ -126,16 +126,22 @@ export default function Certificates() {
     <section
       id="certificates"
       className="
-        py-20
-        sm:py-24
-        lg:py-28
+        pt-20
+        pb-20
         px-4
         sm:px-5
         bg-gradient-to-br
         from-[#0a0118]
         via-[#18002e]
         to-[#26006a]
-        text-white
+        max-lg:pt-16
+        max-lg:pb-16
+        max-md:pt-14
+        max-md:pb-14
+        max-sm:pt-12
+        max-sm:pb-12
+        max-[374px]:pt-10
+        max-[374px]:pb-10
       "
       onKeyDown={handleKeyDown}
       tabIndex={-1}

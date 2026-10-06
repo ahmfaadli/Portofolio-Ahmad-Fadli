@@ -3,13 +3,20 @@ export default function Portfolio() {
     <section
       id="portfolio"
       className="
-        py-16
-        sm:py-20
-        lg:py-28
+        pt-20
+        pb-20
         bg-gradient-to-br
         from-[#0a0118]
         via-[#18002e]
         to-[#26006a]
+        max-lg:pt-16
+        max-lg:pb-16
+        max-md:pt-14
+        max-md:pb-14
+        max-sm:pt-12
+        max-sm:pb-12
+        max-[374px]:pt-10
+        max-[374px]:pb-10
       "
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6">
@@ -78,9 +85,9 @@ export default function Portfolio() {
         {/* Portfolio Card */}
         <div
           className="
-            mt-10
-            sm:mt-12
-            lg:mt-20
+            mt-4
+            sm:mt-5
+            lg:mt-6
             flex
             justify-center
           "

@@ -12,6 +12,9 @@ import Portfolio from "./components/Portfolio";
 import Footer from "./components/Footer";
 
 // Pages
+import SenvraManagement from "./Pages/Skills/SenvraManagement";
+import Uangqu from "./Pages/Skills/Uangqu";
+import Dnote from "./Pages/Skills/Dnote";
 import IoT from "./Pages/Skills/IoT";
 import LaptopStore from "./Pages/Skills/LaptopStore";
 import Covidid from "./Pages/Skills/Covidid";
@@ -21,6 +24,7 @@ import Nusaloka from "./Pages/Skills/Nusaloka";
 import Restauran from "./Pages/Skills/Restauran";
 import Senvra from "./Pages/Skills/Senvra";
 import Siom from "./Pages/Skills/Siom";
+import Network from "./Pages/Skills/Network";
 
 import Projects from "./Pages/Project/Projects";
 import CertificatesPage from "./Pages/Certificate/Certificates";
@@ -61,6 +65,11 @@ function App() {
       <Route path="/skills/Restauran" element={<Restauran />} />
       <Route path="/skills/Senvra" element={<Senvra />} />
       <Route path="/skills/Siom" element={<Siom />} />
+      <Route path="/skills/Network" element={<Network />} />
+      <Route path="/skills/SenvraManagement" element={<SenvraManagement />} /> 
+      <Route path="/skills/Uangqu" element={<Uangqu />} />
+      <Route path="/skills/Dnote" element={<Dnote />} />
+      
 
       {/* Projects */}
       <Route path="/projects" element={<Projects />} />

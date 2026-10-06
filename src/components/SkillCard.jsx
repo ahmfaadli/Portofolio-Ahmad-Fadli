@@ -5,6 +5,7 @@ export default function SkillCard({
   title,
   desc,
   to,
+  category,
 }) {
   const navigate = useNavigate();
 
@@ -23,36 +24,69 @@ export default function SkillCard({
     <div
       onClick={handleClick}
       className="
-      group
-      cursor-pointer
-      overflow-hidden
-      rounded-3xl
-      bg-[#170036]/70
-      border border-purple-700/30
-      backdrop-blur-md
-      transition-all
-      duration-500
-      hover:-translate-y-3
-      hover:border-purple-500
-      hover:shadow-[0_0_40px_rgba(168,85,247,.35)]
+        group
+        cursor-pointer
+        overflow-hidden
+        rounded-3xl
+        bg-[#170036]/70
+        border border-purple-700/30
+        backdrop-blur-md
+        transition-all
+        duration-500
+        hover:-translate-y-3
+        hover:border-purple-500
+        hover:shadow-[0_0_40px_rgba(168,85,247,.35)]
       "
     >
       {/* Cover */}
       <div className="relative h-56 overflow-hidden">
+
+        {/* Image */}
         <img
           src={image}
           alt={title}
           className="
-          w-full
-          h-full
-          object-cover
-          transition-transform
-          duration-700
-          group-hover:scale-110
+            w-full
+            h-full
+            object-cover
+            transition-transform
+            duration-700
+            group-hover:scale-110
           "
         />
 
+        {/* Gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#170036] via-transparent to-transparent" />
+
+        {/* Category */}
+        {category && (
+          <div
+            className="
+              absolute
+              top-4
+              left-4
+              z-10
+              px-4
+              py-1.5
+              rounded-full
+              bg-[#170036]/85
+              border
+              border-purple-400/40
+              text-purple-200
+              text-xs
+              sm:text-sm
+              font-semibold
+              backdrop-blur-md
+              shadow-lg
+              transition-all
+              duration-300
+              group-hover:bg-purple-600/80
+              group-hover:text-white
+            "
+          >
+            {category}
+          </div>
+        )}
       </div>
 
       {/* Content */}
@@ -68,12 +102,12 @@ export default function SkillCard({
         {to && (
           <button
             className="
-            mt-6
-            text-purple-400
-            font-medium
-            group-hover:translate-x-2
-            transition-transform
-            duration-300
+              mt-6
+              text-purple-400
+              font-medium
+              group-hover:translate-x-2
+              transition-transform
+              duration-300
             "
           >
             View Details →
