@@ -1,7 +1,47 @@
 import { lazy, Suspense, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-
 import StarIntro from "./components/StarIntro";
+
+const SenvraManagement = lazy(() =>
+  import("./Pages/Skills/SenvraManagement")
+);
+const Uangqu = lazy(() =>
+  import("./Pages/Skills/Uangqu")
+);
+const Dnote = lazy(() =>
+  import("./Pages/Skills/Dnote")
+);
+const IoT = lazy(() =>
+  import("./Pages/Skills/Smartroom")
+);
+const LaptopStore = lazy(() =>
+  import("./Pages/Skills/Senvrabuilding")
+);
+const Senvra = lazy(() =>
+  import("./Pages/Skills/Senvra")
+);
+const Restauran = lazy(() =>
+  import("./Pages/Skills/Restauran")
+);
+const Covidid = lazy(() =>
+  import("./Pages/Skills/Covidid")
+);
+const Sembako = lazy(() =>
+  import("./Pages/Skills/Sembako")
+);
+const Network = lazy(() =>
+  import("./Pages/Skills/Niblenset")
+);
+const Astro = lazy(() =>
+  import("./Pages/Skills/Astro")
+);
+const Siom = lazy(() =>
+  import("./Pages/Skills/Siom")
+);
+const CertificatesPage = lazy(() =>
+  import("./Pages/Certificate/Certificates")
+);
+
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skill from "./components/Skill";
@@ -10,53 +50,6 @@ import Work from "./components/Work";
 import Certificates from "./components/Certificates";
 import Portfolio from "./components/Portfolio";
 import Footer from "./components/Footer";
-
-// Pages
-const SenvraManagement = lazy(
-  () => import("./Pages/Skills/SenvraManagement")
-);
-
-const Uangqu = lazy(() => import("./Pages/Skills/Uangqu"));
-
-const Dnote = lazy(() => import("./Pages/Skills/Dnote"));
-
-const IoT = lazy(() => import("./Pages/Skills/Smartroom"));
-
-const LaptopStore = lazy(
-  () => import("./Pages/Skills/Senvrabuilding")
-);
-
-const Senvra = lazy(() => import("./Pages/Skills/Senvra"));
-
-const Restauran = lazy(() => import("./Pages/Skills/Restauran"));
-
-const Covidid = lazy(() => import("./Pages/Skills/Covidid"));
-
-const Sembako = lazy(() => import("./Pages/Skills/Sembako"));
-
-const Network = lazy(() => import("./Pages/Skills/Niblenset"));
-
-const Astro = lazy(() => import("./Pages/Skills/Astro"));
-
-const Siom = lazy(() => import("./Pages/Skills/Siom"));
-
-const CertificatesPage = lazy(
-  () => import("./Pages/Certificate/Certificates")
-);
-
-function PageLoading() {
-  return (
-    <div className="min-h-screen bg-[#160B2E] flex items-center justify-center">
-      <div className="text-center">
-        <div className="w-8 h-8 mx-auto mb-4 rounded-full border-2 border-purple-400/30 border-t-purple-400 animate-spin" />
-
-        <p className="text-sm text-white/60">
-          Loading...
-        </p>
-      </div>
-    </div>
-  );
-}
 
 function Home() {
   return (
@@ -73,7 +66,20 @@ function Home() {
   );
 }
 
-function App() {
+function PageLoading() {
+  return (
+    <div className="min-h-screen bg-[#160B2E] flex items-center justify-center">
+      <div className="text-center">
+        <div className="w-8 h-8 mx-auto mb-4 rounded-full border-2 border-purple-400/30 border-t-purple-400 animate-spin" />
+        <p className="text-sm text-white/60">
+          Loading...
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export default function App() {
   const [introDone, setIntroDone] = useState(false);
 
   if (!introDone) {
@@ -87,10 +93,8 @@ function App() {
   return (
     <Suspense fallback={<PageLoading />}>
       <Routes>
-        {/* Home */}
         <Route path="/" element={<Home />} />
 
-        {/* Skills */}
         <Route
           path="/skills/SenvraManagement"
           element={<SenvraManagement />}
@@ -142,16 +146,15 @@ function App() {
         />
 
         <Route
-          path="/skills/Siom"
-          element={<Siom />}
-        />
-
-        <Route
           path="/skills/Astro"
           element={<Astro />}
         />
 
-        {/* Certificates */}
+        <Route
+          path="/skills/Siom"
+          element={<Siom />}
+        />
+
         <Route
           path="/certificates"
           element={<CertificatesPage />}
@@ -160,5 +163,3 @@ function App() {
     </Suspense>
   );
 }
-
-export default App;

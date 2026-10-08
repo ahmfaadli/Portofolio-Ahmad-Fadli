@@ -13,11 +13,6 @@ export default function SkillCard({
     if (!to) return;
 
     navigate(to);
-
-    window.scrollTo({
-      top: 0,
-      behavior: "auto",
-    });
   };
 
   return (
