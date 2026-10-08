@@ -1,22 +1,22 @@
 export default function Education() {
   const companies = [
     {
-      logo: "https://i.top4top.io/p_3876s8u2z1.jpg",
+      logo: "../assets/work/work-1.webp",
     },
     {
-      logo: "https://f.top4top.io/p_38768eybu1.jpg",
+      logo: "../assets/work/work-2.webp",
     },
     {
-      logo: "https://h.top4top.io/p_3876brs5z1.jpg",
+      logo: "../assets/work/work-3.webp",
     },
     {
-      logo: "https://a.top4top.io/p_3876rv0221.jpg",
+      logo: "../assets/work/work-4.webp",
     },
     {
-      logo: "https://c.top4top.io/p_3876o2kbt1.jpg",
+      logo: "../assets/work/work-5.webp",
     },
     {
-      logo: "https://l.top4top.io/p_3876szq0c1.jpg",
+      logo: "../assets/work/work-6.webp",
     },
   ];
 

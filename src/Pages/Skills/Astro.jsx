@@ -47,7 +47,7 @@ export default function HTML5() {
         <div className="max-w-6xl mx-auto mb-4 sm:mb-5 md:mb-6">
           <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-purple-700/30 bg-[#120326]">
             <img
-              src="/assets/hook/covidid-hook.webp"
+              src="/assets/hook/astro-hook.webp"
               alt="Laptop E-Commerce"
               className="
                 w-full

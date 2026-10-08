@@ -25,6 +25,7 @@ import Restauran from "./Pages/Skills/Restauran";
 import Senvra from "./Pages/Skills/Senvra";
 import Siom from "./Pages/Skills/Siom";
 import Network from "./Pages/Skills/Network";
+import Astro from "./Pages/Skills/Astro";
 
 import Projects from "./Pages/Project/Projects";
 import CertificatesPage from "./Pages/Certificate/Certificates";
@@ -69,6 +70,7 @@ function App() {
       <Route path="/skills/SenvraManagement" element={<SenvraManagement />} /> 
       <Route path="/skills/Uangqu" element={<Uangqu />} />
       <Route path="/skills/Dnote" element={<Dnote />} />
+       <Route path="/skills/Astro" element={<Astro />} />
       
 
       {/* Projects */}

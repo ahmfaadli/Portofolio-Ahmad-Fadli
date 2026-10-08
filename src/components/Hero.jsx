@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
 import Button from "./Button";
-import HeroImage from "../assets/Hero-img.png";
 
 const container = {
   hidden: {},
@@ -17,7 +16,6 @@ const fadeUp = {
     opacity: 0,
     y: 24,
   },
-
   show: {
     opacity: 1,
     y: 0,
@@ -34,7 +32,6 @@ const imageAnimation = {
     scale: 0.94,
     x: 20,
   },
-
   show: {
     opacity: 1,
     scale: 1,
@@ -53,7 +50,6 @@ export default function Hero() {
     <section
       id="hero"
       className="
-        hero
         min-h-screen
         bg-gradient-to-r
         from-[#4c1d95]
@@ -69,6 +65,7 @@ export default function Hero() {
         py-10
         md:py-16
         text-white
+        overflow-hidden
       "
     >
       <motion.div
@@ -85,9 +82,7 @@ export default function Hero() {
           max-w-7xl
         "
       >
-        {/* =========================
-            KIRI - CONTENT
-        ========================== */}
+        {/* Konten */}
         <div
           className="
             space-y-6
@@ -104,6 +99,7 @@ export default function Hero() {
               sm:text-5xl
               lg:text-6xl
               font-bold
+              leading-tight
             "
           >
             Hi, Saya
@@ -117,6 +113,7 @@ export default function Hero() {
               max-w-xl
               mx-auto
               md:mx-0
+              leading-relaxed
             "
           >
             An individual who has an interest in the development and creation
@@ -135,21 +132,17 @@ export default function Hero() {
               pt-4
             "
           >
-            <Button href="./assets/CV-Ahmad Fadli-IT.pdf">
-              Download CV{" "}
-              <i className="ri-download-line ri-lg"></i>
+            <Button href="/assets/CV-Ahmad Fadli-IT.pdf">
+              Download CV <i className="ri-download-line ri-lg"></i>
             </Button>
 
             <Button href="#skills" variant="outline">
-              Lihat Proyek{" "}
-              <i className="ri-arrow-down-line ri-lg"></i>
+              Lihat Proyek <i className="ri-arrow-down-line ri-lg"></i>
             </Button>
           </motion.div>
         </div>
 
-        {/* =========================
-            KANAN - IMAGE
-        ========================== */}
+        {/* Gambar */}
         <motion.div
           variants={shouldReduceMotion ? undefined : imageAnimation}
           className="
@@ -158,17 +151,18 @@ export default function Hero() {
             md:justify-end
             order-1
             md:order-2
-
-            /* Turunkan gambar sedikit di mobile */
             translate-y-4
-
-            /* Kembali normal di desktop */
             md:translate-y-0
           "
         >
-          <motion.img
-            src={HeroImage}
+          <img
+            src="/assets/Hero-img.webp"
             alt="Ahmad Fadli"
+            width="520"
+            height="520"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
             className="
               w-[320px]
               sm:w-[400px]
@@ -176,6 +170,7 @@ export default function Hero() {
               xl:w-[520px]
               object-contain
               drop-shadow-2xl
+              select-none
             "
           />
         </motion.div>

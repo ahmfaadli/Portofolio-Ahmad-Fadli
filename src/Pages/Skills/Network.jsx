@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  X,
-  ExternalLink,
-  Github,
-  Code2,
-} from "lucide-react";
+import { X, ExternalLink, Github, Code2 } from "lucide-react";
 import Footer from "../../components/Footer";
 
 export default function HTML5() {
@@ -39,10 +34,7 @@ export default function HTML5() {
         {/* =========================
             HEADER
         ========================== */}
-        <div className="max-w-7xl mx-auto text-center mb-12 sm:mb-14 md:mb-16 lg:mb-20">
-          <span className="inline-block mb-3 sm:mb-4 px-3 sm:px-4 py-1 rounded-full bg-purple-700/20 text-purple-300 text-xs sm:text-sm">
-            Fullstack Web Developer
-          </span>
+        <div className="max-w-7xl mx-auto text-center mb-4 sm:mb-5 md:mb-6">
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
             Project Preview
@@ -55,7 +47,7 @@ export default function HTML5() {
         <div className="max-w-6xl mx-auto mb-4 sm:mb-5 md:mb-6">
           <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-purple-700/30 bg-[#120326]">
             <img
-              src="/assets/proyek/Laptopstore.png"
+              src="/assets/hook/laptopstore-hook.webp"
               alt="Laptop E-Commerce"
               className="
                 w-full
@@ -92,41 +84,33 @@ export default function HTML5() {
                   Laptop E-Commerce
                 </h2>
 
-                <p className="text-gray-300 text-sm sm:text-base max-w-3xl leading-6 sm:leading-7 mb-5 sm:mb-6">
-                  Website e-commerce untuk menampilkan, mengelola, dan
-                  melakukan pemesanan produk laptop. Project ini menggunakan
-                  React.js sebagai frontend dan Laravel sebagai backend yang
-                  terhubung dengan database MySQL.
-                </p>
-
                 {/* GitHub */}
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href="https://github.com/ahmfaadli/Niblenest_Laptop.git"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                      inline-flex
-                      items-center
-                      justify-center
-                      gap-2
-                      bg-gray-900/90
-                      hover:bg-gray-800
-                      border
-                      border-gray-700
-                      px-4
-                      sm:px-5
-                      py-2.5
-                      sm:py-3
-                      rounded-xl
-                      text-sm
-                      sm:text-base
-                      transition
-                    "
+                <div className="flex flex-wrap items-center gap-4">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      window.open(
+                        "https://github.com/ahmfaadli/Niblenest_Laptop.git",
+                        "_blank",
+                        "noopener,noreferrer",
+                      )
+                    }
+                    className="cursor-pointer inline-flex items-center gap-3 bg-gray-900/90 hover:bg-gray-800 border border-gray-700 hover:border-gray-500 px-6 py-3 rounded-xl transition-all duration-300"
                   >
-                    <Github size={18} />
-                    GitHub
-                  </a>
+                    <Github size={20} />
+                    <span>GitHub</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      window.open("#", "_blank", "noopener,noreferrer")
+                    }
+                    className="cursor-pointer inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl transition-all duration-300"
+                  >
+                    <span>Lihat Detail Project</span>
+                    <ExternalLink size={20} />
+                  </button>
                 </div>
               </div>
             </div>
@@ -162,17 +146,15 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              Laptop E-Commerce merupakan website yang dibuat untuk
-              menyediakan platform penjualan laptop secara online.
-              Website ini memungkinkan pengguna untuk melihat daftar
-              produk, mengetahui detail produk, dan melakukan proses
-              pemesanan.
-            </p>
-
-            <p className="text-gray-400 text-sm sm:text-base leading-6 sm:leading-7 mt-4">
-              Project ini dikembangkan sebagai implementasi pengembangan
-              aplikasi web fullstack dengan memisahkan bagian frontend,
-              backend, dan database.
+              DNote merupakan aplikasi pencatatan digital berbasis Flutter yang dirancang 
+              untuk membantu pengguna membuat dan mengelola catatan secara praktis dalam 
+              satu aplikasi. Aplikasi ini menggunakan Dart dan Flutter sebagai teknologi 
+              utama, dengan SQLite (Sqflite) untuk penyimpanan data secara lokal, Provider 
+              untuk pengelolaan state, Shared Preferences untuk penyimpanan data sederhana, 
+              serta Intl untuk kebutuhan pengolahan tanggal dan waktu. Project ini juga dilengkapi 
+              konfigurasi custom app icon dan native splash screen, sehingga selain berfokus pada 
+              fungsi pencatatan, pengembangan DNote juga memperhatikan struktur aplikasi, pengelolaan 
+              data lokal, dan pengalaman pengguna.
             </p>
           </div>
         </div>
@@ -240,12 +222,7 @@ export default function HTML5() {
    DOCUMENTATION CARD
 ============================================================ */
 
-const DocumentationCard = ({
-  image,
-  title,
-  desc,
-  onClick,
-}) => {
+const DocumentationCard = ({ image, title, desc, onClick }) => {
   return (
     <button
       type="button"
@@ -312,10 +289,7 @@ const DocumentationCard = ({
             </p>
           </div>
 
-          <ExternalLink
-            size={16}
-            className="shrink-0 text-purple-400 mt-1"
-          />
+          <ExternalLink size={16} className="shrink-0 text-purple-400 mt-1" />
         </div>
       </div>
     </button>
@@ -326,10 +300,7 @@ const DocumentationCard = ({
    IMAGE MODAL
 ============================================================ */
 
-const ImageModal = ({
-  image,
-  onClose,
-}) => {
+const ImageModal = ({ image, onClose }) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -337,24 +308,16 @@ const ImageModal = ({
       }
     };
 
-    document.addEventListener(
-      "keydown",
-      handleKeyDown
-    );
+    document.addEventListener("keydown", handleKeyDown);
 
-    const previousOverflow =
-      document.body.style.overflow;
+    const previousOverflow = document.body.style.overflow;
 
     document.body.style.overflow = "hidden";
 
     return () => {
-      document.removeEventListener(
-        "keydown",
-        handleKeyDown
-      );
+      document.removeEventListener("keydown", handleKeyDown);
 
-      document.body.style.overflow =
-        previousOverflow;
+      document.body.style.overflow = previousOverflow;
     };
   }, [onClose]);
 

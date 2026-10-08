@@ -392,7 +392,7 @@ export default function About() {
           >
             {/* Phone */}
             <a
-              href="085693757693"
+              href="https://wa.me/qr/MCN447TT7DU3D1"
               aria-label="Phone"
               className="
                 w-11

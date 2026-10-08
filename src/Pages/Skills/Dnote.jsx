@@ -35,9 +35,6 @@ export default function HTML5() {
             HEADER
         ========================== */}
         <div className="max-w-7xl mx-auto text-center mb-4 sm:mb-5 md:mb-6">
-          <span className="inline-block mb-3 sm:mb-4 px-3 sm:px-4 py-1 rounded-full bg-purple-700/20 text-purple-300 text-xs sm:text-sm">
-            Mobile App
-          </span>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
             Project Preview
@@ -50,7 +47,7 @@ export default function HTML5() {
         <div className="max-w-6xl mx-auto mb-4 sm:mb-5 md:mb-6">
           <div className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-purple-700/30 bg-[#120326]">
             <img
-              src="/assets/proyek/Laptopstore.png"
+              src="/assets/hook/dnote-hook.webp"
               alt="Laptop E-Commerce"
               className="
                 w-full
@@ -86,13 +83,6 @@ export default function HTML5() {
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
                   Laptop E-Commerce
                 </h2>
-
-                <p className="text-gray-300 text-sm sm:text-base max-w-3xl leading-6 sm:leading-7 mb-5 sm:mb-6">
-                  Website e-commerce untuk menampilkan, mengelola, dan melakukan
-                  pemesanan produk laptop. Project ini menggunakan React.js
-                  sebagai frontend dan Laravel sebagai backend yang terhubung
-                  dengan database MySQL.
-                </p>
 
                 {/* GitHub */}
                 <div className="flex flex-wrap items-center gap-4">

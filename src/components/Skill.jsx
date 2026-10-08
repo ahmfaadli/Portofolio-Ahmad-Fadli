@@ -4,84 +4,84 @@ export default function Skill() {
   const skills = [
     {
       category: "Mobile App",
-      image:"https://d.top4top.io/p_39304sw2o1.jpg",
+      image: "/assets/proyek/senvra-management.webp",
       title: "HR Employee Management",
       desc: "Employee management mobile application for managing attendance, jobdesk, meetings, employee data, and administrative requests",
       to: "/skills/SenvraManagement",
     },
     {
       category: "Mobile App",
-      image:"https://i.pinimg.com/736x/3a/e0/8f/3ae08fa3cf8ff746a34b929087d7f60f.jpg",
+      image: "/assets/proyek/uangqu.webp",
       title: "UangQu Personal Finance Management",
       desc: "Personal finance management application designed to help users track daily transactions, monitor monthly finances, and manage savings goals offline",
       to: "/skills/Uangqu",
     },
     {
       category: "Mobile App",
-      image:"https://h.top4top.io/p_3930r41ly1.jpg",
+      image: "/assets/proyek/dnote.webp",
       title: "dNote Personal Notes App",
-      desc: "Lightweight mobile note-taking application for creating, organizing, and managing personal notes with a simple and efficient interface ",
+      desc: "Lightweight mobile note-taking application for creating, organizing, and managing personal notes with a simple and efficient interface",
       to: "/skills/Dnote",
     },
     {
       category: "Web Developer",
-      image: "https://c.top4top.io/p_39247x7tw1.png",
+      image: "/assets/proyek/building-modeling.webp",
       title: "Building Modeling Service System",
       desc: "Web-based platform for managing home modeling services, project information, and customer service requests.",
-      to: "/skills/IoT",
+      to: "/skills/LaptopStore",
     },
     {
       category: "Web Developer",
-      image: "/assets/proyek/Senvra.png",
+      image: "/assets/proyek/senvra.webp",
       title: "Senvra Company Profile",
       desc: "Professional company profile website showcasing digital services, company information, and portfolio projects.",
       to: "/skills/Senvra",
     },
     {
       category: "Web Developer",
-      image: "/assets/proyek/Restauran.png",
-      title: "Mporos Restaurant Managemen",
+      image: "/assets/proyek/restauran.webp",
+      title: "Mporos Restaurant Management",
       desc: "Full-stack web-based restaurant management system for managing menus, categories, orders, and operational reports",
       to: "/skills/Restauran",
     },
     {
       category: "Web Developer",
-      image: "/assets/proyek/covidid.png",
+      image: "/assets/proyek/covidid.webp",
       title: "COVID-19 Information System",
       desc: "Web-based information system for presenting and monitoring COVID-19 data through REST API integration and dynamic data processing",
       to: "/skills/Covidid",
     },
     {
       category: "Web Developer",
-      image: "/assets/proyek/Sembako.png",
+      image: "/assets/proyek/sembako.webp",
       title: "Sembako E-Commerce",
       desc: "E-commerce platform for browsing daily essentials, managing product catalogs, and placing orders online",
       to: "/skills/Sembako",
     },
     {
-      category: "IoT Enginer",
-      image: "/assets/proyek/smartroom.jpg",
+      category: "IoT Engineer",
+      image: "/assets/proyek/smartroom.webp",
       title: "Smart Room IoT Monitoring & Control",
       desc: "IoT-based smart room system for real-time environmental monitoring and remote device control using ESP32, sensors, and a web-based interface",
       to: "/skills/IoT",
     },
     {
-      category: "UI/UX Desigr",
-      image: "/assets/proyek/Laptopstore.png",
+      category: "UI/UX Design",
+      image: "/assets/proyek/laptopstore.webp",
       title: "Sistem Pemesanan Laptop",
       desc: "UI/UX design for a laptop e-commerce platform, focusing on product discovery, catalog navigation, product details, and a streamlined ordering experience",
-      to: "/skills/LaptopStore",
+      to: "/skills/Network",
     },
     {
       category: "UI/UX Design",
-      image: "https://b.top4top.io/p_39262w1d51.png",
+      image: "/assets/proyek/astro.webp",
       title: "Astro Event Management Platform",
       desc: "UI/UX design for a student event management platform, focusing on intuitive navigation, event information, registration flow, and user experience",
-      to: "/skills/Siom",
+      to: "/skills/Astro",
     },
     {
       category: "UI/UX Design",
-      image: "https://j.top4top.io/p_3906ppbq11.jpg",
+      image: "/assets/proyek/siom.webp",
       title: "Student Organization Management System",
       desc: "UI/UX design for a student organization platform designed to simplify organizational activities, information management, and user navigation.",
       to: "/skills/Siom",
@@ -114,7 +114,6 @@ export default function Skill() {
       "
     >
       <div className="max-w-7xl mx-auto">
-
         {/* Header */}
         <div
           className="
@@ -176,8 +175,9 @@ export default function Skill() {
               sm:px-4
             "
           >
-            Explore my IT projects, showcasing my experience in software development, 
-            web development, UI/UX design, Internet of Things, and system development
+            Explore my IT projects, showcasing my experience in software
+            development, web development, UI/UX design, Internet of Things,
+            and system development
           </p>
         </div>
 
@@ -204,7 +204,6 @@ export default function Skill() {
             />
           ))}
         </div>
-
       </div>
     </section>
   );
