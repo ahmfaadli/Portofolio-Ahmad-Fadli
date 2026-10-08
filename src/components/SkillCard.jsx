@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function SkillCard({
   image,
@@ -7,26 +7,18 @@ export default function SkillCard({
   to,
   category,
 }) {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    if (!to) return;
-
-    navigate(to);
-  };
-
   return (
-    <div
-      onClick={handleClick}
+    <Link
+      to={to || "#"}
       className="
         group
-        cursor-pointer
+        block
         overflow-hidden
         rounded-3xl
         bg-[#170036]/70
         border
         border-purple-700/30
-        transition-all
+        transition-transform
         duration-300
         hover:-translate-y-2
         hover:border-purple-500
@@ -40,7 +32,10 @@ export default function SkillCard({
           alt={title}
           loading="lazy"
           decoding="async"
+          width="800"
+          height="450"
           className="
+            block
             w-full
             h-full
             object-cover
@@ -59,6 +54,7 @@ export default function SkillCard({
             from-[#170036]
             via-transparent
             to-transparent
+            pointer-events-none
           "
         />
 
@@ -96,9 +92,9 @@ export default function SkillCard({
       <div className="p-6">
         <h3
           className="
+            mb-3
             text-2xl
             font-bold
-            mb-3
             transition-colors
             duration-300
             group-hover:text-purple-300
@@ -107,26 +103,26 @@ export default function SkillCard({
           {title}
         </h3>
 
-        <p className="text-gray-300 text-sm leading-7">
+        <p className="text-sm leading-7 text-gray-300">
           {desc}
         </p>
 
         {to && (
-          <button
-            type="button"
+          <span
             className="
               mt-6
-              text-purple-400
+              inline-block
               font-medium
+              text-purple-400
               transition-transform
               duration-300
               group-hover:translate-x-1
             "
           >
             View Details →
-          </button>
+          </span>
         )}
       </div>
-    </div>
+    </Link>
   );
 }

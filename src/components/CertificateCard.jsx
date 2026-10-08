@@ -4,40 +4,46 @@ export default function CertificateCard({
   onClick,
 }) {
   return (
-    <div
+    <button
+      type="button"
       onClick={onClick}
+      aria-label={`View certificate: ${title}`}
       className="
-        cursor-pointer
         group
-        rounded-xl
-        sm:rounded-2xl
+        w-full
         overflow-hidden
-        bg-white/5
+        rounded-xl
         border
         border-white/10
-        hover:border-purple-500
-        hover:-translate-y-1
+        bg-white/5
+        text-left
         transition-transform
         duration-300
+        hover:-translate-y-1
+        hover:border-purple-500
+        focus:outline-none
+        focus-visible:ring-2
+        focus-visible:ring-purple-500
+        sm:rounded-2xl
       "
     >
       {/* Certificate Image */}
-      <div className="overflow-hidden">
+      <div className="aspect-[4/3] overflow-hidden">
         <img
           src={image}
           alt={title}
           loading="lazy"
           decoding="async"
+          width="800"
+          height="600"
           className="
+            block
+            h-full
             w-full
-            h-24
-            sm:h-32
-            md:h-44
-            lg:h-72
             object-cover
-            group-hover:scale-105
             transition-transform
             duration-500
+            group-hover:scale-105
           "
         />
       </div>
@@ -53,13 +59,13 @@ export default function CertificateCard({
       >
         <h2
           className="
+            truncate
             text-[10px]
+            font-semibold
+            text-white
             sm:text-xs
             md:text-sm
             lg:text-lg
-            font-semibold
-            text-white
-            truncate
           "
         >
           {title}
@@ -67,18 +73,18 @@ export default function CertificateCard({
 
         <p
           className="
+            mt-1
             text-[8px]
+            text-gray-400
+            sm:mt-2
             sm:text-[10px]
             md:text-xs
             lg:text-sm
-            text-gray-400
-            mt-1
-            sm:mt-2
           "
         >
           Certificate
         </p>
       </div>
-    </div>
+    </button>
   );
 }

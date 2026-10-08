@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { X } from "lucide-react";
 import CertificateCard from "./CertificateCard";
@@ -86,7 +86,9 @@ export default function Certificates() {
   };
 
   const handleNext = () => {
-    if (!selected || selected.images.length <= 1) return;
+    if (!selected || selected.images.length <= 1) {
+      return;
+    }
 
     setCurrentImage((prev) =>
       prev === selected.images.length - 1 ? 0 : prev + 1
@@ -94,43 +96,65 @@ export default function Certificates() {
   };
 
   const handlePrevious = () => {
-    if (!selected || selected.images.length <= 1) return;
+    if (!selected || selected.images.length <= 1) {
+      return;
+    }
 
     setCurrentImage((prev) =>
       prev === 0 ? selected.images.length - 1 : prev - 1
     );
   };
 
-  const handleKeyDown = (event) => {
-    if (!selected) return;
-
-    if (event.key === "Escape") {
-      handleClose();
+  useEffect(() => {
+    if (!selected) {
       return;
     }
 
-    if (event.key === "ArrowRight") {
-      handleNext();
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        handleClose();
+      }
+
+      if (event.key === "ArrowRight") {
+        handleNext();
+      }
+
+      if (event.key === "ArrowLeft") {
+        handlePrevious();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selected]);
+
+  useEffect(() => {
+    if (!selected) {
+      document.body.style.overflow = "";
       return;
     }
 
-    if (event.key === "ArrowLeft") {
-      handlePrevious();
-    }
-  };
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selected]);
 
   return (
     <section
       id="certificates"
       className="
-        pt-20
-        pb-20
-        px-4
-        sm:px-5
         bg-gradient-to-br
         from-[#0a0118]
         via-[#18002e]
         to-[#26006a]
+        px-4
+        pt-20
+        pb-20
         max-lg:pt-16
         max-lg:pb-16
         max-md:pt-14
@@ -139,26 +163,24 @@ export default function Certificates() {
         max-sm:pb-12
         max-[374px]:pt-10
         max-[374px]:pb-10
+        sm:px-5
       "
-      onKeyDown={handleKeyDown}
-      tabIndex={-1}
     >
-      <div className="max-w-7xl mx-auto px-1 sm:px-2 lg:px-6">
-
+      <div className="mx-auto max-w-7xl px-1 sm:px-2 lg:px-6">
         {/* Header */}
         <div className="text-center">
           <span
             className="
               inline-block
-              px-3
-              sm:px-4
-              py-1
               rounded-full
-              bg-purple-600/20
-              text-purple-300
               border
               border-purple-500/30
+              bg-purple-600/20
+              px-3
+              py-1
               text-xs
+              text-purple-300
+              sm:px-4
               sm:text-sm
             "
           >
@@ -168,12 +190,13 @@ export default function Certificates() {
           <h2
             className="
               mt-4
-              sm:mt-5
               text-3xl
-              sm:text-4xl
-              md:text-5xl
               font-extrabold
               leading-tight
+              text-white
+              sm:mt-5
+              sm:text-4xl
+              md:text-5xl
             "
           >
             My Certificates
@@ -181,16 +204,16 @@ export default function Certificates() {
 
           <p
             className="
-              text-gray-400
-              mt-4
-              sm:mt-5
-              max-w-2xl
               mx-auto
+              mt-4
+              max-w-2xl
               text-xs
-              sm:text-sm
-              md:text-base
               leading-6
+              text-gray-400
+              sm:mt-5
+              sm:text-sm
               sm:leading-7
+              md:text-base
             "
           >
             A collection of certificates obtained from various training
@@ -201,15 +224,15 @@ export default function Certificates() {
         {/* Certificate Grid */}
         <div
           className="
+            mt-12
             grid
             grid-cols-3
             gap-2
+            sm:mt-16
             sm:gap-4
             md:gap-6
-            lg:gap-8
-            mt-12
-            sm:mt-16
             lg:mt-20
+            lg:gap-8
           "
         >
           {certificates.map((certificate) => (
@@ -225,9 +248,9 @@ export default function Certificates() {
         {/* Show More */}
         <div
           className="
+            mt-10
             flex
             justify-center
-            mt-10
             sm:mt-12
             lg:mt-14
           "
@@ -240,31 +263,30 @@ export default function Certificates() {
               items-center
               justify-center
               gap-2
-              sm:gap-3
-              px-5
-              sm:px-6
-              md:px-7
-              py-3
-              sm:py-3.5
+              whitespace-nowrap
               rounded-full
               border
               border-purple-400/40
               bg-purple-500/10
-              text-white
-              font-semibold
+              px-5
+              py-3
               text-xs
-              sm:text-sm
-              md:text-base
-              backdrop-blur-sm
-              transition-all
+              font-semibold
+              text-white
+              transition-transform
               duration-300
-              hover:bg-purple-500
+              hover:-translate-y-1
               hover:border-purple-400
+              hover:bg-purple-500
               hover:shadow-lg
               hover:shadow-purple-500/30
-              hover:-translate-y-1
               active:scale-95
-              whitespace-nowrap
+              sm:gap-3
+              sm:px-6
+              sm:py-3.5
+              sm:text-sm
+              md:px-7
+              md:text-base
             "
           >
             <span>Show More Certificates</span>
@@ -272,11 +294,11 @@ export default function Certificates() {
             <span
               className="
                 text-base
-                sm:text-lg
-                md:text-xl
                 transition-transform
                 duration-300
                 group-hover:translate-x-1
+                sm:text-lg
+                md:text-xl
               "
             >
               →
@@ -292,51 +314,52 @@ export default function Certificates() {
             fixed
             inset-0
             z-50
-            bg-black/80
-            backdrop-blur-md
             flex
             items-center
             justify-center
+            bg-black/80
             p-3
             sm:p-6
           "
           onClick={handleClose}
+          role="dialog"
+          aria-modal="true"
+          aria-label={selected.title}
         >
           <div
             className="
               relative
+              flex
               w-full
               max-w-6xl
-              flex
               flex-col
               items-center
               justify-center
             "
             onClick={(event) => event.stopPropagation()}
           >
-
             {/* Close Button */}
             <button
               type="button"
               onClick={handleClose}
-              aria-label="Close image"
+              aria-label="Close certificate"
               className="
                 absolute
-                top-2
                 right-2
-                sm:top-4
-                sm:right-4
-                lg:top-6
-                lg:right-6
+                top-2
                 z-50
                 text-white
+                transition-colors
                 hover:text-purple-400
-                transition
+                sm:right-4
+                sm:top-4
+                lg:right-6
+                lg:top-6
               "
             >
               <X
                 size={32}
-                className="sm:w-9 sm:h-9"
+                className="sm:h-9 sm:w-9"
               />
             </button>
 
@@ -344,13 +367,12 @@ export default function Certificates() {
             <div
               className="
                 relative
-                w-full
                 flex
+                w-full
                 items-center
                 justify-center
               "
             >
-
               {/* Previous Button */}
               {selected.images.length > 1 && (
                 <button
@@ -360,28 +382,26 @@ export default function Certificates() {
                   className="
                     absolute
                     left-1
-                    sm:left-4
-                    lg:left-8
                     z-20
-                    w-10
-                    h-10
-                    sm:w-12
-                    sm:h-12
-                    rounded-full
-                    bg-black/60
-                    border
-                    border-white/10
-                    text-white
-                    text-lg
-                    sm:text-xl
                     flex
+                    h-10
+                    w-10
                     items-center
                     justify-center
-                    hover:bg-purple-600
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-black/60
+                    text-lg
+                    text-white
+                    transition-colors
                     hover:border-purple-400
-                    transition-all
-                    duration-300
-                    backdrop-blur-sm
+                    hover:bg-purple-600
+                    sm:left-4
+                    sm:h-12
+                    sm:w-12
+                    sm:text-xl
+                    lg:left-8
                   "
                 >
                   ←
@@ -393,19 +413,20 @@ export default function Certificates() {
                 src={selected.images[currentImage]}
                 alt={`${selected.title} - ${currentImage + 1}`}
                 decoding="async"
+                width="1600"
+                height="1200"
                 className="
-                  rounded-xl
-                  sm:rounded-2xl
                   max-h-[75vh]
-                  sm:max-h-[82vh]
-                  lg:max-h-[88vh]
                   max-w-[90%]
-                  sm:max-w-[88%]
-                  lg:max-w-[85%]
-                  w-auto
+                  select-none
+                  rounded-xl
                   object-contain
                   shadow-2xl
-                  select-none
+                  sm:max-h-[82vh]
+                  sm:max-w-[88%]
+                  sm:rounded-2xl
+                  lg:max-h-[88vh]
+                  lg:max-w-[85%]
                 "
               />
 
@@ -418,28 +439,26 @@ export default function Certificates() {
                   className="
                     absolute
                     right-1
-                    sm:right-4
-                    lg:right-8
                     z-20
-                    w-10
-                    h-10
-                    sm:w-12
-                    sm:h-12
-                    rounded-full
-                    bg-black/60
-                    border
-                    border-white/10
-                    text-white
-                    text-lg
-                    sm:text-xl
                     flex
+                    h-10
+                    w-10
                     items-center
                     justify-center
-                    hover:bg-purple-600
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-black/60
+                    text-lg
+                    text-white
+                    transition-colors
                     hover:border-purple-400
-                    transition-all
-                    duration-300
-                    backdrop-blur-sm
+                    hover:bg-purple-600
+                    sm:right-4
+                    sm:h-12
+                    sm:w-12
+                    sm:text-xl
+                    lg:right-8
                   "
                 >
                   →
@@ -449,32 +468,18 @@ export default function Certificates() {
 
             {/* Image Indicator */}
             {selected.images.length > 1 && (
-              <div
-                className="
-                  flex
-                  items-center
-                  justify-center
-                  gap-2
-                  mt-4
-                  sm:mt-5
-                "
-              >
+              <div className="mt-4 flex items-center justify-center gap-2 sm:mt-5">
                 {selected.images.map((_, index) => (
                   <button
                     key={index}
                     type="button"
                     onClick={() => setCurrentImage(index)}
                     aria-label={`Go to image ${index + 1}`}
-                    className={`
-                      rounded-full
-                      transition-all
-                      duration-300
-                      ${
-                        currentImage === index
-                          ? "w-6 h-2 bg-purple-500"
-                          : "w-2 h-2 bg-white/40 hover:bg-white/70"
-                      }
-                    `}
+                    className={
+                      currentImage === index
+                        ? "h-2 w-6 rounded-full bg-purple-500"
+                        : "h-2 w-2 rounded-full bg-white/40 transition-colors hover:bg-white/70"
+                    }
                   />
                 ))}
               </div>
@@ -483,13 +488,13 @@ export default function Certificates() {
             {/* Title */}
             <p
               className="
-                text-center
                 mt-3
-                sm:mt-4
+                text-center
                 text-sm
-                sm:text-lg
-                text-gray-300
                 font-medium
+                text-gray-300
+                sm:mt-4
+                sm:text-lg
               "
             >
               {selected.title}
@@ -497,14 +502,7 @@ export default function Certificates() {
 
             {/* Image Counter */}
             {selected.images.length > 1 && (
-              <p
-                className="
-                  text-xs
-                  sm:text-sm
-                  text-gray-500
-                  mt-1
-                "
-              >
+              <p className="mt-1 text-xs text-gray-500 sm:text-sm">
                 {currentImage + 1} / {selected.images.length}
               </p>
             )}

@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import SkillCard from "./SkillCard";
 
 const skills = [
@@ -70,7 +69,7 @@ const skills = [
     image: "/assets/proyek/laptopstore.webp",
     title: "Sistem Pemesanan Laptop",
     desc: "UI/UX design for a laptop e-commerce platform, focusing on product discovery, catalog navigation, product details, and a streamlined ordering experience",
-    to: "/skills/Niblenest",
+    to: "/skills/Niblenset",
   },
   {
     category: "UI/UX Design",
@@ -88,61 +87,6 @@ const skills = [
   },
 ];
 
-function LazyProjectGrid() {
-  const gridRef = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const element = gridRef.current;
-
-    if (!element) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      {
-        rootMargin: "200px 0px",
-      }
-    );
-
-    observer.observe(element);
-
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={gridRef}
-      className="
-        grid
-        grid-cols-1
-        sm:grid-cols-2
-        lg:grid-cols-3
-        gap-5
-        sm:gap-6
-        lg:gap-8
-      "
-    >
-      {visible
-        ? skills.map((skill) => (
-            <SkillCard
-              key={skill.to}
-              image={skill.image}
-              title={skill.title}
-              desc={skill.desc}
-              to={skill.to}
-              category={skill.category}
-            />
-          ))
-        : null}
-    </div>
-  );
-}
-
 export default function Skill() {
   return (
     <section
@@ -153,8 +97,16 @@ export default function Skill() {
         from-[#0a0118]
         via-[#170036]
         to-[#26006a]
+        px-4
         pt-20
         pb-20
+        text-white
+        sm:px-6
+        sm:pt-20
+        sm:pb-20
+        lg:px-8
+        lg:pt-20
+        lg:pb-20
         max-lg:pt-16
         max-lg:pb-16
         max-md:pt-14
@@ -163,38 +115,34 @@ export default function Skill() {
         max-sm:pb-12
         max-[374px]:pt-10
         max-[374px]:pb-10
-        px-4
-        sm:px-6
-        lg:px-8
-        text-white
       "
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div
           className="
-            text-center
             mb-10
+            px-1
+            text-center
             sm:mb-12
             md:mb-16
             lg:mb-20
-            px-1
           "
         >
           <span
             className="
               inline-block
-              px-3
-              sm:px-4
-              py-1
               rounded-full
-              bg-purple-600/20
-              text-purple-300
-              text-xs
-              sm:text-sm
-              font-medium
               border
               border-purple-500/30
+              bg-purple-600/20
+              px-3
+              py-1
+              text-xs
+              font-medium
+              text-purple-300
+              sm:px-4
+              sm:text-sm
             "
           >
             Portfolio
@@ -203,13 +151,13 @@ export default function Skill() {
           <h2
             className="
               mt-4
-              sm:mt-5
               text-3xl
+              font-extrabold
+              leading-tight
+              sm:mt-5
               sm:text-4xl
               md:text-5xl
               lg:text-6xl
-              font-extrabold
-              leading-tight
             "
           >
             My Projects
@@ -217,18 +165,18 @@ export default function Skill() {
 
           <p
             className="
-              mt-4
-              sm:mt-5
-              max-w-3xl
               mx-auto
-              text-gray-300
-              text-sm
-              sm:text-base
-              lg:text-lg
-              leading-7
-              sm:leading-8
+              mt-4
+              max-w-3xl
               px-1
+              text-sm
+              leading-7
+              text-gray-300
+              sm:mt-5
               sm:px-4
+              sm:text-base
+              sm:leading-8
+              lg:text-lg
             "
           >
             Explore my IT projects, showcasing my experience in software
@@ -238,7 +186,28 @@ export default function Skill() {
         </div>
 
         {/* Project Grid */}
-        <LazyProjectGrid />
+        <div
+          className="
+            grid
+            grid-cols-1
+            gap-5
+            sm:grid-cols-2
+            sm:gap-6
+            lg:grid-cols-3
+            lg:gap-8
+          "
+        >
+          {skills.map((skill) => (
+            <SkillCard
+              key={skill.to}
+              image={skill.image}
+              title={skill.title}
+              desc={skill.desc}
+              to={skill.to}
+              category={skill.category}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
