@@ -8,23 +8,8 @@ export default function HTML5() {
   // Dokumentasi project
   const documentation = [
     {
-      image: "/assets/documentation2/DiagramNiblenest.jpg",
+      image: "/assets/covidid/dokumen1.webp",
       title: "Flow Chart",
-    },
-    {
-      image: "/assets/documentation2/UseCase.jpg",
-      title: "Use Case Diagram",
-      desc: "Interaksi user dengan sistem.",
-    },
-    {
-      image: "/assets/documentation2/DatabaseSchema.jfif",
-      title: "Database Schema",
-      desc: "Struktur dan relasi database.",
-    },
-    {
-      image: "/assets/documentation2/UI.png",
-      title: "UI Design",
-      desc: "Rancangan tampilan website.",
     },
   ];
 
@@ -81,7 +66,7 @@ export default function HTML5() {
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
-                  Laptop E-Commerce
+                  COVID-19 Website Monitoring Data COVID-19
                 </h2>
 
                 {/* GitHub */}
@@ -90,7 +75,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://github.com/ahmfaadli/Niblenest_Laptop.git",
+                        "https://github.com/ahmfaadli/Covid19-Monitoring.git",
                         "_blank",
                         "noopener,noreferrer",
                       )
@@ -104,7 +89,11 @@ export default function HTML5() {
                   <button
                     type="button"
                     onClick={() =>
-                      window.open("#", "_blank", "noopener,noreferrer")
+                      window.open(
+                        "https://uasproject-faad.vercel.app/",
+                        "_blank",
+                        "noopener,noreferrer",
+                      )
                     }
                     className="cursor-pointer inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl transition-all duration-300"
                   >
@@ -146,15 +135,16 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              DNote merupakan aplikasi pencatatan digital berbasis Flutter yang dirancang 
-              untuk membantu pengguna membuat dan mengelola catatan secara praktis dalam 
-              satu aplikasi. Aplikasi ini menggunakan Dart dan Flutter sebagai teknologi 
-              utama, dengan SQLite (Sqflite) untuk penyimpanan data secara lokal, Provider 
-              untuk pengelolaan state, Shared Preferences untuk penyimpanan data sederhana, 
-              serta Intl untuk kebutuhan pengolahan tanggal dan waktu. Project ini juga dilengkapi 
-              konfigurasi custom app icon dan native splash screen, sehingga selain berfokus pada 
-              fungsi pencatatan, pengembangan DNote juga memperhatikan struktur aplikasi, pengelolaan 
-              data lokal, dan pengalaman pengguna.
+              COVID-19 Monitoring merupakan aplikasi web yang dikembangkan untuk menampilkan 
+              dan memantau informasi kasus COVID-19 secara terstruktur, baik berdasarkan data 
+              global maupun Indonesia hingga tingkat provinsi. Aplikasi ini dibangun menggunakan 
+              JavaScript dengan React dan Vite, serta memanfaatkan Axios untuk mengambil data 
+              dari API dan React Router untuk mengatur navigasi antarhalaman. Fitur yang tersedia 
+              meliputi tampilan statistik COVID-19 global, informasi kasus di Indonesia, tabel 
+              data setiap provinsi, halaman informasi COVID-19, serta form untuk memperbarui data 
+              kasus provinsi secara langsung pada aplikasi. Pengembangan project ini berfokus pada 
+              penyajian data yang informatif dan mudah dipahami melalui antarmuka web yang responsif 
+              dan terorganisir.
             </p>
           </div>
         </div>

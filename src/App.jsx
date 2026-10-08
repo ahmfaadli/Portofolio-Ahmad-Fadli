@@ -15,19 +15,16 @@ import Footer from "./components/Footer";
 import SenvraManagement from "./Pages/Skills/SenvraManagement";
 import Uangqu from "./Pages/Skills/Uangqu";
 import Dnote from "./Pages/Skills/Dnote";
-import IoT from "./Pages/Skills/IoT";
-import LaptopStore from "./Pages/Skills/LaptopStore";
-import Covidid from "./Pages/Skills/Covidid";
-import Moveapp from "./Pages/Skills/Moveapp";
-import Sembako from "./Pages/Skills/Sembako";
-import Nusaloka from "./Pages/Skills/Nusaloka";
-import Restauran from "./Pages/Skills/Restauran";
+import LaptopStore from "./Pages/Skills/Senvrabuilding";
 import Senvra from "./Pages/Skills/Senvra";
-import Siom from "./Pages/Skills/Siom";
-import Network from "./Pages/Skills/Network";
+import Restauran from "./Pages/Skills/Restauran";
+import Covidid from "./Pages/Skills/Covidid";
+import Sembako from "./Pages/Skills/Sembako";
+import IoT from "./Pages/Skills/Smartroom";
+import Network from "./Pages/Skills/Niblenset";
 import Astro from "./Pages/Skills/Astro";
+import Siom from "./Pages/Skills/Siom";
 
-import Projects from "./Pages/Project/Projects";
 import CertificatesPage from "./Pages/Certificate/Certificates";
 
 function App() {
@@ -57,24 +54,20 @@ function App() {
       />
 
       {/* Skills */}
-      <Route path="/skills/IoT" element={<IoT />} />
-      <Route path="/skills/LaptopStore" element={<LaptopStore />} />
-      <Route path="/skills/Covidid" element={<Covidid />} />
-      <Route path="/skills/Moveapp" element={<Moveapp />} />
-      <Route path="/skills/Sembako" element={<Sembako />} />
-      <Route path="/skills/Nusaloka" element={<Nusaloka />} />
-      <Route path="/skills/Restauran" element={<Restauran />} />
-      <Route path="/skills/Senvra" element={<Senvra />} />
-      <Route path="/skills/Siom" element={<Siom />} />
-      <Route path="/skills/Network" element={<Network />} />
-      <Route path="/skills/SenvraManagement" element={<SenvraManagement />} /> 
+      <Route path="/skills/SenvraManagement" element={<SenvraManagement />} />
       <Route path="/skills/Uangqu" element={<Uangqu />} />
       <Route path="/skills/Dnote" element={<Dnote />} />
-       <Route path="/skills/Astro" element={<Astro />} />
-      
+      <Route path="/skills/Smartroom" element={<IoT />} />
+      <Route path="/skills/Senvrabuilding" element={<LaptopStore />} />
+      <Route path="/skills/Senvra" element={<Senvra />} />
+      <Route path="/skills/Restauran" element={<Restauran />} />
+      <Route path="/skills/Covidid" element={<Covidid />} />
+      <Route path="/skills/Sembako" element={<Sembako />} />
+      <Route path="/skills/Niblenset" element={<Network />} />
+      <Route path="/skills/Siom" element={<Siom />} />
+      <Route path="/skills/Astro" element={<Astro />} />
 
       {/* Projects */}
-      <Route path="/projects" element={<Projects />} />
       <Route path="/certificates" element={<CertificatesPage />} />
     </Routes>
   );

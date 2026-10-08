@@ -90,7 +90,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://github.com/ahmfaadli/Niblenest_Laptop.git",
+                        "https://github.com/ahmfaadli/senvra-Building.git",
                         "_blank",
                         "noopener,noreferrer",
                       )
@@ -103,8 +103,12 @@ export default function HTML5() {
 
                   <button
                     type="button"
-                    onClick={() =>
-                      window.open("#", "_blank", "noopener,noreferrer")
+                      onClick={() =>
+                      window.open(
+                        "https://github.com/ahmfaadli/senvra-Building.git",
+                        "_blank",
+                        "noopener,noreferrer",
+                      )
                     }
                     className="cursor-pointer inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl transition-all duration-300"
                   >

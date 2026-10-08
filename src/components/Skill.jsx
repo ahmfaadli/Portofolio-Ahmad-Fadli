@@ -12,14 +12,14 @@ export default function Skill() {
     {
       category: "Mobile App",
       image: "/assets/proyek/uangqu.webp",
-      title: "UangQu Personal Finance Management",
+      title: "Personal Finance Management",
       desc: "Personal finance management application designed to help users track daily transactions, monitor monthly finances, and manage savings goals offline",
       to: "/skills/Uangqu",
     },
     {
       category: "Mobile App",
       image: "/assets/proyek/dnote.webp",
-      title: "dNote Personal Notes App",
+      title: "Personal Notes App",
       desc: "Lightweight mobile note-taking application for creating, organizing, and managing personal notes with a simple and efficient interface",
       to: "/skills/Dnote",
     },
@@ -28,7 +28,7 @@ export default function Skill() {
       image: "/assets/proyek/building-modeling.webp",
       title: "Building Modeling Service System",
       desc: "Web-based platform for managing home modeling services, project information, and customer service requests.",
-      to: "/skills/LaptopStore",
+      to: "/skills/Senvrabuilding",
     },
     {
       category: "Web Developer",
@@ -63,14 +63,14 @@ export default function Skill() {
       image: "/assets/proyek/smartroom.webp",
       title: "Smart Room IoT Monitoring & Control",
       desc: "IoT-based smart room system for real-time environmental monitoring and remote device control using ESP32, sensors, and a web-based interface",
-      to: "/skills/IoT",
+      to: "/skills/Smartroom",
     },
     {
       category: "UI/UX Design",
       image: "/assets/proyek/laptopstore.webp",
       title: "Sistem Pemesanan Laptop",
       desc: "UI/UX design for a laptop e-commerce platform, focusing on product discovery, catalog navigation, product details, and a streamlined ordering experience",
-      to: "/skills/Network",
+      to: "/skills/Niblenest",
     },
     {
       category: "UI/UX Design",

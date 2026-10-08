@@ -8,23 +8,20 @@ export default function HTML5() {
   // Dokumentasi project
   const documentation = [
     {
-      image: "/assets/documentation2/DiagramNiblenest.jpg",
+      image: "/assets/senvra-hr/dokumen2.webp",
       title: "Flow Chart",
     },
     {
-      image: "/assets/documentation2/UseCase.jpg",
+      image: "/assets/senvra-hr/dokumen2.webp",
       title: "Use Case Diagram",
-      desc: "Interaksi user dengan sistem.",
     },
     {
-      image: "/assets/documentation2/DatabaseSchema.jfif",
-      title: "Database Schema",
-      desc: "Struktur dan relasi database.",
+      image: "/assets/senvra-hr/dokumen3.webp",
+      title: "Use Case Diagram",
     },
     {
-      image: "/assets/documentation2/UI.png",
-      title: "UI Design",
-      desc: "Rancangan tampilan website.",
+      image: "/assets/senvra-hr/dokumen4.webp",
+      title: "Desain Data bases",
     },
   ];
 
@@ -68,20 +65,20 @@ export default function HTML5() {
                 {/* Technology */}
                 <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    React.js
+                    React Native
                   </span>
 
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    Laravel
+                    Expo
                   </span>
 
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    MySQL
+                    Supabase
                   </span>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
-                  Laptop E-Commerce
+                  Senvra Aplikasi Manajemen Karyawan Terintegrasi
                 </h2>
 
                 {/* GitHub */}
@@ -90,7 +87,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://github.com/ahmfaadli/Niblenest_Laptop.git",
+                        "https://github.com/ahmfaadli/senvra-app.git",
                         "_blank",
                         "noopener,noreferrer",
                       )
@@ -103,8 +100,11 @@ export default function HTML5() {
 
                   <button
                     type="button"
-                    onClick={() =>
-                      window.open("#", "_blank", "noopener,noreferrer")
+                    onClick={() => 
+                      window.open(
+                        "https://expo.dev/accounts/senvraid/projects/senvra-app/builds/96634a8c-1533-475a-90d2-43a4c130a917", 
+                        "_blank", 
+                        "noopener,noreferrer")
                     }
                     className="cursor-pointer inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl transition-all duration-300"
                   >

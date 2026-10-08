@@ -68,11 +68,11 @@ export default function HTML5() {
                 {/* Technology */}
                 <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    React.js
+                    HTML, CSS, JavaScript
                   </span>
 
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    Laravel
+                    PHP
                   </span>
 
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
@@ -81,7 +81,7 @@ export default function HTML5() {
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
-                  Laptop E-Commerce
+                  Faadmart Sistem Informasi Penjualan dan Manajemen Toko Sembako
                 </h2>
 
                 {/* GitHub */}
@@ -90,7 +90,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://github.com/ahmfaadli/Niblenest_Laptop.git",
+                        "https://github.com/ahmfaadli/Sembako-app.git",
                         "_blank",
                         "noopener,noreferrer",
                       )
@@ -104,7 +104,11 @@ export default function HTML5() {
                   <button
                     type="button"
                     onClick={() =>
-                      window.open("#", "_blank", "noopener,noreferrer")
+                      window.open(
+                        "#",
+                        "_blank",
+                        "noopener,noreferrer",
+                      )
                     }
                     className="cursor-pointer inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl transition-all duration-300"
                   >
@@ -146,15 +150,16 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              DNote merupakan aplikasi pencatatan digital berbasis Flutter yang dirancang 
-              untuk membantu pengguna membuat dan mengelola catatan secara praktis dalam 
-              satu aplikasi. Aplikasi ini menggunakan Dart dan Flutter sebagai teknologi 
-              utama, dengan SQLite (Sqflite) untuk penyimpanan data secara lokal, Provider 
-              untuk pengelolaan state, Shared Preferences untuk penyimpanan data sederhana, 
-              serta Intl untuk kebutuhan pengolahan tanggal dan waktu. Project ini juga dilengkapi 
-              konfigurasi custom app icon dan native splash screen, sehingga selain berfokus pada 
-              fungsi pencatatan, pengembangan DNote juga memperhatikan struktur aplikasi, pengelolaan 
-              data lokal, dan pengalaman pengguna.
+              Faadmart merupakan aplikasi web yang dikembangkan untuk membantu proses 
+              pengelolaan dan penjualan produk pada toko sembako secara lebih terstruktur. 
+              Aplikasi ini menggunakan PHP sebagai backend dengan HTML, CSS, JavaScript, 
+              dan Bootstrap pada sisi frontend, serta MySQL sebagai database untuk menyimpan 
+              dan mengelola data aplikasi. Fitur yang dikembangkan mencakup dashboard, 
+              pengelolaan produk dan jenis produk, detail produk, pemesanan, daftar pesanan, 
+              serta proses tambah, ubah, dan hapus data. Project ini dibuat dengan mengintegrasikan 
+              antarmuka pengguna, proses bisnis pada sisi server, dan penyimpanan data sehingga 
+              aktivitas pengelolaan produk dan pesanan dapat dilakukan melalui satu sistem 
+              berbasis web
             </p>
           </div>
         </div>

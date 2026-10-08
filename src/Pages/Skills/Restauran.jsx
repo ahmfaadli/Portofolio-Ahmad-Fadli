@@ -81,7 +81,7 @@ export default function HTML5() {
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
-                  Laptop E-Commerce
+                  MPOROS Sistem Pemesanan Restoran Berbasis Web
                 </h2>
 
                 {/* GitHub */}
@@ -90,7 +90,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://github.com/ahmfaadli/Niblenest_Laptop.git",
+                        "https://github.com/ahmfaadli/MPOROS_PROJECT.git",
                         "_blank",
                         "noopener,noreferrer",
                       )
@@ -104,7 +104,11 @@ export default function HTML5() {
                   <button
                     type="button"
                     onClick={() =>
-                      window.open("#", "_blank", "noopener,noreferrer")
+                      window.open(
+                        "#",
+                        "_blank",
+                        "noopener,noreferrer",
+                      )
                     }
                     className="cursor-pointer inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl transition-all duration-300"
                   >
@@ -146,15 +150,18 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              DNote merupakan aplikasi pencatatan digital berbasis Flutter yang dirancang 
-              untuk membantu pengguna membuat dan mengelola catatan secara praktis dalam 
-              satu aplikasi. Aplikasi ini menggunakan Dart dan Flutter sebagai teknologi 
-              utama, dengan SQLite (Sqflite) untuk penyimpanan data secara lokal, Provider 
-              untuk pengelolaan state, Shared Preferences untuk penyimpanan data sederhana, 
-              serta Intl untuk kebutuhan pengolahan tanggal dan waktu. Project ini juga dilengkapi 
-              konfigurasi custom app icon dan native splash screen, sehingga selain berfokus pada 
-              fungsi pencatatan, pengembangan DNote juga memperhatikan struktur aplikasi, pengelolaan 
-              data lokal, dan pengalaman pengguna.
+              MPOROS merupakan aplikasi web yang dikembangkan untuk membantu proses pengelolaan 
+              restoran, mulai dari menampilkan dan mengelola menu, kategori makanan, pencatatan 
+              pesanan, hingga pemantauan aktivitas restoran melalui dashboard. Pada bagian frontend, 
+              aplikasi dibangun menggunakan React dan Vite dengan Tailwind CSS untuk membuat 
+              antarmuka yang responsif, React Router untuk navigasi, Axios untuk komunikasi dengan 
+              backend, serta Recharts untuk menampilkan data dalam bentuk visual. Bagian backend 
+              menggunakan PHP dengan framework Laravel 12 yang menyediakan REST API untuk mengelola 
+              menu, kategori, dashboard, dan pesanan, serta terintegrasi dengan Midtrans untuk 
+              mendukung proses pembayaran. Data aplikasi dikelola melalui sistem database Laravel 
+              dan digunakan untuk menyimpan informasi menu, kategori, serta transaksi pesanan 
+              sehingga seluruh proses pengelolaan restoran dapat dilakukan secara terintegrasi 
+              melalui satu aplikasi
             </p>
           </div>
         </div>

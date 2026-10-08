@@ -8,23 +8,20 @@ export default function HTML5() {
   // Dokumentasi project
   const documentation = [
     {
-      image: "/assets/documentation2/DiagramNiblenest.jpg",
+      image: "/assets/smartroom/dokumen1.webp",
+      title: "Implementasi",
+    },
+    {
+      image: "/assets/smartroom/dokumen2.webp",
       title: "Flow Chart",
     },
     {
-      image: "/assets/documentation2/UseCase.jpg",
-      title: "Use Case Diagram",
-      desc: "Interaksi user dengan sistem.",
+      image: "/assets/smartroom/dokumen3.webp",
+      title: "Diagram Blok Sistem",
     },
     {
-      image: "/assets/documentation2/DatabaseSchema.jfif",
-      title: "Database Schema",
-      desc: "Struktur dan relasi database.",
-    },
-    {
-      image: "/assets/documentation2/UI.png",
-      title: "UI Design",
-      desc: "Rancangan tampilan website.",
+      image: "/assets/smartroom/dokumen4.webp",
+      title: "Rangkaian Elektronika",
     },
   ];
 
@@ -68,20 +65,20 @@ export default function HTML5() {
                 {/* Technology */}
                 <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    React.js
+                    C++
                   </span>
 
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    Laravel
+                    Ardiono
                   </span>
 
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    MySQL
+                    Node RED
                   </span>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
-                  Laptop E-Commerce
+                  Smartroom Sistem monitoring Ruangan
                 </h2>
 
                 {/* GitHub */}

@@ -81,7 +81,7 @@ export default function HTML5() {
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
-                  Laptop E-Commerce
+                  UangQu Aplikasi Manajemen Keuangan Pribadi
                 </h2>
 
                 {/* GitHub */}
@@ -90,7 +90,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://github.com/ahmfaadli/Niblenest_Laptop.git",
+                        "https://github.com/ahmfaadli/uangqu-app.git",
                         "_blank",
                         "noopener,noreferrer",
                       )
@@ -103,8 +103,12 @@ export default function HTML5() {
 
                   <button
                     type="button"
-                    onClick={() =>
-                      window.open("#", "_blank", "noopener,noreferrer")
+                      onClick={() =>
+                      window.open(
+                        "https://drive.google.com/drive/folders/1Quu8eDi4DLWe9YfG5Ch8ERjv_X6AsCvp?usp=sharing",
+                        "_blank",
+                        "noopener,noreferrer",
+                      )
                     }
                     className="cursor-pointer inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl transition-all duration-300"
                   >
