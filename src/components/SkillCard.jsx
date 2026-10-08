@@ -16,7 +16,7 @@ export default function SkillCard({
 
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "auto",
     });
   };
 
@@ -29,34 +29,43 @@ export default function SkillCard({
         overflow-hidden
         rounded-3xl
         bg-[#170036]/70
-        border border-purple-700/30
-        backdrop-blur-md
+        border
+        border-purple-700/30
         transition-all
-        duration-500
-        hover:-translate-y-3
+        duration-300
+        hover:-translate-y-2
         hover:border-purple-500
-        hover:shadow-[0_0_40px_rgba(168,85,247,.35)]
+        hover:shadow-[0_0_30px_rgba(168,85,247,.25)]
       "
     >
       {/* Cover */}
       <div className="relative h-56 overflow-hidden">
-
-        {/* Image */}
         <img
           src={image}
           alt={title}
+          loading="lazy"
+          decoding="async"
           className="
             w-full
             h-full
             object-cover
             transition-transform
-            duration-700
-            group-hover:scale-110
+            duration-500
+            group-hover:scale-105
           "
         />
 
         {/* Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#170036] via-transparent to-transparent" />
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-[#170036]
+            via-transparent
+            to-transparent
+          "
+        />
 
         {/* Category */}
         {category && (
@@ -69,16 +78,15 @@ export default function SkillCard({
               px-4
               py-1.5
               rounded-full
-              bg-[#170036]/85
+              bg-[#170036]/90
               border
               border-purple-400/40
               text-purple-200
               text-xs
               sm:text-sm
               font-semibold
-              backdrop-blur-md
               shadow-lg
-              transition-all
+              transition-colors
               duration-300
               group-hover:bg-purple-600/80
               group-hover:text-white
@@ -91,7 +99,16 @@ export default function SkillCard({
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-2xl font-bold mb-3 group-hover:text-purple-300 transition-colors">
+        <h3
+          className="
+            text-2xl
+            font-bold
+            mb-3
+            transition-colors
+            duration-300
+            group-hover:text-purple-300
+          "
+        >
           {title}
         </h3>
 
@@ -101,13 +118,14 @@ export default function SkillCard({
 
         {to && (
           <button
+            type="button"
             className="
               mt-6
               text-purple-400
               font-medium
-              group-hover:translate-x-2
               transition-transform
               duration-300
+              group-hover:translate-x-1
             "
           >
             View Details →

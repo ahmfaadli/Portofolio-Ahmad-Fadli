@@ -23,7 +23,6 @@ export default function Portfolio() {
 
         {/* Heading */}
         <div className="text-center">
-
           <span
             className="
               inline-block
@@ -76,10 +75,10 @@ export default function Portfolio() {
               mx-auto
             "
           >
-            A collection of multimedia works encompassing graphic design, 
-            video editing, motion graphics, and various creative visual projects.
+            A collection of multimedia works encompassing graphic design,
+            video editing, motion graphics, and various creative visual
+            projects.
           </p>
-
         </div>
 
         {/* Portfolio Card */}
@@ -103,17 +102,15 @@ export default function Portfolio() {
               bg-white/5
               border
               border-purple-500/20
-              backdrop-blur-xl
-              shadow-[0_0_50px_rgba(124,58,237,0.15)]
+              shadow-[0_0_40px_rgba(124,58,237,0.12)]
               transition-all
-              duration-500
-              hover:-translate-y-2
+              duration-300
+              hover:-translate-y-1
               hover:border-purple-500/50
-              hover:shadow-[0_0_60px_rgba(168,85,247,0.3)]
+              hover:shadow-[0_0_50px_rgba(168,85,247,0.25)]
             "
           >
-
-            {/* PDF Preview / Image */}
+            {/* Portfolio Preview */}
             <div
               className="
                 relative
@@ -134,10 +131,11 @@ export default function Portfolio() {
                   bg-[#0d061a]
                 "
               >
-
                 <img
                   src="/assets/proyek/Portofolio.jpg"
                   alt="Portfolio Preview"
+                  loading="lazy"
+                  decoding="async"
                   className="
                     w-full
                     h-[180px]
@@ -162,6 +160,7 @@ export default function Portfolio() {
                     via-transparent
                     to-transparent
                     opacity-70
+                    pointer-events-none
                   "
                 />
 
@@ -188,7 +187,6 @@ export default function Portfolio() {
                       lg:py-2
                       rounded-full
                       bg-purple-600/80
-                      backdrop-blur-md
                       text-white
                       text-[10px]
                       sm:text-xs
@@ -201,7 +199,6 @@ export default function Portfolio() {
                     PDF Portfolio
                   </span>
                 </div>
-
               </div>
             </div>
 
@@ -214,7 +211,6 @@ export default function Portfolio() {
                 lg:p-7
               "
             >
-
               <div
                 className="
                   flex
@@ -226,10 +222,8 @@ export default function Portfolio() {
                   lg:gap-6
                 "
               >
-
                 {/* Text */}
                 <div className="min-w-0">
-
                   <h3
                     className="
                       text-lg
@@ -253,13 +247,13 @@ export default function Portfolio() {
                       leading-relaxed
                     "
                   >
-                    Kumpulan karya multimedia yang mencakup desain grafis, branding, video editing, 
-                    motion graphic, animasi, ilustrasi, dan berbagai produksi visual kreatif.
+                    Kumpulan karya multimedia yang mencakup desain grafis,
+                    branding, video editing, motion graphic, animasi,
+                    ilustrasi, dan berbagai produksi visual kreatif.
                   </p>
-
                 </div>
 
-                {/* Buttons */}
+                {/* Button */}
                 <div
                   className="
                     flex
@@ -269,8 +263,6 @@ export default function Portfolio() {
                     shrink-0
                   "
                 >
-
-                  {/* View PDF */}
                   <a
                     href="https://drive.google.com/file/d/1ci3tKdJ4dHrb59p1d-BKm2WHNt1H1O1H/view?usp=sharing"
                     target="_blank"
@@ -298,11 +290,10 @@ export default function Portfolio() {
                       font-semibold
                       transition-all
                       duration-300
-                      hover:shadow-[0_0_25px_rgba(168,85,247,0.6)]
+                      hover:shadow-[0_0_20px_rgba(168,85,247,0.5)]
                       whitespace-nowrap
                     "
                   >
-
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-4 h-4 sm:w-5 sm:h-5"
@@ -326,18 +317,12 @@ export default function Portfolio() {
                     </svg>
 
                     View PDF
-
                   </a>
-
                 </div>
-
               </div>
-
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
   );

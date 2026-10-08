@@ -17,7 +17,7 @@ export default function CertificateCard({
         border-white/10
         hover:border-purple-500
         hover:-translate-y-1
-        transition-all
+        transition-transform
         duration-300
       "
     >
@@ -27,6 +27,7 @@ export default function CertificateCard({
           src={image}
           alt={title}
           loading="lazy"
+          decoding="async"
           className="
             w-full
             h-24
@@ -35,7 +36,7 @@ export default function CertificateCard({
             lg:h-72
             object-cover
             group-hover:scale-105
-            transition
+            transition-transform
             duration-500
           "
         />

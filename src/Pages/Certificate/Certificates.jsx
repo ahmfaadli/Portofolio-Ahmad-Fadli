@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { X } from "lucide-react";
 import CertificateCard from "../../components/CertificateCard";
@@ -69,7 +69,7 @@ const certificates = [
     ],
     title: "AWS S3 Basics",
   },
-    {
+  {
     id: 10,
     images: [
       "https://i.top4top.io/p_39022067s1.jpg",
@@ -132,8 +132,7 @@ const certificates = [
     ],
     title: "Claude Code in Action",
   },
-
-    {
+  {
     id: 19,
     images: [
       "https://j.top4top.io/p_39028g12v1.jpg",
@@ -161,7 +160,7 @@ const certificates = [
     ],
     title: "AI Fluency: Framework & Foundation",
   },
-    {
+  {
     id: 23,
     images: [
       "https://i.top4top.io/p_3902axox01.jpg",
@@ -191,7 +190,7 @@ const certificates = [
     ],
     title: "Memulai Pemrograman Dengan Java",
   },
-    {
+  {
     id: 27,
     images: [
       "https://i.top4top.io/p_39030xuv12.jpg",
@@ -242,7 +241,7 @@ const certificates = [
     ],
     title: "Staff Media Kreatif LDK Senada",
   },
-    {
+  {
     id: 35,
     images: [
       "https://k.top4top.io/p_39033dmwn1.jpg",
@@ -254,7 +253,7 @@ const certificates = [
     images: [
       "https://h.top4top.io/p_3903cdd9v1.jpg",
     ],
-    title: "Panitia Islamic Youth Festival ",
+    title: "Panitia Islamic Youth Festival",
   },
   {
     id: 37,
@@ -272,29 +271,84 @@ const certificates = [
   },
 ];
 
+function LazyCertificateGrid({ onOpen }) {
+  const gridRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const element = gridRef.current;
+
+    if (!element) return;
+
+    if (!("IntersectionObserver" in window)) {
+      setVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        rootMargin: "300px 0px",
+      }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={gridRef}
+      className="
+        grid
+        grid-cols-3
+        gap-2
+        sm:gap-4
+        md:gap-6
+        lg:gap-8
+        mt-12
+        sm:mt-16
+        lg:mt-20
+      "
+    >
+      {visible &&
+        certificates.map((certificate) => (
+          <CertificateCard
+            key={certificate.id}
+            image={certificate.images[0]}
+            title={certificate.title}
+            onClick={() => onOpen(certificate)}
+          />
+        ))}
+    </div>
+  );
+}
+
 export default function Certificates() {
   const [selected, setSelected] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
 
   // Selalu mulai dari posisi paling atas
-  // ketika halaman Certificates dibuka
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Membuka modal
   const handleOpen = (certificate) => {
     setSelected(certificate);
     setCurrentImage(0);
   };
 
-  // Menutup modal
   const handleClose = () => {
     setSelected(null);
     setCurrentImage(0);
   };
 
-  // Gambar berikutnya
   const handleNext = () => {
     if (!selected || selected.images.length <= 1) return;
 
@@ -303,7 +357,6 @@ export default function Certificates() {
     );
   };
 
-  // Gambar sebelumnya
   const handlePrevious = () => {
     if (!selected || selected.images.length <= 1) return;
 
@@ -312,16 +365,17 @@ export default function Certificates() {
     );
   };
 
-  // Keyboard navigation
   const handleKeyDown = (event) => {
     if (!selected) return;
 
     if (event.key === "Escape") {
       handleClose();
+      return;
     }
 
     if (event.key === "ArrowRight") {
       handleNext();
+      return;
     }
 
     if (event.key === "ArrowLeft") {
@@ -349,9 +403,7 @@ export default function Certificates() {
     >
       <div className="max-w-7xl mx-auto px-1 sm:px-2 lg:px-6">
 
-        {/* =========================
-            HEADER
-        ========================== */}
+        {/* Header */}
         <div className="text-center">
           <span
             className="
@@ -404,35 +456,10 @@ export default function Certificates() {
           </p>
         </div>
 
-        {/* =========================
-            CERTIFICATE GRID
-        ========================== */}
-        <div
-          className="
-            grid
-            grid-cols-3
-            gap-2
-            sm:gap-4
-            md:gap-6
-            lg:gap-8
-            mt-12
-            sm:mt-16
-            lg:mt-20
-          "
-        >
-          {certificates.map((certificate) => (
-            <CertificateCard
-              key={certificate.id}
-              image={certificate.images[0]}
-              title={certificate.title}
-              onClick={() => handleOpen(certificate)}
-            />
-          ))}
-        </div>
+        {/* Certificate Grid */}
+        <LazyCertificateGrid onOpen={handleOpen} />
 
-        {/* =========================
-            BACK BUTTON
-        ========================== */}
+        {/* Back Button */}
         <div
           className="
             flex
@@ -495,9 +522,7 @@ export default function Certificates() {
         </div>
       </div>
 
-      {/* =========================
-          IMAGE MODAL
-      ========================== */}
+      {/* Image Modal */}
       {selected && (
         <div
           className="
@@ -527,9 +552,7 @@ export default function Certificates() {
             onClick={(event) => event.stopPropagation()}
           >
 
-            {/* =========================
-                CLOSE BUTTON
-            ========================== */}
+            {/* Close Button */}
             <button
               type="button"
               onClick={handleClose}
@@ -554,9 +577,7 @@ export default function Certificates() {
               />
             </button>
 
-            {/* =========================
-                IMAGE SLIDER
-            ========================== */}
+            {/* Image Slider */}
             <div
               className="
                 relative
@@ -566,8 +587,7 @@ export default function Certificates() {
                 justify-center
               "
             >
-
-              {/* PREVIOUS BUTTON */}
+              {/* Previous Button */}
               {selected.images.length > 1 && (
                 <button
                   type="button"
@@ -604,10 +624,11 @@ export default function Certificates() {
                 </button>
               )}
 
-              {/* CURRENT IMAGE */}
+              {/* Current Image */}
               <img
                 src={selected.images[currentImage]}
                 alt={`${selected.title} - ${currentImage + 1}`}
+                decoding="async"
                 className="
                   rounded-xl
                   sm:rounded-2xl
@@ -620,13 +641,11 @@ export default function Certificates() {
                   w-auto
                   object-contain
                   shadow-2xl
-                  transition-all
-                  duration-300
                   select-none
                 "
               />
 
-              {/* NEXT BUTTON */}
+              {/* Next Button */}
               {selected.images.length > 1 && (
                 <button
                   type="button"
@@ -664,9 +683,7 @@ export default function Certificates() {
               )}
             </div>
 
-            {/* =========================
-                IMAGE INDICATOR
-            ========================== */}
+            {/* Image Indicator */}
             {selected.images.length > 1 && (
               <div
                 className="
@@ -699,9 +716,7 @@ export default function Certificates() {
               </div>
             )}
 
-            {/* =========================
-                TITLE
-            ========================== */}
+            {/* Title */}
             <p
               className="
                 text-center
@@ -716,9 +731,7 @@ export default function Certificates() {
               {selected.title}
             </p>
 
-            {/* =========================
-                IMAGE COUNTER
-            ========================== */}
+            {/* Image Counter */}
             {selected.images.length > 1 && (
               <p
                 className="

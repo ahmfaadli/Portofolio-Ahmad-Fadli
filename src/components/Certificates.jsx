@@ -34,36 +34,36 @@ const certificates = [
     ],
     title: "Kepala Departemen Pendidikan, Tekologi dan Olahraga",
   },
-   {
-    id: 4,
+  {
+    id: 5,
     images: [
       "https://e.top4top.io/p_38702pebe1.png",
     ],
     title: "Steering Committee ASTRO 7.0",
   },
-    {
-    id: 4,
+  {
+    id: 6,
     images: [
       "https://b.top4top.io/p_38704x9gw1.png",
     ],
     title: "Steering Committee ICT",
   },
-    {
-    id: 4,
+  {
+    id: 7,
     images: [
       "https://f.top4top.io/p_3902ty69s1.jpg",
     ],
     title: "Getting started with Azure IOT",
   },
-    {
-    id: 4,
+  {
+    id: 8,
     images: [
       "https://e.top4top.io/p_3902cupot1.jpg",
     ],
     title: "Create a Virtual Private Cloud (VPC) Using AWS",
   },
-    {
-    id: 4,
+  {
+    id: 9,
     images: [
       "https://f.top4top.io/p_3876t8blu1.jpg",
     ],
@@ -75,19 +75,16 @@ export default function Certificates() {
   const [selected, setSelected] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
 
-  // Membuka modal
   const handleOpen = (certificate) => {
     setSelected(certificate);
     setCurrentImage(0);
   };
 
-  // Menutup modal
   const handleClose = () => {
     setSelected(null);
     setCurrentImage(0);
   };
 
-  // Gambar berikutnya
   const handleNext = () => {
     if (!selected || selected.images.length <= 1) return;
 
@@ -96,7 +93,6 @@ export default function Certificates() {
     );
   };
 
-  // Gambar sebelumnya
   const handlePrevious = () => {
     if (!selected || selected.images.length <= 1) return;
 
@@ -105,16 +101,17 @@ export default function Certificates() {
     );
   };
 
-  // Keyboard navigation
   const handleKeyDown = (event) => {
     if (!selected) return;
 
     if (event.key === "Escape") {
       handleClose();
+      return;
     }
 
     if (event.key === "ArrowRight") {
       handleNext();
+      return;
     }
 
     if (event.key === "ArrowLeft") {
@@ -148,11 +145,8 @@ export default function Certificates() {
     >
       <div className="max-w-7xl mx-auto px-1 sm:px-2 lg:px-6">
 
-        {/* =========================
-            HEADER
-        ========================== */}
+        {/* Header */}
         <div className="text-center">
-
           <span
             className="
               inline-block
@@ -202,12 +196,9 @@ export default function Certificates() {
             A collection of certificates obtained from various training
             sessions, workshops, seminars, and other activities.
           </p>
-
         </div>
 
-        {/* =========================
-            CERTIFICATE GRID
-        ========================== */}
+        {/* Certificate Grid */}
         <div
           className="
             grid
@@ -231,9 +222,7 @@ export default function Certificates() {
           ))}
         </div>
 
-        {/* =========================
-            SHOW MORE
-        ========================== */}
+        {/* Show More */}
         <div
           className="
             flex
@@ -296,9 +285,7 @@ export default function Certificates() {
         </div>
       </div>
 
-      {/* =========================
-          IMAGE MODAL
-      ========================== */}
+      {/* Image Modal */}
       {selected && (
         <div
           className="
@@ -328,9 +315,7 @@ export default function Certificates() {
             onClick={(event) => event.stopPropagation()}
           >
 
-            {/* =========================
-                CLOSE BUTTON
-            ========================== */}
+            {/* Close Button */}
             <button
               type="button"
               onClick={handleClose}
@@ -355,9 +340,7 @@ export default function Certificates() {
               />
             </button>
 
-            {/* =========================
-                IMAGE SLIDER
-            ========================== */}
+            {/* Image Slider */}
             <div
               className="
                 relative
@@ -368,7 +351,7 @@ export default function Certificates() {
               "
             >
 
-              {/* PREVIOUS BUTTON */}
+              {/* Previous Button */}
               {selected.images.length > 1 && (
                 <button
                   type="button"
@@ -405,10 +388,11 @@ export default function Certificates() {
                 </button>
               )}
 
-              {/* CURRENT IMAGE */}
+              {/* Current Image */}
               <img
                 src={selected.images[currentImage]}
                 alt={`${selected.title} - ${currentImage + 1}`}
+                decoding="async"
                 className="
                   rounded-xl
                   sm:rounded-2xl
@@ -421,13 +405,11 @@ export default function Certificates() {
                   w-auto
                   object-contain
                   shadow-2xl
-                  transition-all
-                  duration-300
                   select-none
                 "
               />
 
-              {/* NEXT BUTTON */}
+              {/* Next Button */}
               {selected.images.length > 1 && (
                 <button
                   type="button"
@@ -463,12 +445,9 @@ export default function Certificates() {
                   →
                 </button>
               )}
-
             </div>
 
-            {/* =========================
-                IMAGE INDICATOR
-            ========================== */}
+            {/* Image Indicator */}
             {selected.images.length > 1 && (
               <div
                 className="
@@ -501,9 +480,7 @@ export default function Certificates() {
               </div>
             )}
 
-            {/* =========================
-                TITLE
-            ========================== */}
+            {/* Title */}
             <p
               className="
                 text-center
@@ -518,9 +495,7 @@ export default function Certificates() {
               {selected.title}
             </p>
 
-            {/* =========================
-                IMAGE COUNTER
-            ========================== */}
+            {/* Image Counter */}
             {selected.images.length > 1 && (
               <p
                 className="
@@ -533,7 +508,6 @@ export default function Certificates() {
                 {currentImage + 1} / {selected.images.length}
               </p>
             )}
-
           </div>
         </div>
       )}

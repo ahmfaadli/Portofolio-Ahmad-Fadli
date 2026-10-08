@@ -7,59 +7,51 @@ export default function StarIntro({ onFinish }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(false);
-
-      // Tunggu animasi exit selesai
-      setTimeout(() => {
-        onFinish?.();
-      }, 700);
-    }, 2600);
+    }, 1400);
 
     return () => clearTimeout(timer);
-  }, [onFinish]);
+  }, []);
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence
+      mode="wait"
+      onExitComplete={onFinish}
+    >
       {show && (
         <motion.div
           className="
-            fixed inset-0 z-50
-            flex items-center justify-center
+            fixed
+            inset-0
+            z-50
+            flex
+            items-center
+            justify-center
             overflow-hidden
             bg-[#160B2E]
           "
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            scale: 1.02,
           }}
           transition={{
-            duration: 0.7,
+            duration: 0.45,
             ease: [0.22, 1, 0.36, 1],
           }}
         >
-          {/* =========================
-              BACKGROUND GRADIENT
-          ========================== */}
-          <motion.div
+          {/* Background */}
+          <div
             className="
-              absolute inset-0
+              absolute
+              inset-0
               bg-gradient-to-br
               from-[#160B2E]
               via-[#4C1D95]
               to-[#7E22CE]
             "
-            initial={{ scale: 1 }}
-            animate={{ scale: 1.08 }}
-            transition={{
-              duration: 3,
-              ease: "easeOut",
-            }}
           />
 
-          {/* =========================
-              SOFT GLOW - TOP RIGHT
-          ========================== */}
-          <motion.div
+          {/* Soft Glow */}
+          <div
             className="
               absolute
               -right-32
@@ -70,24 +62,9 @@ export default function StarIntro({ onFinish }) {
               bg-[#A855F7]/20
               blur-3xl
             "
-            initial={{
-              opacity: 0,
-              scale: 0.7,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-            }}
-            transition={{
-              duration: 1.5,
-              ease: "easeOut",
-            }}
           />
 
-          {/* =========================
-              SOFT GLOW - BOTTOM LEFT
-          ========================== */}
-          <motion.div
+          <div
             className="
               absolute
               -bottom-40
@@ -98,39 +75,24 @@ export default function StarIntro({ onFinish }) {
               bg-[#22D3EE]/10
               blur-3xl
             "
-            initial={{
-              opacity: 0,
-              scale: 0.7,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-            }}
-            transition={{
-              duration: 1.7,
-              delay: 0.2,
-              ease: "easeOut",
-            }}
           />
 
-          {/* =========================
-              SUBTLE GRID
-          ========================== */}
+          {/* Grid */}
           <div
             className="
-              absolute inset-0
-              opacity-[0.05]
+              absolute
+              inset-0
+              opacity-[0.04]
               [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)]
               [background-size:40px_40px]
             "
           />
 
-          {/* =========================
-              CENTER CONTENT
-          ========================== */}
+          {/* Content */}
           <motion.div
             className="
-              relative z-10
+              relative
+              z-10
               flex
               flex-col
               items-center
@@ -139,20 +101,18 @@ export default function StarIntro({ onFinish }) {
             "
             initial={{
               opacity: 0,
-              y: 20,
+              y: 15,
             }}
             animate={{
               opacity: 1,
               y: 0,
             }}
             transition={{
-              duration: 0.8,
+              duration: 0.55,
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-
-            {/* Name */}
-            <motion.h1
+            <h1
               className="
                 text-4xl
                 font-bold
@@ -161,26 +121,11 @@ export default function StarIntro({ onFinish }) {
                 sm:text-6xl
                 md:text-7xl
               "
-              initial={{
-                opacity: 0,
-                scale: 0.94,
-                y: 15,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.9,
-                delay: 0.35,
-                ease: [0.22, 1, 0.36, 1],
-              }}
             >
               Ahmad Fadli
-            </motion.h1>
+            </h1>
 
-            {/* Accent line */}
+            {/* Accent */}
             <motion.div
               className="
                 mt-5
@@ -200,13 +145,11 @@ export default function StarIntro({ onFinish }) {
                 opacity: 1,
               }}
               transition={{
-                duration: 0.8,
-                delay: 0.8,
-                ease: "easeOut",
+                duration: 0.5,
+                delay: 0.25,
               }}
             />
 
-            {/* Subtitle */}
             <motion.p
               className="
                 mt-4
@@ -218,24 +161,20 @@ export default function StarIntro({ onFinish }) {
               "
               initial={{
                 opacity: 0,
-                y: 10,
               }}
               animate={{
                 opacity: 1,
-                y: 0,
               }}
               transition={{
-                duration: 0.7,
-                delay: 0.95,
+                duration: 0.4,
+                delay: 0.35,
               }}
             >
               INFORMATICS ENGINEERING
             </motion.p>
           </motion.div>
 
-          {/* =========================
-              BOTTOM TEXT
-          ========================== */}
+          {/* Bottom Text */}
           <motion.div
             className="
               absolute
@@ -244,40 +183,21 @@ export default function StarIntro({ onFinish }) {
               right-0
               text-center
             "
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
             transition={{
-              delay: 1.2,
-              duration: 0.6,
+              delay: 0.45,
+              duration: 0.35,
             }}
           >
             <p className="text-xs text-white/40">
               Creating useful digital experiences
             </p>
           </motion.div>
-
-          {/* =========================
-              EXIT LIGHT
-          ========================== */}
-          <motion.div
-            className="
-              pointer-events-none
-              absolute
-              inset-0
-              bg-white
-            "
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: [0, 0, 0.08, 0],
-            }}
-            transition={{
-              duration: 2.6,
-              times: [0, 0.7, 0.9, 1],
-              ease: "easeInOut",
-            }}
-          />
         </motion.div>
       )}
     </AnimatePresence>
