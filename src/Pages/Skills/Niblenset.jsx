@@ -74,7 +74,7 @@ export default function HTML5() {
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
-                  Laptop E-Commerce
+                  Niblenest Laptop E-Commerce Website
                 </h2>
 
                 {/* GitHub */}
@@ -139,15 +139,15 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              DNote merupakan aplikasi pencatatan digital berbasis Flutter yang dirancang 
-              untuk membantu pengguna membuat dan mengelola catatan secara praktis dalam 
-              satu aplikasi. Aplikasi ini menggunakan Dart dan Flutter sebagai teknologi 
-              utama, dengan SQLite (Sqflite) untuk penyimpanan data secara lokal, Provider 
-              untuk pengelolaan state, Shared Preferences untuk penyimpanan data sederhana, 
-              serta Intl untuk kebutuhan pengolahan tanggal dan waktu. Project ini juga dilengkapi 
-              konfigurasi custom app icon dan native splash screen, sehingga selain berfokus pada 
-              fungsi pencatatan, pengembangan DNote juga memperhatikan struktur aplikasi, pengelolaan 
-              data lokal, dan pengalaman pengguna.
+              Niblenest merupakan website e-commerce yang dikembangkan untuk memudahkan 
+              pengguna mencari dan membeli laptop secara online. Website ini menyediakan 
+              fitur katalog dan detail produk, keranjang belanja, serta login dan registrasi 
+              akun. Pengembangan dilakukan menggunakan React.js untuk membangun antarmuka 
+              website, Laravel untuk menangani proses di sisi server, dan MySQL sebagai 
+              database untuk menyimpan data aplikasi. Selain pengembangan website, proyek 
+              ini juga mencakup pembuatan flowchart, use case diagram, dan database schema 
+              untuk menggambarkan alur proses, interaksi pengguna dengan sistem, serta 
+              struktur dan hubungan antar tabel dalam database
             </p>
           </div>
         </div>

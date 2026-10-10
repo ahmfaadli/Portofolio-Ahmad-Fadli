@@ -5,29 +5,6 @@ import Footer from "../../components/Footer";
 export default function HTML5() {
   const [activeImage, setActiveImage] = useState(null);
 
-  // Dokumentasi project
-  const documentation = [
-    {
-      image: "/assets/documentation2/DiagramNiblenest.jpg",
-      title: "Flow Chart",
-    },
-    {
-      image: "/assets/documentation2/UseCase.jpg",
-      title: "Use Case Diagram",
-      desc: "Interaksi user dengan sistem.",
-    },
-    {
-      image: "/assets/documentation2/DatabaseSchema.jfif",
-      title: "Database Schema",
-      desc: "Struktur dan relasi database.",
-    },
-    {
-      image: "/assets/documentation2/UI.png",
-      title: "UI Design",
-      desc: "Rancangan tampilan website.",
-    },
-  ];
-
   return (
     <>
       <section className="bg-gradient-to-br from-[#0a0118] to-[#26006a] text-white py-14 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6">
@@ -68,20 +45,12 @@ export default function HTML5() {
                 {/* Technology */}
                 <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    React.js
-                  </span>
-
-                  <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    Laravel
-                  </span>
-
-                  <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    MySQL
+                    Figma
                   </span>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
-                  Laptop E-Commerce
+                  ASTRO Event Desain Antarmuka Pengguna untuk Pengelolaan Acara
                 </h2>
 
                 {/* GitHub */}
@@ -146,59 +115,15 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              DNote merupakan aplikasi pencatatan digital berbasis Flutter yang dirancang 
-              untuk membantu pengguna membuat dan mengelola catatan secara praktis dalam 
-              satu aplikasi. Aplikasi ini menggunakan Dart dan Flutter sebagai teknologi 
-              utama, dengan SQLite (Sqflite) untuk penyimpanan data secara lokal, Provider 
-              untuk pengelolaan state, Shared Preferences untuk penyimpanan data sederhana, 
-              serta Intl untuk kebutuhan pengolahan tanggal dan waktu. Project ini juga dilengkapi 
-              konfigurasi custom app icon dan native splash screen, sehingga selain berfokus pada 
-              fungsi pencatatan, pengembangan DNote juga memperhatikan struktur aplikasi, pengelolaan 
-              data lokal, dan pengalaman pengguna.
+              Perancangan UI/UX website ASTRO dilakukan untuk menyediakan platform 
+              informasi acara yang memuat ASTRO FEST, kompetisi, dan informasi partner. 
+              Proses perancangan berfokus pada penyusunan tata letak, navigasi, dan 
+              tampilan antarmuka agar pengunjung dapat mengenal rangkaian acara, 
+              memahami informasi serta ketentuan perlombaan, dan melakukan registrasi 
+              dengan mudah. Desain dibuat dengan memperhatikan konsistensi tampilan 
+              dan kemudahan penggunaan sehingga informasi dapat disampaikan secara 
+              jelas dan terstruktur
             </p>
-          </div>
-        </div>
-
-        {/* =========================
-            DOCUMENTATION
-        ========================== */}
-        <div className="max-w-6xl mx-auto">
-          {/* Main Documentation Card */}
-          <div
-            className="
-              bg-white/[0.04]
-              border
-              border-purple-700/20
-              rounded-xl
-              sm:rounded-2xl
-              p-5
-              sm:p-6
-              md:p-8
-            "
-          >
-            {/* Documentation Header */}
-            <div className="flex items-center gap-3 mb-5 sm:mb-7">
-              <div className="p-2 sm:p-2.5 rounded-lg bg-purple-600/10 text-purple-300 shrink-0">
-                <Code2 size={20} />
-              </div>
-
-              <h2 className="text-xl sm:text-2xl font-bold">
-                Dokumentasi Project
-              </h2>
-            </div>
-
-            {/* Documentation Items */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-              {documentation.map((doc, index) => (
-                <DocumentationCard
-                  key={index}
-                  image={doc.image}
-                  title={doc.title}
-                  desc={doc.desc}
-                  onClick={setActiveImage}
-                />
-              ))}
-            </div>
           </div>
         </div>
 

@@ -287,17 +287,22 @@ export default function About() {
           >
             <p>
               <span className="font-bold text-white">Technical Skill :</span>{" "}
-              HTML, CSS, Laravel, JavaScript, PHP. React.
+              HTML, CSS, Laravel, React.js, Flutter
             </p>
 
             <p>
               <span className="font-bold text-white">Programming :</span>{" "}
-              Python, C++
+              JavaScript, PHP, Python, C++, Dart
             </p>
 
             <p>
               <span className="font-bold text-white">Database & Query Language :</span>{" "}
-              MySQL, MongoDB
+              MySQL, MongoDB, PostgreSQL
+            </p>
+
+             <p>
+              <span className="font-bold text-white">IoT & Embedded Systems :</span>{" "}
+              Node-RED, Blynk
             </p>
 
             <p>
@@ -307,7 +312,7 @@ export default function About() {
 
             <p>
               <span className="font-bold text-white">Data Analysis & Visualization :</span>{" "}
-              KNIME, Power BI, Google Sheets
+              KNIME, Power BI, Tableau,Google Sheets
             </p>
 
              <p>
