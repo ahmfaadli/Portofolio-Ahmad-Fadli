@@ -14,17 +14,10 @@ export default function HTML5() {
     {
       image: "/assets/documentation2/UseCase.jpg",
       title: "Use Case Diagram",
-      desc: "Interaksi user dengan sistem.",
     },
     {
       image: "/assets/documentation2/DatabaseSchema.jfif",
       title: "Database Schema",
-      desc: "Struktur dan relasi database.",
-    },
-    {
-      image: "/assets/documentation2/UI.png",
-      title: "UI Design",
-      desc: "Rancangan tampilan website.",
     },
   ];
 

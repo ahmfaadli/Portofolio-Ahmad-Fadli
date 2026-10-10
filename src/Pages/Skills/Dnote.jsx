@@ -8,7 +8,7 @@ export default function HTML5() {
   // Dokumentasi project
   const documentation = [
     {
-      image: "/assets/dnote/dokumen++1.webp",
+      image: "/assets/dnote/dokumen1.webp",
       title: "Flow Chart",
     },
   ];
