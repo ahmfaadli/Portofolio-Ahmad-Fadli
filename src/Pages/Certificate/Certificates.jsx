@@ -28,6 +28,13 @@ const certificates = [
     title: "Office Profesional",
   },
   {
+    id: 3,
+    images: [
+      "/assets/certificates/toefl.webp",
+    ],
+    title: "Sertifikat TOEFL",
+  },
+  {
     id: 4,
     images: [
       "https://l.top4top.io/p_3876y1ct01.jpg",

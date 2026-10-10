@@ -8,23 +8,12 @@ export default function HTML5() {
   // Dokumentasi project
   const documentation = [
     {
-      image: "/assets/documentation2/DiagramNiblenest.jpg",
+      image: "/assets/restaurant/dokumen1.webp",
       title: "Flow Chart",
     },
-    {
-      image: "/assets/documentation2/UseCase.jpg",
-      title: "Use Case Diagram",
-      desc: "Interaksi user dengan sistem.",
-    },
-    {
-      image: "/assets/documentation2/DatabaseSchema.jfif",
-      title: "Database Schema",
-      desc: "Struktur dan relasi database.",
-    },
-    {
-      image: "/assets/documentation2/UI.png",
-      title: "UI Design",
-      desc: "Rancangan tampilan website.",
+      {
+      image: "/assets/restaurant/dokumen2.webp",
+      title: "Use Case",
     },
   ];
 

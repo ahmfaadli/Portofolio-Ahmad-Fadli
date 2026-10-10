@@ -69,13 +69,6 @@ const certificates = [
     ],
     title: "Create a Virtual Private Cloud (VPC) Using AWS",
   },
-  {
-    id: 9,
-    images: [
-      "https://f.top4top.io/p_3876t8blu1.jpg",
-    ],
-    title: "AWS S3 Basics",
-  },
 ];
 
 export default function Certificates() {
