@@ -13,7 +13,7 @@ export default function HTML5() {
     },
     {
       image: "/assets/sembako/dokumen2.webp",
-      title: "Flow Chart",
+      title: "Use Case DIagram",
     },
   ];
 
@@ -94,7 +94,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "#",
+                        "http://sembako-murah.site.je/",
                         "_blank",
                         "noopener,noreferrer",
                       )
