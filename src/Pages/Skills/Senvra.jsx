@@ -13,7 +13,7 @@ export default function HTML5() {
     },
      {
       image: "/assets/senvra-profile/dokumen2.webp",
-      title: "Flow Chart",
+      title: "Diagram Arsitektur Sistem",
     },
 
   ];

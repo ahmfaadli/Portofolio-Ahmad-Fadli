@@ -90,7 +90,7 @@ export default function HTML5() {
                     type="button"
                       onClick={() =>
                       window.open(
-                        "https://github.com/ahmfaadli/senvra-Building.git",
+                        "https://senvra-building-poyq.vercel.app/",
                         "_blank",
                         "noopener,noreferrer",
                       )

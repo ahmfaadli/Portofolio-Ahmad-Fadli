@@ -8,20 +8,16 @@ export default function HTML5() {
   // Dokumentasi project
   const documentation = [
     {
-      image: "/assets/senvra-hr/dokumen2.webp",
+      image: "/assets/senvra-hr/dokumen1.webp",
       title: "Flow Chart",
     },
     {
       image: "/assets/senvra-hr/dokumen2.webp",
-      title: "Use Case Diagram",
+      title: "Struktur Database",
     },
     {
       image: "/assets/senvra-hr/dokumen3.webp",
       title: "Use Case Diagram",
-    },
-    {
-      image: "/assets/senvra-hr/dokumen4.webp",
-      title: "Desain Data bases",
     },
   ];
 
