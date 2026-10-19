@@ -22,6 +22,13 @@ const skills = [
     desc: "Lightweight mobile note-taking application for creating, organizing, and managing personal notes with a simple and efficient interface",
     to: "/skills/Dnote",
   },
+    {
+    category: "Web Developer",
+    image: "/assets/proyek/bogorcam.webp",
+    title: "BogorCam Public CCTV Monitoring",
+    desc: "Website pemantauan CCTV publik berbasis web yang mengintegrasikan peta interaktif memantau kondisi berbagai area di Kota dan Kabupaten Bogor",
+    to: "/skills/Bogorcam",
+  },
   {
     category: "Web Developer",
     image: "/assets/proyek/building-modeling.webp",

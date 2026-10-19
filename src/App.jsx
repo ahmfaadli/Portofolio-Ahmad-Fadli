@@ -14,7 +14,10 @@ const Dnote = lazy(() =>
 const IoT = lazy(() =>
   import("./Pages/Skills/Smartroom")
 );
-const LaptopStore = lazy(() =>
+const Bogorcam = lazy(() =>
+  import("./Pages/Skills/Bogorcam")
+);
+const Senvrabuilding = lazy(() =>
   import("./Pages/Skills/Senvrabuilding")
 );
 const Senvra = lazy(() =>
@@ -116,8 +119,13 @@ export default function App() {
         />
 
         <Route
+          path="/skills/Bogorcam"
+          element={<Bogorcam />}
+        />
+
+        <Route
           path="/skills/Senvrabuilding"
-          element={<LaptopStore />}
+          element={<Senvrabuilding />}
         />
 
         <Route

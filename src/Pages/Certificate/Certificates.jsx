@@ -1,18 +1,17 @@
-import { useEffect, useState } from "react";
+
+import { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { X } from "lucide-react";
 import CertificateCard from "../../components/CertificateCard";
 
 const certificates = [
   {
-    id: 1,
-    images: [
-      "https://g.top4top.io/p_3870wzjv21.jpg",
-    ],
+    category: "pelatihan",
+    images: ["https://g.top4top.io/p_3870wzjv21.jpg"],
     title: "Fullstack Developer",
   },
   {
-    id: 2,
+    category: "pelatihan",
     images: [
       "https://i.top4top.io/p_39023667k1.jpg",
       "https://e.top4top.io/p_39028j99r1.jpg",
@@ -20,7 +19,7 @@ const certificates = [
     title: "Codeless Data Science",
   },
   {
-    id: 3,
+    category: "pelatihan",
     images: [
       "https://d.top4top.io/p_3902euq7b1.jpg",
       "https://d.top4top.io/p_3902t9qs01.jpg",
@@ -28,168 +27,107 @@ const certificates = [
     title: "Office Profesional",
   },
   {
-    id: 3,
-    images: [
-      "/assets/certificates/toefl.webp",
-    ],
+    category: "pelatihan",
+    images: ["/assets/certificates/toefl.webp"],
     title: "Sertifikat TOEFL",
   },
   {
-    id: 4,
-    images: [
-      "https://l.top4top.io/p_3876y1ct01.jpg",
-    ],
+    category: "experience",
+    images: ["https://l.top4top.io/p_3876y1ct01.jpg"],
     title: "Kepala Departemen Pendidikan, Teknologi dan Olahraga",
   },
   {
-    id: 5,
-    images: [
-      "https://e.top4top.io/p_38702pebe1.png",
-    ],
+    category: "experience",
+    images: ["https://e.top4top.io/p_38702pebe1.png"],
     title: "Steering Committee ASTRO 7.0",
   },
   {
-    id: 6,
-    images: [
-      "https://b.top4top.io/p_38704x9gw1.png",
-    ],
+    category: "experience",
+    images: ["https://b.top4top.io/p_38704x9gw1.png"],
     title: "Steering Committee ICT",
   },
   {
-    id: 7,
-    images: [
-      "https://f.top4top.io/p_3902ty69s1.jpg",
-    ],
+    category: "pelatihan",
+    images: ["https://f.top4top.io/p_3902ty69s1.jpg"],
     title: "Getting Started with Azure IoT",
   },
   {
-    id: 8,
-    images: [
-      "https://e.top4top.io/p_3902cupot1.jpg",
-    ],
+    category: "pelatihan",
+    images: ["https://e.top4top.io/p_3902cupot1.jpg"],
     title: "Create a Virtual Private Cloud (VPC) Using AWS",
   },
   {
-    id: 9,
-    images: [
-      "https://f.top4top.io/p_3876t8blu1.jpg",
-    ],
+    category: "pelatihan",
+    images: ["https://f.top4top.io/p_3876t8blu1.jpg"],
     title: "AWS S3 Basics",
   },
   {
-    id: 10,
-    images: [
-      "https://i.top4top.io/p_39022067s1.jpg",
-    ],
+    category: "pelatihan",
+    images: ["https://i.top4top.io/p_39022067s1.jpg"],
     title: "Linux Fundamental",
   },
   {
-    id: 11,
-    images: [
-      "https://l.top4top.io/p_3902za7op1.jpg",
-    ],
+    category: "pelatihan",
+    images: ["https://l.top4top.io/p_3902za7op1.jpg"],
     title: "Virtual Machine Fundamental",
   },
   {
-    id: 12,
-    images: [
-      "https://g.top4top.io/p_3902xmz1d1.jpg",
-    ],
+    category: "pelatihan",
+    images: ["https://g.top4top.io/p_3902xmz1d1.jpg"],
     title: "Simulasi Jaringan dengan PNETLab",
   },
   {
-    id: 13,
-    images: [
-      "https://k.top4top.io/p_3902t7qc51.jpg",
-    ],
+    category: "pelatihan",
+    images: ["https://k.top4top.io/p_3902t7qc51.jpg"],
     title: "Network Fundamental",
   },
   {
-    id: 14,
-    images: [
-      "https://c.top4top.io/p_3902f2hw41.jpg",
-    ],
+    category: "pelatihan",
+    images: ["https://c.top4top.io/p_3902f2hw41.jpg"],
     title: "Python Fundamental",
   },
   {
-    id: 15,
-    images: [
-      "https://i.top4top.io/p_3902685x21.jpg",
-    ],
-    title: "Introduction to Model Context Protocol",
+    category: "pelatihan",
+    images: ["/assets/certificates/playstore.webp"],
+    title: "Google Play Store Academy",
   },
   {
-    id: 16,
-    images: [
-      "https://l.top4top.io/p_39023r6d61.jpg",
-    ],
-    title: "Introduction to Cloude Cowork",
+    category: "pelatihan",
+    images: ["/assets/certificates/udemy1.webp"],
+    title: "Data Analyst",
   },
   {
-    id: 17,
-    images: [
-      "https://b.top4top.io/p_3902t1obz1.jpg",
-    ],
-    title: "Cloude Patform 101",
+    category: "pelatihan",
+    images: ["/assets/certificates/udemy2.webp"],
+    title: "SQL & PostgreSQL",
   },
   {
-    id: 18,
-    images: [
-      "https://a.top4top.io/p_3902rxleo1.jpg",
-    ],
-    title: "Claude Code in Action",
+    category: "pelatihan",
+    images: ["/assets/certificates/udemy3.webp"],
+    title: "JavaScript and jQuery Beginners",
   },
   {
-    id: 19,
-    images: [
-      "https://j.top4top.io/p_39028g12v1.jpg",
-    ],
-    title: "Claude Code 101",
+    category: "pelatihan",
+    images: ["/assets/certificates/udemy4.webp"],
+    title: "JavaScript and jQuery Beginners",
   },
   {
-    id: 20,
-    images: [
-      "https://c.top4top.io/p_3902nzwgr1.jpg",
-    ],
-    title: "Claude 101",
+    category: "pelatihan",
+    images: ["/assets/certificates/udemy5.webp"],
+    title: "JavaScript and jQuery Beginners",
   },
   {
-    id: 21,
-    images: [
-      "https://l.top4top.io/p_39023swc81.jpg",
-    ],
-    title: "Claude with the Anthropic API",
+    category: "pelatihan",
+    images: ["/assets/certificates/cyber1.webp"],
+    title: "Cybersecurity Educator Professional",
   },
   {
-    id: 22,
-    images: [
-      "https://e.top4top.io/p_39024bzq31.jpg",
-    ],
-    title: "AI Fluency: Framework & Foundation",
-  },
-  {
-    id: 23,
-    images: [
-      "https://i.top4top.io/p_3902axox01.jpg",
-    ],
-    title: "AI Fluency for students",
-  },
-  {
-    id: 24,
-    images: [
-      "https://a.top4top.io/p_3902rlbt11.jpg",
-    ],
-    title: "AI Fluency for educators",
-  },
-  {
-    id: 25,
-    images: [
-      "https://b.top4top.io/p_3903af98s1.jpg",
-    ],
+    category: "pelatihan",
+    images: ["https://b.top4top.io/p_3903af98s1.jpg"],
     title: "Basic Proficiency in KNIME Analytics Platform",
   },
   {
-    id: 26,
+    category: "pelatihan",
     images: [
       "https://i.top4top.io/p_3902ptiip1.jpg",
       "https://k.top4top.io/p_39028f0cw1.jpg",
@@ -198,15 +136,15 @@ const certificates = [
     title: "Memulai Pemrograman Dengan Java",
   },
   {
-    id: 27,
+    category: "pelatihan",
     images: [
       "https://i.top4top.io/p_39030xuv12.jpg",
       "https://h.top4top.io/p_39039ydlh1.jpg",
     ],
-    title: "Belajar dasar Au",
+    title: "Belajar Dasar AI",
   },
   {
-    id: 28,
+    category: "pelatihan",
     images: [
       "https://d.top4top.io/p_39020v0291.jpg",
       "https://g.top4top.io/p_390295mf41.jpg",
@@ -214,109 +152,158 @@ const certificates = [
     title: "Belajar Prinsip Pemrograman SOLID",
   },
   {
-    id: 29,
-    images: [
-      "https://k.top4top.io/p_3903yppl31.jpg",
-    ],
-    title: "Pelatihn Graphics Design",
+    category: "pelatihan",
+    images: ["https://k.top4top.io/p_3903yppl31.jpg"],
+    title: "Pelatihan Graphics Design",
   },
   {
-    id: 30,
-    images: [
-      "https://b.top4top.io/p_39038xrbi1.jpg",
-    ],
+    category: "pelatihan",
+    images: ["https://i.top4top.io/p_3902685x21.jpg"],
+    title: "Introduction to Model Context Protocol",
+  },
+  {
+    category: "pelatihan",
+    images: ["https://l.top4top.io/p_39023r6d61.jpg"],
+    title: "Introduction to Claude Cowork",
+  },
+  {
+    category: "pelatihan",
+    images: ["https://b.top4top.io/p_3902t1obz1.jpg"],
+    title: "Claude Platform 101",
+  },
+  {
+    category: "pelatihan",
+    images: ["https://a.top4top.io/p_3902rxleo1.jpg"],
+    title: "Claude Code in Action",
+  },
+  {
+    category: "pelatihan",
+    images: ["https://j.top4top.io/p_39028g12v1.jpg"],
+    title: "Claude Code 101",
+  },
+  {
+    category: "pelatihan",
+    images: ["https://c.top4top.io/p_3902nzwgr1.jpg"],
+    title: "Claude 101",
+  },
+  {
+    category: "pelatihan",
+    images: ["https://l.top4top.io/p_39023swc81.jpg"],
+    title: "Claude with the Anthropic API",
+  },
+  {
+    category: "pelatihan",
+    images: ["https://e.top4top.io/p_39024bzq31.jpg"],
+    title: "AI Fluency: Framework & Foundation",
+  },
+  {
+    category: "pelatihan",
+    images: ["https://i.top4top.io/p_3902axox01.jpg"],
+    title: "AI Fluency for Students",
+  },
+  {
+    category: "pelatihan",
+    images: ["https://a.top4top.io/p_3902rlbt11.jpg"],
+    title: "AI Fluency for Educators",
+  },
+  {
+    category: "experience",
+    images: ["https://b.top4top.io/p_39038xrbi1.jpg"],
     title: "Staff Media Kreatif BEM STT-NF",
   },
   {
-    id: 31,
-    images: [
-      "https://d.top4top.io/p_39034a0et1.png",
-    ],
+    category: "webinar",
+    images: ["https://d.top4top.io/p_39034a0et1.png"],
     title: "Panitia Seminar SpeakUP",
   },
   {
-    id: 32,
-    images: [
-      "https://l.top4top.io/p_39033m5pp1.jpg",
-    ],
+    category: "experience",
+    images: ["https://l.top4top.io/p_39033m5pp1.jpg"],
     title: "Staff Media Kreatif NFSCC",
   },
   {
-    id: 34,
-    images: [
-      "https://e.top4top.io/p_39030sy2h1.jpg",
-    ],
+    category: "experience",
+    images: ["https://e.top4top.io/p_39030sy2h1.jpg"],
     title: "Staff Media Kreatif LDK Senada",
   },
   {
-    id: 35,
-    images: [
-      "https://k.top4top.io/p_39033dmwn1.jpg",
-    ],
+    category: "experience",
+    images: ["https://k.top4top.io/p_39033dmwn1.jpg"],
     title: "Panitia Rapat Pimpinan Daerah JADEBEK LDK",
   },
   {
-    id: 36,
-    images: [
-      "https://h.top4top.io/p_3903cdd9v1.jpg",
-    ],
+    category: "experience",
+    images: ["https://h.top4top.io/p_3903cdd9v1.jpg"],
     title: "Panitia Islamic Youth Festival",
   },
   {
-    id: 37,
-    images: [
-      "https://l.top4top.io/p_39038bq6e1.png",
-    ],
+    category: "webinar",
+    images: ["https://l.top4top.io/p_39038bq6e1.png"],
     title: "Peserta Webinar Strategi Ala Haus",
   },
   {
-    id: 38,
-    images: [
-      "https://f.top4top.io/p_3903tt9mx1.jpg",
-    ],
+    category: "experience",
+    images: ["https://f.top4top.io/p_3903tt9mx1.jpg"],
     title: "Peserta Pengabdian Masyarakat",
   },
+];
+
+const categories = [
+  { id: "semua", label: "Semua" },
+  { id: "pelatihan", label: "Pelatihan" },
+  { id: "experience", label: "Experience" },
+  { id: "webinar", label: "Webinar" },
 ];
 
 export default function Certificates() {
   const [selected, setSelected] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
+  const [activeCategory, setActiveCategory] = useState("semua");
 
-  const handleOpen = (certificate) => {
+  // Filter sertifikat berdasarkan kategori yang dipilih.
+  const filteredCertificates =
+    activeCategory === "semua"
+      ? certificates
+      : certificates.filter(
+          (certificate) => certificate.category === activeCategory
+        );
+
+  const handleOpen = useCallback((certificate) => {
     setSelected(certificate);
     setCurrentImage(0);
-  };
+  }, []);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setSelected(null);
     setCurrentImage(0);
-  };
+  }, []);
 
-  const handleNext = () => {
-    if (!selected || selected.images.length <= 1) {
-      return;
-    }
+  const handleNext = useCallback(() => {
+    setCurrentImage((prev) => {
+      if (!selected || selected.images.length <= 1) {
+        return prev;
+      }
 
-    setCurrentImage((prev) =>
-      prev === selected.images.length - 1 ? 0 : prev + 1
-    );
-  };
+      return prev === selected.images.length - 1 ? 0 : prev + 1;
+    });
+  }, [selected]);
 
-  const handlePrevious = () => {
-    if (!selected || selected.images.length <= 1) {
-      return;
-    }
+  const handlePrevious = useCallback(() => {
+    setCurrentImage((prev) => {
+      if (!selected || selected.images.length <= 1) {
+        return prev;
+      }
 
-    setCurrentImage((prev) =>
-      prev === 0 ? selected.images.length - 1 : prev - 1
-    );
-  };
+      return prev === 0 ? selected.images.length - 1 : prev - 1;
+    });
+  }, [selected]);
 
   useEffect(() => {
     if (!selected) {
-      document.body.style.overflow = "";
-      return;
+      return undefined;
     }
+
+    const previousOverflow = document.body.style.overflow;
 
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
@@ -336,10 +323,10 @@ export default function Certificates() {
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selected]);
+  }, [selected, handleClose, handleNext, handlePrevious]);
 
   return (
     <section
@@ -359,7 +346,6 @@ export default function Certificates() {
       "
     >
       <div className="mx-auto max-w-7xl px-1 sm:px-2 lg:px-6">
-
         {/* Header */}
         <div className="text-center">
           <span
@@ -408,34 +394,91 @@ export default function Certificates() {
               md:text-base
             "
           >
-            Explore all certificates obtained from training sessions,
-            workshops, seminars, courses, and other professional activities.
+            Explore all certificates obtained from training
+            sessions, workshops, seminars, courses, and other
+            professional activities.
           </p>
+        </div>
+
+        {/* Category Filter */}
+        <div
+          className="
+            mt-8
+            flex
+            flex-wrap
+            items-center
+            justify-center
+            gap-2
+            sm:mt-10
+            sm:gap-3
+          "
+          role="group"
+          aria-label="Filter sertifikat berdasarkan kategori"
+        >
+          {categories.map((category) => {
+            const isActive = activeCategory === category.id;
+
+            return (
+              <button
+                key={category.id}
+                type="button"
+                onClick={() => setActiveCategory(category.id)}
+                aria-pressed={isActive}
+                className={`
+                  rounded-full
+                  border
+                  px-4
+                  py-2
+                  text-xs
+                  font-semibold
+                  transition-all
+                  duration-300
+                  sm:px-6
+                  sm:py-2.5
+                  sm:text-sm
+                  ${
+                    isActive
+                      ? "border-purple-400 bg-purple-600 text-white shadow-lg shadow-purple-500/20"
+                      : "border-purple-400/30 bg-purple-500/10 text-gray-300 hover:border-purple-400 hover:bg-purple-500/20 hover:text-white"
+                  }
+                `}
+              >
+                {category.label}
+              </button>
+            );
+          })}
         </div>
 
         {/* Certificate Grid */}
         <div
           className="
-            mt-12
+            mt-8
             grid
             grid-cols-3
             gap-2
-            sm:mt-16
+            sm:mt-12
             sm:gap-4
             md:gap-6
-            lg:mt-20
+            lg:mt-16
             lg:gap-8
           "
         >
-          {certificates.map((certificate) => (
+          {filteredCertificates.map((certificate) => (
             <CertificateCard
-              key={certificate.id}
+              key={`${certificate.category}-${certificate.images[0]}`}
               image={certificate.images[0]}
               title={certificate.title}
               onClick={() => handleOpen(certificate)}
             />
           ))}
         </div>
+
+        {/* Empty State */}
+        {filteredCertificates.length === 0 && (
+          <p className="mt-10 text-center text-sm text-gray-400">
+            Belum ada sertifikat dalam kategori ini.
+          </p>
+        )}
 
         {/* Back Button */}
         <div
@@ -530,7 +573,7 @@ export default function Certificates() {
             "
             onClick={(event) => event.stopPropagation()}
           >
-            {/* Close */}
+            {/* Close Button */}
             <button
               type="button"
               onClick={handleClose}
@@ -549,13 +592,10 @@ export default function Certificates() {
                 lg:top-6
               "
             >
-              <X
-                size={32}
-                className="sm:h-9 sm:w-9"
-              />
+              <X size={32} className="sm:h-9 sm:w-9" />
             </button>
 
-            {/* Image */}
+            {/* Image Viewer */}
             <div
               className="
                 relative
@@ -655,15 +695,18 @@ export default function Certificates() {
               )}
             </div>
 
-            {/* Indicator */}
+            {/* Image Indicators */}
             {selected.images.length > 1 && (
               <div className="mt-4 flex items-center justify-center gap-2 sm:mt-5">
                 {selected.images.map((_, index) => (
                   <button
-                    key={index}
+                    key={`${selected.images[index]}-${index}`}
                     type="button"
                     onClick={() => setCurrentImage(index)}
                     aria-label={`Go to image ${index + 1}`}
+                    aria-current={
+                      currentImage === index ? "true" : undefined
+                    }
                     className={
                       currentImage === index
                         ? "h-2 w-6 rounded-full bg-purple-500"
@@ -674,7 +717,7 @@ export default function Certificates() {
               </div>
             )}
 
-            {/* Title */}
+            {/* Certificate Title */}
             <p
               className="
                 mt-3
@@ -689,7 +732,7 @@ export default function Certificates() {
               {selected.title}
             </p>
 
-            {/* Counter */}
+            {/* Image Counter */}
             {selected.images.length > 1 && (
               <p className="mt-1 text-xs text-gray-500 sm:text-sm">
                 {currentImage + 1} / {selected.images.length}
