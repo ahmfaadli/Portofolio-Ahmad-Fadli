@@ -15,6 +15,9 @@ export default function Education() {
     {
       logo: "../assets/work/work-5.webp",
     },
+   {
+      logo: "../assets/work/work-7.webp",
+    },
     {
       logo: "../assets/work/work-6.webp",
     },
