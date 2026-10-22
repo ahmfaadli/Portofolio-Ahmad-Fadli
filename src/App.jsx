@@ -23,6 +23,9 @@ const Senvrabuilding = lazy(() =>
 const Senvra = lazy(() =>
   import("./Pages/Skills/Senvra")
 );
+const Iklim = lazy(() =>
+  import("./Pages/Skills/Iklim")
+);
 const Restauran = lazy(() =>
   import("./Pages/Skills/Restauran")
 );
@@ -131,6 +134,11 @@ export default function App() {
         <Route
           path="/skills/Senvra"
           element={<Senvra />}
+        />
+        
+        <Route
+          path="/skills/Iklim"
+          element={<Iklim />}
         />
 
         <Route

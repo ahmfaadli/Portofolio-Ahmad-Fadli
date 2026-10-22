@@ -45,6 +45,13 @@ const skills = [
   },
   {
     category: "Web Developer",
+    image: "/assets/proyek/iklim.webp",
+    title: "Dashboard Visualisasi Data Iklim Indonesia",
+    desc: "A web-based climate data visualization platform for Indonesia that presents information on temperature, rainfall, historical climate patterns, and environmental data via a dashboard.",
+    to: "/skills/iklim",
+  },
+  {
+    category: "Web Developer",
     image: "/assets/proyek/restauran.webp",
     title: "Mporos Restaurant Management",
     desc: "Full-stack web-based restaurant management system for managing menus, categories, orders, and operational reports",
