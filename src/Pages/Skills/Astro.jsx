@@ -59,21 +59,10 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://github.com/ahmfaadli/Niblenest_Laptop.git",
+                        "https://www.figma.com/design/3353JqAoZXN2LaLAgcj3Xb/Untitled?node-id=0-1&t=E9QbU1endLK8f3X7-1",
                         "_blank",
                         "noopener,noreferrer",
                       )
-                    }
-                    className="cursor-pointer inline-flex items-center gap-3 bg-gray-900/90 hover:bg-gray-800 border border-gray-700 hover:border-gray-500 px-6 py-3 rounded-xl transition-all duration-300"
-                  >
-                    <Github size={20} />
-                    <span>GitHub</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() =>
-                      window.open("#", "_blank", "noopener,noreferrer")
                     }
                     className="cursor-pointer inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl transition-all duration-300"
                   >

@@ -61,15 +61,7 @@ export default function HTML5() {
                 {/* Technology */}
                 <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    React.js
-                  </span>
-
-                  <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    Laravel
-                  </span>
-
-                  <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    MySQL
+                    Figma
                   </span>
                 </div>
 

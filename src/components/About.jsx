@@ -312,12 +312,7 @@ export default function About() {
 
             <p>
               <span className="font-bold text-white">Data Analysis & Visualization :</span>{" "}
-              KNIME, Power BI, Tableau,Google Sheets
-            </p>
-
-             <p>
-              <span className="font-bold text-white">Microsoft Office :</span>{" "}
-              Excel, Word, and PowerPoint
+              KNIME, Power BI, Tableau
             </p>
           </div>
 
