@@ -44,6 +44,9 @@ const Astro = lazy(() =>
 const Siom = lazy(() =>
   import("./Pages/Skills/Siom")
 );
+const Haydro = lazy(() =>
+  import("./Pages/Skills/Haydro")
+);
 const CertificatesPage = lazy(() =>
   import("./Pages/Certificate/Certificates")
 );
@@ -169,6 +172,11 @@ export default function App() {
         <Route
           path="/skills/Siom"
           element={<Siom />}
+        />
+
+          <Route
+          path="/skills/Haydro"
+          element={<Haydro />}
         />
 
         <Route

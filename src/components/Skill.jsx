@@ -81,7 +81,7 @@ const skills = [
   {
     category: "UI/UX Design",
     image: "/assets/proyek/laptopstore.webp",
-    title: "Sistem Pemesanan Laptop",
+    title: "Laptop Ordering System",
     desc: "UI/UX design for a laptop e-commerce platform, focusing on product discovery, catalog navigation, product details, and a streamlined ordering experience",
     to: "/skills/Niblenset",
   },
@@ -98,6 +98,13 @@ const skills = [
     title: "Student Organization Management System",
     desc: "UI/UX design for a student organization platform designed to simplify organizational activities, information management, and user navigation",
     to: "/skills/Siom",
+  },
+  {
+    category: "UI/UX Design",
+    image: "/assets/proyek/haydro.webp",
+    title: "Hydro Smart for Water Tank Usage Monitoring",
+    desc: "Hydro Smart is a mobile app UI/UX design for monitoring water tank usage through a dashboard, consumption statistics, usage history, and notifications",
+    to: "/skills/Haydro",
   },
 ];
 
