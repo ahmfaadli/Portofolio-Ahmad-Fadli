@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 
-export default function SkillCard({
+function SkillCard({
   image,
   title,
   desc,
@@ -11,15 +12,12 @@ export default function SkillCard({
     <Link
       to={to || "#"}
       className="
-        group
-        block
-        overflow-hidden
-        rounded-3xl
+        group isolate block overflow-hidden rounded-3xl
+        border border-purple-700/30
         bg-[#170036]/70
-        border
-        border-purple-700/30
-        transition-transform
+        transition-[transform,border-color,box-shadow]
         duration-300
+        transform-gpu
         hover:-translate-y-2
         hover:border-purple-500
         hover:shadow-[0_0_30px_rgba(168,85,247,.25)]
@@ -32,29 +30,25 @@ export default function SkillCard({
           alt={title}
           loading="lazy"
           decoding="async"
-          width="800"
-          height="450"
+          fetchPriority="low"
+          width={800}
+          height={450}
           className="
-            block
-            w-full
-            h-full
-            object-cover
-            transition-transform
-            duration-500
+            block h-full w-full object-cover
+            transition-transform duration-500
             group-hover:scale-105
           "
         />
 
         {/* Gradient */}
         <div
+          aria-hidden="true"
           className="
-            absolute
-            inset-0
+            pointer-events-none absolute inset-0
             bg-gradient-to-t
             from-[#170036]
             via-transparent
             to-transparent
-            pointer-events-none
           "
         />
 
@@ -62,25 +56,17 @@ export default function SkillCard({
         {category && (
           <div
             className="
-              absolute
-              top-4
-              left-4
-              z-10
-              px-4
-              py-1.5
+              absolute left-4 top-4 z-10
               rounded-full
+              border border-purple-400/40
               bg-[#170036]/90
-              border
-              border-purple-400/40
-              text-purple-200
-              text-xs
-              sm:text-sm
-              font-semibold
+              px-4 py-1.5
+              text-xs font-semibold text-purple-200
               shadow-lg
-              transition-colors
-              duration-300
+              transition-colors duration-300
               group-hover:bg-purple-600/80
               group-hover:text-white
+              sm:text-sm
             "
           >
             {category}
@@ -92,11 +78,8 @@ export default function SkillCard({
       <div className="p-6">
         <h3
           className="
-            mb-3
-            text-2xl
-            font-bold
-            transition-colors
-            duration-300
+            mb-3 text-2xl font-bold
+            transition-colors duration-300
             group-hover:text-purple-300
           "
         >
@@ -110,12 +93,9 @@ export default function SkillCard({
         {to && (
           <span
             className="
-              mt-6
-              inline-block
-              font-medium
-              text-purple-400
-              transition-transform
-              duration-300
+              mt-6 inline-block
+              font-medium text-purple-400
+              transition-transform duration-300
               group-hover:translate-x-1
             "
           >
@@ -126,3 +106,5 @@ export default function SkillCard({
     </Link>
   );
 }
+
+export default memo(SkillCard);

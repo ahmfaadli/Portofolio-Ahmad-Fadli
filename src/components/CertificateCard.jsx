@@ -1,8 +1,6 @@
-export default function CertificateCard({
-  image,
-  title,
-  onClick,
-}) {
+import { memo } from "react";
+
+function CertificateCard({ image, title, onClick }) {
   return (
     <button
       type="button"
@@ -10,6 +8,7 @@ export default function CertificateCard({
       aria-label={`View certificate: ${title}`}
       className="
         group
+        block
         w-full
         cursor-pointer
         overflow-hidden
@@ -18,7 +17,7 @@ export default function CertificateCard({
         border-white/10
         bg-white/5
         text-left
-        transition-transform
+        transition-[transform,border-color]
         duration-300
         hover:-translate-y-1
         hover:border-purple-500
@@ -35,29 +34,22 @@ export default function CertificateCard({
           alt={title}
           loading="lazy"
           decoding="async"
-          width="800"
-          height="600"
+          width={800}
+          height={600}
           className="
             block
             h-full
             w-full
             object-cover
             transition-transform
-            duration-500
+            duration-300
             group-hover:scale-105
           "
         />
       </div>
 
       {/* Certificate Content */}
-      <div
-        className="
-          p-2
-          sm:p-3
-          md:p-4
-          lg:p-5
-        "
-      >
+      <div className="p-2 sm:p-3 md:p-4 lg:p-5">
         <h2
           className="
             truncate
@@ -89,3 +81,5 @@ export default function CertificateCard({
     </button>
   );
 }
+
+export default memo(CertificateCard);
