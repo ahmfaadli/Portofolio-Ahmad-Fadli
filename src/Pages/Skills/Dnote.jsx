@@ -135,15 +135,18 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              DNote merupakan aplikasi pencatatan digital berbasis Flutter yang dirancang 
-              untuk membantu pengguna membuat dan mengelola catatan secara praktis dalam 
-              satu aplikasi. Aplikasi ini menggunakan Dart dan Flutter sebagai teknologi 
-              utama, dengan SQLite (Sqflite) untuk penyimpanan data secara lokal, Provider 
-              untuk pengelolaan state, Shared Preferences untuk penyimpanan data sederhana, 
-              serta Intl untuk kebutuhan pengolahan tanggal dan waktu. Project ini juga dilengkapi 
-              konfigurasi custom app icon dan native splash screen, sehingga selain berfokus pada 
-              fungsi pencatatan, pengembangan DNote juga memperhatikan struktur aplikasi, pengelolaan 
-              data lokal, dan pengalaman pengguna.
+              dNote merupakan aplikasi mobile berbasis Flutter yang dikembangkan untuk 
+              membantu pengguna mencatat, menyimpan, dan mengelola catatan pribadi dalam 
+              satu aplikasi. Aplikasi ini menyediakan fitur tambah, edit, hapus, dan 
+              pencarian catatan, serta pilihan warna untuk membedakan setiap catatan agar 
+              lebih mudah dikenali. dNote juga mendukung mode tampilan terang dan gelap 
+              yang dapat disesuaikan dengan preferensi pengguna. Project ini menggunakan Dart, 
+              Flutter, SQLite melalui package sqflite, Provider untuk pengelolaan state, 
+              serta SharedPreferences untuk mendukung penyimpanan pengaturan aplikasi. 
+              Melalui project ini, pengembangan tidak hanya berfokus pada tampilan antarmuka, 
+              tetapi juga pada pengelolaan data catatan, proses pencarian, penyimpanan lokal, 
+              dan pengaturan tema agar aplikasi dapat digunakan secara praktis untuk kebutuhan 
+              pencatatan sehari-hari
             </p>
           </div>
         </div>

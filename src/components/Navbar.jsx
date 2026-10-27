@@ -22,11 +22,11 @@ const Navbar = () => {
   }, []);
 
   const menu = [
-    { name: "Beranda", link: "#hero" },
     { name: "Tentang Saya", link: "#about" },
     { name: "Portofolio", link: "#skills" },
     { name: "Pendidikan", link: "#education" },
     { name: "Pengalaman", link: "#experience" },
+    { name: "Sertifikat", link: "#certificates" },
   ];
 
   // =========================

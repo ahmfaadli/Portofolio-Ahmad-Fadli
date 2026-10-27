@@ -66,7 +66,7 @@ export default function HTML5() {
                   </span>
 
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    MySQL
+                    Tailwind CSS
                   </span>
                 </div>
 
@@ -140,24 +140,15 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              Senvra ID merupakan platform digital agency yang dikembangkan sebagai 
-              media profesional untuk memperkenalkan layanan teknologi, solusi digital, 
-              portofolio, serta informasi proyek kepada calon klien. Website ini 
-              dirancang tidak hanya sebagai company profile, tetapi juga sebagai 
-              sarana untuk membangun kredibilitas bisnis dan memudahkan calon klien 
-              dalam memahami layanan yang tersedia serta menghubungi agency sesuai 
-              kebutuhan pengembangan digital mereka. Sistem dibangun dengan memisahkan 
-              sisi frontend dan backend, menggunakan React.js pada frontend untuk 
-              menghasilkan antarmuka yang modern, responsif, dan interaktif, serta 
-              PHP dengan framework Laravel pada backend untuk menangani logika aplikasi, 
-              pengelolaan data, dan komunikasi melalui API. Pengembangan juga memanfaatkan 
-              Vite, REST API, database, Git, dan GitHub, serta menerapkan konsep full-
-              stack web development, frontend–backend integration, responsive UI/UX, 
-              API development, database management, dan deployment aplikasi. Melalui 
-              arsitektur tersebut, Senvra ID menjadi platform digital yang mampu 
-              merepresentasikan identitas dan layanan agency secara profesional sekaligus 
-              menyediakan fondasi yang dapat dikembangkan untuk mendukung kebutuhan bisnis 
-              dan layanan teknologi secara berkelanjutan
+              Company SenvraID merupakan aplikasi berbasis web yang dikembangkan sebagai 
+              website profil perusahaan untuk menampilkan informasi perusahaan, layanan, 
+              portofolio proyek, dan berita atau insight terbaru. Website ini menyediakan 
+              halaman detail proyek serta halaman kontak untuk memudahkan pengunjung memperoleh 
+              informasi mengenai layanan perusahaan. Aplikasi ini juga dilengkapi dengan fitur 
+              pengelolaan portofolio dan berita agar konten website dapat diperbarui dengan 
+              lebih mudah. Project ini dikembangkan menggunakan React.js dan Tailwind CSS pada 
+              sisi frontend, serta Laravel sebagai backend API, dengan fokus pada pengembangan 
+              antarmuka, integrasi API, dan pengelolaan konten website
             </p>
           </div>
         </div>

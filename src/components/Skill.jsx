@@ -150,24 +150,6 @@ export default function Skill() {
             lg:mb-20
           "
         >
-          <span
-            className="
-              inline-block
-              rounded-full
-              border
-              border-purple-500/30
-              bg-purple-600/20
-              px-3
-              py-1
-              text-xs
-              font-medium
-              text-purple-300
-              sm:px-4
-              sm:text-sm
-            "
-          >
-            Portfolio
-          </span>
 
           <h2
             className="

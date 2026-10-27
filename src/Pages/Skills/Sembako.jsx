@@ -57,11 +57,11 @@ export default function HTML5() {
                 {/* Technology */}
                 <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    HTML, CSS, JavaScript
+                    PHP
                   </span>
 
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    PHP
+                    JavaScript
                   </span>
 
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
@@ -139,16 +139,16 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              Faadmart merupakan aplikasi web yang dikembangkan untuk membantu proses 
-              pengelolaan dan penjualan produk pada toko sembako secara lebih terstruktur. 
-              Aplikasi ini menggunakan PHP sebagai backend dengan HTML, CSS, JavaScript, 
-              dan Bootstrap pada sisi frontend, serta MySQL sebagai database untuk menyimpan 
-              dan mengelola data aplikasi. Fitur yang dikembangkan mencakup dashboard, 
-              pengelolaan produk dan jenis produk, detail produk, pemesanan, daftar pesanan, 
-              serta proses tambah, ubah, dan hapus data. Project ini dibuat dengan mengintegrasikan 
-              antarmuka pengguna, proses bisnis pada sisi server, dan penyimpanan data sehingga 
-              aktivitas pengelolaan produk dan pesanan dapat dilakukan melalui satu sistem 
-              berbasis web
+              Sembako App merupakan aplikasi berbasis web yang dikembangkan untuk mendukung 
+              proses penjualan dan pengelolaan produk pada toko sembako. Aplikasi ini menyediakan 
+              halaman katalog produk, detail barang, dan login, serta dashboard untuk membantu 
+              pengelolaan data produk, kategori barang, dan pesanan. Sistem ini dilengkapi fitur 
+              CRUD (Create, Read, Update, Delete) untuk mengelola data serta integrasi database 
+              untuk menyimpan informasi produk dan transaksi pesanan. Project ini dikembangkan 
+              menggunakan HTML, CSS, dan JavaScript pada sisi frontend, PHP sebagai backend, serta 
+              MySQL untuk pengelolaan database. Melalui project ini, pengembangan berfokus pada 
+              pembuatan antarmuka web, pengolahan data menggunakan PHP, dan integrasi database untuk 
+              mendukung pengelolaan toko secara lebih terstruktur
             </p>
           </div>
         </div>

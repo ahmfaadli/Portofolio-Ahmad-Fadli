@@ -57,11 +57,11 @@ export default function HTML5() {
                   </span>
 
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    Laravel
+                    JavaScript
                   </span>
 
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    MySQL
+                    Styled Components
                   </span>
                 </div>
 
@@ -135,16 +135,16 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              COVID-19 Monitoring merupakan aplikasi web yang dikembangkan untuk menampilkan 
-              dan memantau informasi kasus COVID-19 secara terstruktur, baik berdasarkan data 
-              global maupun Indonesia hingga tingkat provinsi. Aplikasi ini dibangun menggunakan 
-              JavaScript dengan React dan Vite, serta memanfaatkan Axios untuk mengambil data 
-              dari API dan React Router untuk mengatur navigasi antarhalaman. Fitur yang tersedia 
-              meliputi tampilan statistik COVID-19 global, informasi kasus di Indonesia, tabel 
-              data setiap provinsi, halaman informasi COVID-19, serta form untuk memperbarui data 
-              kasus provinsi secara langsung pada aplikasi. Pengembangan project ini berfokus pada 
-              penyajian data yang informatif dan mudah dipahami melalui antarmuka web yang responsif 
-              dan terorganisir.
+              COVID-19 Monitoring merupakan aplikasi berbasis web yang dikembangkan untuk 
+              menampilkan dan memantau informasi kasus COVID-19 secara global maupun di 
+              Indonesia. Aplikasi ini menyajikan ringkasan data kasus, informasi berdasarkan 
+              wilayah, serta tabel statistik provinsi yang mencakup jumlah kasus positif, 
+              sembuh, dirawat, dan meninggal. Data global dan Indonesia diambil melalui integrasi 
+              API menggunakan Axios, sedangkan halaman provinsi menyediakan formulir untuk 
+              memperbarui angka statistik pada tampilan aplikasi. Project ini dikembangkan 
+              menggunakan React.js, JavaScript, Vite, React Router, dan Styled Components, 
+              dengan fokus pada pengembangan antarmuka berbasis komponen, integrasi API, serta 
+              penyajian data statistik agar lebih mudah dibaca dan dipahami
             </p>
           </div>
         </div>

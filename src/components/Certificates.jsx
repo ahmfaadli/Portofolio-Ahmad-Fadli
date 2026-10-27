@@ -1,79 +1,338 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { X } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { ChevronDown, ChevronUp, X } from "lucide-react";
 import CertificateCard from "./CertificateCard";
 
 const certificates = [
   {
-    id: 1,
-    images: [
-      "https://g.top4top.io/p_3870wzjv21.jpg",
-    ],
+    images: ["/assets/certificates/fwd.webp"],
     title: "Fullstack Developer",
+    category: "pelatihan",
   },
   {
-    id: 2,
     images: [
-      "https://i.top4top.io/p_39023667k1.jpg",
-      "https://e.top4top.io/p_39028j99r1.jpg",
+      "/assets/certificates/nfa-data/Codeless1.webp",
+      "/assets/certificates/nfa-data/Codeless2.webp",
     ],
     title: "Codeless Data Science",
+    category: "pelatihan",
   },
   {
-    id: 3,
     images: [
-      "https://d.top4top.io/p_3902euq7b1.jpg",
-      "https://d.top4top.io/p_3902t9qs01.jpg",
+      "/assets/certificates/Office/Office1.webp",
+      "/assets/certificates/Office/Office2.webp",
     ],
     title: "Office Profesional",
+    category: "pelatihan",
   },
   {
-    id: 3,
     images: [
-      "/assets/certificates/toefl.webp",
+      "/assets/certificates/fullstackweb.webp",
+      "/assets/certificates/fullstackweb2.webp",
     ],
+    title: "Fullstack Web Development",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/uiux.webp"],
+    title: "Design Thinking",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/teamwok.webp"],
+    title: "Soft Skill Teamwork",
+    category: "pelatihan",
+  },
+  {
+    images: [
+      "/assets/certificates/saylor1/se1.webp",
+      "/assets/certificates/saylor1/se2.webp",
+    ],
+    title: "Software Engineering",
+    category: "pelatihan",
+  },
+  {
+    images: [
+      "/assets/certificates/saylor2/C++1.webp",
+      "/assets/certificates/saylor2/C++2.webp",
+    ],
+    title: "C++ Programming",
+    category: "pelatihan",
+  },
+  {
+    images: [
+      "/assets/certificates/saylor3/so1.webp",
+      "/assets/certificates/saylor3/so2.webp",
+    ],
+    title: "Operating Systems",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/sqldqlab.webp"],
+    title: "SQL With AI",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/datadqlab.webp"],
+    title: "Data Science With Python",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/pytondqlab.webp"],
+    title: "Python With AI",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/udemy4.webp"],
+    title: "HTML & CSS Build",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/udemy3.webp"],
+    title: "JavaScript and JQuery",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/udemy2.webp"],
+    title: "SQL & PostgreSQL",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/udemy5.webp"],
+    title: "Data Engineer Build",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/udemy1.webp"],
+    title: "Data Analyst",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/aguna1.webp"],
+    title: "Machine Learning",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/aguna2.webp"],
+    title: "Network Fundamental",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/aguna3.webp"],
+    title: "Python Fundamental",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/aguna4.webp"],
+    title: "Linux Fundamental",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/aguna5.webp"],
+    title: "Jaringan dengan PNETLab",
+    category: "pelatihan",
+  },
+  {
+    images: [
+      "/assets/certificates/dicoding1/dicoding1.webp",
+      "/assets/certificates/dicoding1/dicoding2.webp",
+      "/assets/certificates/dicoding1/dicoding3.webp",
+    ],
+    title: "Programming dengan Java",
+    category: "pelatihan",
+  },
+  {
+    images: [
+      "/assets/certificates/dicoding2/dicoding1.webp",
+      "/assets/certificates/dicoding2/dicoding2.webp",
+    ],
+    title: "Pemrograman SOLID",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/Coursera2.webp"],
+    title: "Azure IoT Hub",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/Coursera1.webp"],
+    title: "AWS S3 Basics",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/Coursera3.webp"],
+    title: "Virtual Private Cloud",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/cyber.webp"],
+    title: "Cybersecurity Educator",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/playstore.webp"],
+    title: "Google Play Store Listing",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/knime.webp"],
+    title: "Besic in KNIME",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates/toefl.webp"],
     title: "Sertifikat TOEFL",
+    category: "pelatihan",
   },
   {
-    id: 4,
-    images: [
-      "https://l.top4top.io/p_3876y1ct01.jpg",
-    ],
+    images: ["/assets/certificates/desain.webp"],
+    title: "Graphics Design",
+    category: "pelatihan",
+  },
+  {
+    images: ["/assets/certificates2/bem-kadep.webp"],
     title: "Kepala Departemen TEKPORA",
+    category: "experience",
   },
   {
-    id: 5,
-    images: [
-      "https://e.top4top.io/p_38702pebe1.png",
-    ],
+    images: ["/assets/certificates2/bem-astro.webp"],
     title: "Steering Committee ASTRO 7.0",
+    category: "experience",
   },
   {
-    id: 6,
-    images: [
-      "https://b.top4top.io/p_38704x9gw1.png",
-    ],
+    images: ["/assets/certificates2/bem-ict.webp"],
     title: "Steering Committee ICT",
+    category: "experience",
   },
   {
-    id: 7,
-    images: [
-      "https://f.top4top.io/p_3902ty69s1.jpg",
-    ],
-    title: "Getting started with Azure IOT",
+    images: ["/assets/certificates2/nfscc.webp"],
+    title: "Staff Media Informasi",
+    category: "experience",
   },
   {
-    id: 8,
-    images: [
-      "https://e.top4top.io/p_3902cupot1.jpg",
-    ],
-    title: "Create a Virtual Private Cloud (VPC) Using AWS",
+    images: ["/assets/certificates2/bem-media.webp"],
+    title: "Staff Media Kreatif",
+    category: "experience",
   },
+  {
+    images: ["/assets/certificates2/senada-media.webp"],
+    title: "Staff Media Kreatif",
+    category: "experience",
+  },
+  {
+    images: ["/assets/certificates2/bem-speakup.webp"],
+    title: "IT Support Seminar Speak UP",
+    category: "experience",
+  },
+  {
+    images: ["/assets/certificates2/senada-iyf.webp"],
+    title: "Staff Media Informasi",
+    category: "experience",
+  },
+  {
+    images: ["/assets/certificates2/senada-rapimda.webp"],
+    title: "Media Informasi RAPIMDA JADEBEK",
+    category: "experience",
+  },
+  {
+    images: ["/assets/certificates2/senada-katada.webp"],
+    title: "Media Informasi Kajian Kastrad",
+    category: "experience",
+  },
+  {
+    images: ["/assets/certificates2/senada-gws.webp"],
+    title: "Media Informasi Seminar GrowUP",
+    category: "experience",
+  },
+  {
+    images: ["/assets/certificates2/haus.webp"],
+    title: "Peserta Webinar Haus Marketing",
+    category: "experience",
+  },
+  {
+    images: ["/assets/certificates2/pengabdian.webp"],
+    title: "Peserta Pengabdian Masyarakat",
+    category: "experience",
+  },
+  {
+    images: ["/assets/certificates2/astro2.webp"],
+    title: "Peserta Lomba Mini Hackathon",
+    category: "experience",
+  },
+  {
+    images: ["/assets/certificates2/astro1.webp"],
+    title: "Peserta Lomba Digital Branding",
+    category: "experience",
+  },
+];
+
+const categories = [
+  { label: "All", value: "all" },
+  { label: "Pelatihan", value: "pelatihan" },
+  { label: "Experience", value: "experience" },
+];
+
+const INITIAL_VISIBLE = 9;
+
+// Urutan khusus yang hanya digunakan pada filter All.
+const allCategoryPriority = [
+  "Fullstack Developer",
+  "Codeless Data Science",
+  "Office Profesional",
+  "Sertifikat TOEFL",
+  "Soft Skill Teamwork",
+  "HTML & CSS Build",
+  "Kepala Departemen TEKPORA",
+  "Steering Committee ASTRO 7.0",
+  "Steering Committee ICT",
 ];
 
 export default function Certificates() {
   const [selected, setSelected] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [showAll, setShowAll] = useState(false);
+
+  // Filter kategori tetap berdasarkan category masing-masing.
+  const filteredCertificates = useMemo(() => {
+    if (activeCategory === "all") {
+      const priorityMap = new Map(
+        allCategoryPriority.map((title, index) => [title, index])
+      );
+
+      return [...certificates].sort((a, b) => {
+        const indexA = priorityMap.has(a.title)
+          ? priorityMap.get(a.title)
+          : Infinity;
+
+        const indexB = priorityMap.has(b.title)
+          ? priorityMap.get(b.title)
+          : Infinity;
+
+        // Sertifikat prioritas berada di urutan pertama.
+        if (indexA !== indexB) {
+          return indexA - indexB;
+        }
+
+        // Sertifikat lainnya mempertahankan urutan data aslinya.
+        return certificates.indexOf(a) - certificates.indexOf(b);
+      });
+    }
+
+    return certificates.filter(
+      (certificate) =>
+        certificate.category.trim().toLowerCase() === activeCategory
+    );
+  }, [activeCategory]);
+
+  // Batasi jumlah sertifikat yang ditampilkan sebelum Show More.
+  const visibleCertificates = showAll
+    ? filteredCertificates
+    : filteredCertificates.slice(0, INITIAL_VISIBLE);
+
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category);
+    setShowAll(false);
+  };
 
   const handleOpen = (certificate) => {
     setSelected(certificate);
@@ -86,9 +345,7 @@ export default function Certificates() {
   };
 
   const handleNext = () => {
-    if (!selected || selected.images.length <= 1) {
-      return;
-    }
+    if (!selected || selected.images.length <= 1) return;
 
     setCurrentImage((prev) =>
       prev === selected.images.length - 1 ? 0 : prev + 1
@@ -96,9 +353,7 @@ export default function Certificates() {
   };
 
   const handlePrevious = () => {
-    if (!selected || selected.images.length <= 1) {
-      return;
-    }
+    if (!selected || selected.images.length <= 1) return;
 
     setCurrentImage((prev) =>
       prev === 0 ? selected.images.length - 1 : prev - 1
@@ -106,22 +361,12 @@ export default function Certificates() {
   };
 
   useEffect(() => {
-    if (!selected) {
-      return;
-    }
+    if (!selected) return;
 
     const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        handleClose();
-      }
-
-      if (event.key === "ArrowRight") {
-        handleNext();
-      }
-
-      if (event.key === "ArrowLeft") {
-        handlePrevious();
-      }
+      if (event.key === "Escape") handleClose();
+      if (event.key === "ArrowRight") handleNext();
+      if (event.key === "ArrowLeft") handlePrevious();
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -129,18 +374,16 @@ export default function Certificates() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selected]);
+  }, [selected, currentImage]);
 
   useEffect(() => {
-    if (!selected) {
-      document.body.style.overflow = "";
-      return;
-    }
+    if (!selected) return;
 
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
     };
   }, [selected]);
 
@@ -169,24 +412,6 @@ export default function Certificates() {
       <div className="mx-auto max-w-7xl px-1 sm:px-2 lg:px-6">
         {/* Header */}
         <div className="text-center">
-          <span
-            className="
-              inline-block
-              rounded-full
-              border
-              border-purple-500/30
-              bg-purple-600/20
-              px-3
-              py-1
-              text-xs
-              text-purple-300
-              sm:px-4
-              sm:text-sm
-            "
-          >
-            Sertifikat
-          </span>
-
           <h2
             className="
               mt-4
@@ -221,23 +446,65 @@ export default function Certificates() {
           </p>
         </div>
 
+        {/* Category Filter */}
+        <div
+          className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:mt-10 sm:gap-3"
+          role="group"
+          aria-label="Filter certificates by category"
+        >
+          {categories.map((category) => {
+            const isActive = activeCategory === category.value;
+
+            return (
+              <button
+                key={category.value}
+                type="button"
+                onClick={() => handleCategoryChange(category.value)}
+                aria-pressed={isActive}
+                className={`
+                  cursor-pointer
+                  rounded-full
+                  border
+                  px-5
+                  py-2.5
+                  text-xs
+                  font-semibold
+                  transition-all
+                  duration-300
+                  sm:px-6
+                  sm:py-3
+                  sm:text-sm
+                  ${
+                    isActive
+                      ? "border-purple-400 bg-purple-500 text-white shadow-lg shadow-purple-500/20"
+                      : "border-purple-400/30 bg-white/[0.03] text-gray-300 hover:border-purple-400/70 hover:bg-purple-500/15 hover:text-white"
+                  }
+                `}
+              >
+                {category.label}
+              </button>
+            );
+          })}
+        </div>
+
         {/* Certificate Grid */}
         <div
           className="
-            mt-12
+            mt-8
             grid
-            grid-cols-3
-            gap-2
-            sm:mt-16
+            grid-cols-2
+            gap-3
+            sm:mt-10
+            sm:grid-cols-3
             sm:gap-4
             md:gap-6
-            lg:mt-20
+            lg:mt-12
             lg:gap-8
           "
         >
-          {certificates.map((certificate) => (
+          {visibleCertificates.map((certificate, index) => (
             <CertificateCard
-              key={certificate.id}
+              key={`${certificate.category}-${certificate.title}-${certificate.images[0]}-${index}`}
               image={certificate.images[0]}
               title={certificate.title}
               onClick={() => handleOpen(certificate)}
@@ -245,21 +512,25 @@ export default function Certificates() {
           ))}
         </div>
 
-        {/* Show More */}
-        <div
-          className="
-            mt-10
-            flex
-            justify-center
-            sm:mt-12
-            lg:mt-14
-          "
-        >
-          <Link
-            to="/certificates"
+        {/* Empty State */}
+        {filteredCertificates.length === 0 && (
+          <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-12 text-center">
+            <p className="text-sm text-gray-300">
+              Belum ada sertifikat pada kategori ini.
+            </p>
+          </div>
+        )}
+
+        {/* Show More / Show Less */}
+        <div className="mt-10 flex justify-center sm:mt-12 lg:mt-14">
+          <button
+            type="button"
+            onClick={() => setShowAll((prev) => !prev)}
+            aria-expanded={showAll}
             className="
               group
               inline-flex
+              cursor-pointer
               items-center
               justify-center
               gap-2
@@ -273,7 +544,7 @@ export default function Certificates() {
               text-xs
               font-semibold
               text-white
-              transition-transform
+              transition-all
               duration-300
               hover:-translate-y-1
               hover:border-purple-400
@@ -289,25 +560,28 @@ export default function Certificates() {
               md:text-base
             "
           >
-            <span>Show More Certificates</span>
-
-            <span
-              className="
-                text-base
-                transition-transform
-                duration-300
-                group-hover:translate-x-1
-                sm:text-lg
-                md:text-xl
-              "
-            >
-              →
+            <span>
+              {showAll
+                ? "Show Less Certificates"
+                : "Show More Certificates"}
             </span>
-          </Link>
+
+            {showAll ? (
+              <ChevronUp
+                size={18}
+                className="transition-transform duration-300 group-hover:-translate-y-0.5"
+              />
+            ) : (
+              <ChevronDown
+                size={18}
+                className="transition-transform duration-300 group-hover:translate-y-0.5"
+              />
+            )}
+          </button>
         </div>
       </div>
 
-      {/* Image Modal */}
+      {/* Certificate Image Modal */}
       {selected && (
         <div
           className="
@@ -348,6 +622,7 @@ export default function Certificates() {
                 right-2
                 top-2
                 z-50
+                cursor-pointer
                 text-white
                 transition-colors
                 hover:text-purple-400
@@ -357,23 +632,11 @@ export default function Certificates() {
                 lg:top-6
               "
             >
-              <X
-                size={32}
-                className="sm:h-9 sm:w-9"
-              />
+              <X size={32} className="sm:h-9 sm:w-9" />
             </button>
 
             {/* Image Slider */}
-            <div
-              className="
-                relative
-                flex
-                w-full
-                items-center
-                justify-center
-              "
-            >
-              {/* Previous Button */}
+            <div className="relative flex w-full items-center justify-center">
               {selected.images.length > 1 && (
                 <button
                   type="button"
@@ -386,6 +649,7 @@ export default function Certificates() {
                     flex
                     h-10
                     w-10
+                    cursor-pointer
                     items-center
                     justify-center
                     rounded-full
@@ -408,7 +672,6 @@ export default function Certificates() {
                 </button>
               )}
 
-              {/* Current Image */}
               <img
                 src={selected.images[currentImage]}
                 alt={`${selected.title} - ${currentImage + 1}`}
@@ -430,7 +693,6 @@ export default function Certificates() {
                 "
               />
 
-              {/* Next Button */}
               {selected.images.length > 1 && (
                 <button
                   type="button"
@@ -443,6 +705,7 @@ export default function Certificates() {
                     flex
                     h-10
                     w-10
+                    cursor-pointer
                     items-center
                     justify-center
                     rounded-full
@@ -466,7 +729,7 @@ export default function Certificates() {
               )}
             </div>
 
-            {/* Image Indicator */}
+            {/* Image Indicators */}
             {selected.images.length > 1 && (
               <div className="mt-4 flex items-center justify-center gap-2 sm:mt-5">
                 {selected.images.map((_, index) => (
@@ -475,28 +738,21 @@ export default function Certificates() {
                     type="button"
                     onClick={() => setCurrentImage(index)}
                     aria-label={`Go to image ${index + 1}`}
+                    aria-current={
+                      currentImage === index ? "true" : undefined
+                    }
                     className={
                       currentImage === index
-                        ? "h-2 w-6 rounded-full bg-purple-500"
-                        : "h-2 w-2 rounded-full bg-white/40 transition-colors hover:bg-white/70"
+                        ? "h-2 w-6 cursor-pointer rounded-full bg-purple-500"
+                        : "h-2 w-2 cursor-pointer rounded-full bg-white/40 transition-colors hover:bg-white/70"
                     }
                   />
                 ))}
               </div>
             )}
 
-            {/* Title */}
-            <p
-              className="
-                mt-3
-                text-center
-                text-sm
-                font-medium
-                text-gray-300
-                sm:mt-4
-                sm:text-lg
-              "
-            >
+            {/* Certificate Title */}
+            <p className="mt-3 text-center text-sm font-medium text-gray-300 sm:mt-4 sm:text-lg">
               {selected.title}
             </p>
 

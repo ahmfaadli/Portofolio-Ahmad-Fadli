@@ -135,14 +135,17 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              BogorCam merupakan proyek pengembangan website pemantauan CCTV publik yang 
-              dirancang untuk memudahkan pengguna menjelajahi informasi kamera di wilayah 
-              Kota dan Kabupaten Bogor melalui dashboard interaktif. Website ini menyediakan 
-              daftar kamera, filter berdasarkan area, peta berbasis Leaflet, serta pemutar 
-              live streaming menggunakan HLS.js untuk sumber video yang telah diverifikasi. 
-              Dikembangkan menggunakan React.js dan Vite, proyek ini mengutamakan tampilan 
-              yang informatif, navigasi yang praktis, dan integrasi sumber CCTV resmi agar 
-              akses informasi pemantauan wilayah menjadi lebih mudah
+              BogorCam merupakan aplikasi berbasis web yang dikembangkan untuk memudahkan 
+              pengguna melihat informasi dan siaran CCTV publik di wilayah Kota dan Kabupaten 
+              Bogor melalui satu dashboard. Aplikasi ini menyediakan daftar kamera, fitur 
+              pencarian dan filter berdasarkan wilayah maupun status kamera, serta peta 
+              interaktif untuk memilih lokasi CCTV dan melihat detailnya. BogorCam juga 
+              mendukung pemutaran video CCTV melalui stream HLS dan sumber video yang dapat 
+              disematkan, selama alamat siaran tersedia dan dapat diakses. Project ini menggunakan 
+              React.js, JavaScript, Vite, Leaflet, React Leaflet, HLS.js, dan Lucide React untuk 
+              membangun antarmuka, menampilkan peta, serta mendukung pemutaran video. Melalui 
+              project ini, pengembangan berfokus pada penggabungan data lokasi kamera, navigasi 
+              peta, dan akses siaran CCTV dalam antarmuka yang praktis dan mudah digunakan
             </p>
           </div>
         </div>

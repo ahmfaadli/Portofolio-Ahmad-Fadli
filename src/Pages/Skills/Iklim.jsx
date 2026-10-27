@@ -48,6 +48,9 @@ export default function HTML5() {
                     React.js
                   </span>
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
+                    JavaScript
+                  </span>
+                  <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
                     Open-Meteo API
                   </span>
                 </div>
@@ -122,20 +125,17 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              Explorer Iklim Nusantara adalah aplikasi berbasis web yang dikembangkan 
-              untuk menampilkan, mengeksplorasi, dan menganalisis data iklim di Indonesia 
-              secara visual, dengan fokus pada data historis periode 2015–2025 yang 
-              diperoleh melalui Open-Meteo Archive API berdasarkan koordinat ibu kota 
-              provinsi di Indonesia. Aplikasi ini menyajikan informasi melalui dashboard 
-              interaktif yang mencakup peta lokasi, grafik perubahan suhu, curah hujan, 
-              perbandingan data tahunan, statistik ringkasan, serta filter berdasarkan 
-              wilayah dan tahun. Dengan tampilan visual yang terstruktur, pengguna dapat 
-              mengamati pola iklim, membandingkan kondisi antardaerah, dan memahami perubahan 
-              parameter meteorologi dalam periode tertentu. Aplikasi ini dikembangkan menggunakan 
-              React.js sebagai pustaka antarmuka, Vite sebagai alat pengembangan dan build, 
-              JavaScript sebagai bahasa pemrograman, HTML5 dan CSS3 untuk struktur serta desain 
-              tampilan, Open-Meteo API sebagai sumber data iklim, serta pustaka visualisasi 
-              grafik dan peta untuk menyajikan informasi agar lebih mudah dipahami
+              Explorer Iklim Nusantara merupakan aplikasi berbasis web yang dikembangkan 
+              untuk menampilkan dan mengeksplorasi data iklim di Indonesia secara visual. 
+              Aplikasi ini menyajikan data historis iklim periode 2015–2025 berdasarkan 
+              lokasi ibu kota provinsi, dilengkapi grafik perubahan suhu, curah hujan, 
+              dan perbandingan data iklim antarwilayah. Pengguna juga dapat memilih lokasi 
+              yang ingin dianalisis serta melihat persebaran lokasi melalui peta interaktif. 
+              Data iklim diperoleh melalui integrasi Open-Meteo API, dengan dukungan informasi 
+              prakiraan cuaca dari BMKG untuk provinsi yang dipilih. Project ini dikembangkan 
+              menggunakan React.js, JavaScript, Vite, dan Leaflet, dengan fokus pada integrasi 
+              API, pengolahan data, visualisasi grafik, serta penyajian informasi iklim melalui 
+              dashboard yang interaktif dan mudah dipahami
             </p>
           </div>
         </div>

@@ -78,7 +78,7 @@ export default function HTML5() {
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
-                  Smartroom Sistem monitoring Ruangan
+                  Sistem Pemantauan Ruang Kelas Berbasis Internet of Things
                 </h2>
 
                 {/* GitHub */}
@@ -87,7 +87,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://github.com/ahmfaadli/Niblenest_Laptop.git",
+                        "https://github.com/ahmfaadli/IoT-Smartroom.git",
                         "_blank",
                         "noopener,noreferrer",
                       )
@@ -143,15 +143,19 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              DNote merupakan aplikasi pencatatan digital berbasis Flutter yang dirancang 
-              untuk membantu pengguna membuat dan mengelola catatan secara praktis dalam 
-              satu aplikasi. Aplikasi ini menggunakan Dart dan Flutter sebagai teknologi 
-              utama, dengan SQLite (Sqflite) untuk penyimpanan data secara lokal, Provider 
-              untuk pengelolaan state, Shared Preferences untuk penyimpanan data sederhana, 
-              serta Intl untuk kebutuhan pengolahan tanggal dan waktu. Project ini juga dilengkapi 
-              konfigurasi custom app icon dan native splash screen, sehingga selain berfokus pada 
-              fungsi pencatatan, pengembangan DNote juga memperhatikan struktur aplikasi, pengelolaan 
-              data lokal, dan pengalaman pengguna.
+              Project ini merupakan tugas akhir berjudul “Rancang Bangun Perangkat Pemantauan 
+              Ruang Kelas di STT Terpadu Nurul Fikri untuk Meningkatkan Efisiensi Energi 
+              Listrik Berbasis Teknologi Internet of Things.” IoT Smartroom dikembangkan 
+              untuk memantau dan mengendalikan penggunaan perangkat listrik di ruang kelas, 
+              khususnya lampu dan AC, guna mendukung efisiensi energi listrik. Sistem ini 
+              memungkinkan pengguna memantau kondisi perangkat dan melakukan pengendalian 
+              dari jarak jauh melalui dashboard. Project ini menggunakan ESP32 sebagai perangkat 
+              utama, sensor DHT22 untuk membaca suhu dan kelembapan, relay untuk mengendalikan 
+              perangkat listrik, serta ESP32-CAM untuk mendukung pemantauan kondisi ruangan. 
+              Data perangkat diintegrasikan dengan Node-RED untuk ditampilkan pada dashboard 
+              pemantauan. Pengembangan ini berfokus pada penerapan teknologi Internet of Things 
+              (IoT), integrasi perangkat keras dan perangkat lunak, serta perbandingan penggunaan 
+              energi listrik sebelum dan sesudah penerapan sistem
             </p>
           </div>
         </div>

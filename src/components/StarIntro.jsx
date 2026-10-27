@@ -3,20 +3,41 @@ import { useEffect, useState } from "react";
 
 export default function StarIntro({ onFinish }) {
   const [show, setShow] = useState(true);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    const duration = 1400;
+    const intervalDuration = 20;
+    const totalSteps = duration / intervalDuration;
+    let currentStep = 0;
+
+    const progressInterval = setInterval(() => {
+      currentStep += 1;
+
+      const nextProgress = Math.min(
+        Math.round((currentStep / totalSteps) * 100),
+        100
+      );
+
+      setProgress(nextProgress);
+
+      if (nextProgress >= 100) {
+        clearInterval(progressInterval);
+      }
+    }, intervalDuration);
+
     const timer = setTimeout(() => {
       setShow(false);
-    }, 1400);
+    }, duration);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearInterval(progressInterval);
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
-    <AnimatePresence
-      mode="wait"
-      onExitComplete={onFinish}
-    >
+    <AnimatePresence mode="wait" onExitComplete={onFinish}>
       {show && (
         <motion.div
           className="
@@ -30,9 +51,7 @@ export default function StarIntro({ onFinish }) {
             bg-[#160B2E]
           "
           initial={{ opacity: 1 }}
-          exit={{
-            opacity: 0,
-          }}
+          exit={{ opacity: 0 }}
           transition={{
             duration: 0.45,
             ease: [0.22, 1, 0.36, 1],
@@ -125,52 +144,25 @@ export default function StarIntro({ onFinish }) {
               Ahmad Fadli
             </h1>
 
-            {/* Accent */}
-            <motion.div
-              className="
-                mt-5
-                h-[2px]
-                rounded-full
-                bg-gradient-to-r
-                from-transparent
-                via-cyan-300
-                to-transparent
-              "
-              initial={{
-                width: 0,
-                opacity: 0,
-              }}
-              animate={{
-                width: "120px",
-                opacity: 1,
-              }}
-              transition={{
-                duration: 0.5,
-                delay: 0.25,
-              }}
-            />
-
+            {/* Loading Percentage */}
             <motion.p
               className="
-                mt-4
+                mt-5
                 text-sm
-                font-medium
+                font-semibold
+                tabular-nums
                 tracking-[0.18em]
-                text-white/60
+                text-white/70
                 sm:text-base
               "
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{
                 duration: 0.4,
-                delay: 0.35,
+                delay: 0.2,
               }}
             >
-              INFORMATICS ENGINEERING
+              {progress}%
             </motion.p>
           </motion.div>
 
@@ -183,14 +175,10 @@ export default function StarIntro({ onFinish }) {
               right-0
               text-center
             "
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{
-              delay: 0.45,
+              delay: 0.3,
               duration: 0.35,
             }}
           >

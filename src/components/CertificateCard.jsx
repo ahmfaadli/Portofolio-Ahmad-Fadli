@@ -11,6 +11,7 @@ export default function CertificateCard({
       className="
         group
         w-full
+        cursor-pointer
         overflow-hidden
         rounded-xl
         border

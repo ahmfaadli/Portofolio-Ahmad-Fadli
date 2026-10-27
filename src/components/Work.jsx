@@ -63,37 +63,6 @@ export default function Education() {
             HEADING
         ========================== */}
         <div className="text-center">
-          <span
-            className="
-              inline-block
-              px-5
-              py-2
-              rounded-full
-              bg-purple-600/20
-              text-purple-300
-              text-sm
-              font-medium
-              border
-              border-purple-500/30
-
-              /* Tablet */
-              max-lg:px-4
-              max-lg:py-1.5
-              max-lg:text-xs
-
-              /* Mobile */
-              max-md:px-4
-              max-md:py-1.5
-
-              /* Mobile kecil */
-              max-[374px]:px-3
-              max-[374px]:py-1
-              max-[374px]:text-[11px]
-            "
-          >
-            Pengalaman
-          </span>
-
           <h2
             className="
               mt-6

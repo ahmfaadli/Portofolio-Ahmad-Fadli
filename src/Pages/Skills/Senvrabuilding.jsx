@@ -135,23 +135,14 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              Senvra Building merupakan platform website jasa konstruksi yang dirancang 
-              untuk membantu calon pelanggan memperoleh informasi dan layanan pembangunan 
-              maupun renovasi bangunan seperti rumah, ruko, tempat usaha, dan bangunan 
-              skala kecil hingga menengah. Website ini berfungsi sebagai media digital 
-              untuk memperkenalkan layanan konstruksi secara profesional, menampilkan 
-              portofolio pekerjaan, memberikan informasi detail proyek dan layanan, serta 
-              menyediakan alur konsultasi bagi calon pelanggan yang ingin membangun atau 
-              merenovasi bangunan. Pengembangan sistem mencakup sisi frontend untuk 
-              menghadirkan antarmuka yang responsif, informatif, dan mudah digunakan, 
-              serta backend untuk mengelola data, API, dan komunikasi dengan database. 
-              Teknologi yang digunakan meliputi JavaScript, React.js, React Router, 
-              Vite, Node.js, Express.js, dan MySQL, sedangkan proses pengembangan dan 
-              pengelolaan source code menggunakan Git dan GitHub. Projek ini menerapkan 
-              konsep full-stack web development, REST API, database management, responsive 
-              UI/UX, routing, serta integrasi frontend dan backend untuk membangun platform 
-              jasa konstruksi yang modern, terstruktur, dan mampu mendukung kebutuhan 
-              bisnis dalam memberikan layanan pembangunan serta renovasi kepada pelanggan
+              Senvra Building merupakan aplikasi berbasis web untuk mengelola layanan desain 
+              dan pemodelan bangunan. Website ini menyediakan halaman informasi layanan, 
+              portofolio proyek, paket harga, serta formulir konsultasi bagi calon pelanggan. 
+              Aplikasi ini juga dilengkapi dashboard admin untuk mengelola data portofolio, paket 
+              layanan, dan permintaan konsultasi pelanggan. Project ini dikembangkan dengan 
+              React.js, React Router, Express.js, dan MySQL, dengan fokus pada pengembangan frontend, 
+              backend API, serta pengelolaan data agar proses penyampaian informasi dan pengelolaan 
+              layanan menjadi lebih terstruktur
             </p>
           </div>
         </div>

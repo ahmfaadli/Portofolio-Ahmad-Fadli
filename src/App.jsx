@@ -47,9 +47,6 @@ const Siom = lazy(() =>
 const Haydro = lazy(() =>
   import("./Pages/Skills/Haydro")
 );
-const CertificatesPage = lazy(() =>
-  import("./Pages/Certificate/Certificates")
-);
 
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -59,6 +56,7 @@ import Work from "./components/Work";
 import Certificates from "./components/Certificates";
 import Portfolio from "./components/Portfolio";
 import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
 
 function Home() {
   return (
@@ -71,6 +69,7 @@ function Home() {
       <Certificates />
       <Portfolio />
       <Footer />
+      <BackToTop />
     </>
   );
 }
@@ -177,11 +176,6 @@ export default function App() {
           <Route
           path="/skills/Haydro"
           element={<Haydro />}
-        />
-
-        <Route
-          path="/certificates"
-          element={<CertificatesPage />}
         />
       </Routes>
     </Suspense>

@@ -135,16 +135,18 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              UangQu merupakan aplikasi keuangan pribadi berbasis Flutter yang dirancang 
-              untuk membantu pengguna mencatat, mengelola, dan memantau kondisi keuangan 
-              sehari-hari secara lebih praktis. Aplikasi ini menggunakan Dart dan Flutter 
-              sebagai teknologi utama, dengan SQLite melalui Sqflite untuk menyimpan data 
-              transaksi secara lokal di perangkat, serta memanfaatkan Intl untuk pengolahan 
-              format tanggal dan mata uang dan Shared Preferences untuk penyimpanan data 
-              aplikasi sederhana. UangQu dikembangkan dengan fokus pada pengelolaan transaksi 
-              dan rekapan keuangan yang mudah dipahami, sehingga pengguna dapat melihat kondisi 
-              keuangan, mencatat pemasukan dan pengeluaran, serta memantau tabungan tanpa 
-              bergantung pada koneksi internet.
+              UangQu merupakan aplikasi mobile berbasis Flutter yang dikembangkan untuk 
+              membantu pengguna mengelola dan memantau keuangan pribadi dalam satu aplikasi. 
+              Aplikasi ini mencakup pencatatan pemasukan dan pengeluaran, pengelolaan tabungan, 
+              pemantauan saldo, riwayat transaksi, serta rekap keuangan untuk membantu pengguna 
+              memahami kondisi keuangannya. UangQu juga menyediakan fitur penambahan transaksi 
+              berdasarkan kategori dan tanggal, pengaturan tema terang dan gelap, serta penyimpanan 
+              data secara lokal menggunakan SQLite. Project ini menggunakan Dart, Flutter, SQLite 
+              melalui package sqflite, SharedPreferences, dan Intl untuk mendukung pengelolaan data 
+              serta pemformatan nominal rupiah dan tanggal. Melalui project ini, pengembangan tidak 
+              hanya berfokus pada tampilan aplikasi, tetapi juga pada pengelolaan transaksi, perhitungan 
+              saldo, pemisahan data tabungan, dan penyajian informasi keuangan dalam antarmuka mobile 
+              yang sederhana dan mudah digunakan
             </p>    
           </div>
         </div>

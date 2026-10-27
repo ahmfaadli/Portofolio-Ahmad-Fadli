@@ -23,28 +23,6 @@ export default function Portfolio() {
 
         {/* Heading */}
         <div className="text-center">
-          <span
-            className="
-              inline-block
-              px-3
-              py-1.5
-              sm:px-4
-              sm:py-2
-              lg:px-5
-              lg:py-2
-              rounded-full
-              bg-purple-600/20
-              text-purple-300
-              text-xs
-              sm:text-sm
-              font-medium
-              border
-              border-purple-500/30
-            "
-          >
-            Portfolio Multimedia
-          </span>
-
           <h2
             className="
               mt-4
