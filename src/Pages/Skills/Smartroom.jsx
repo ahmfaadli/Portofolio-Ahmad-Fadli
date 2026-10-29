@@ -101,7 +101,11 @@ export default function HTML5() {
                   <button
                     type="button"
                     onClick={() =>
-                      window.open("#", "_blank", "noopener,noreferrer")
+                       window.open(
+                        "https://youtu.be/VLMxqXnwZ10",
+                        "_blank",
+                        "noopener,noreferrer",
+                      )
                     }
                     className="cursor-pointer inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl transition-all duration-300"
                   >

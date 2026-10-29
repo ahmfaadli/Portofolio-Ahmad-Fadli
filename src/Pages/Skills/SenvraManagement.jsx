@@ -97,10 +97,11 @@ export default function HTML5() {
                   <button
                     type="button"
                     onClick={() => 
-                      window.open(
-                        "https://expo.dev/accounts/senvraid/projects/senvra-app/builds/96634a8c-1533-475a-90d2-43a4c130a917", 
-                        "_blank", 
-                        "noopener,noreferrer")
+                    window.open(
+                        "https://drive.google.com/drive/folders/1dZsH2D4g1WW0hG5HNlFmYK7EBnZXpqv9?usp=sharing",
+                        "_blank",
+                        "noopener,noreferrer",
+                      )
                     }
                     className="cursor-pointer inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl transition-all duration-300"
                   >

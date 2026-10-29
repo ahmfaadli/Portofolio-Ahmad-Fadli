@@ -1,3 +1,4 @@
+
 import { motion, useReducedMotion } from "framer-motion";
 import Button from "./Button";
 
@@ -132,12 +133,26 @@ export default function Hero() {
               pt-4
             "
           >
-            <Button href="/assets/CV-Ahmad Fadli-IT.pdf">
-              Download CV <i className="ri-download-line ri-lg"></i>
+            {/* Tombol Lihat CV: Google Drive */}
+            <Button
+              href="https://drive.google.com/file/d/1AikjCV3rMnUGEnr6IvNTcq9xaqBbd-7_/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Lihat CV{" "}
+              <i
+                className="ri-external-link-line ri-lg"
+                aria-hidden="true"
+              />
             </Button>
 
+            {/* Tombol Lihat Proyek */}
             <Button href="#skills" variant="outline">
-              Lihat Proyek <i className="ri-arrow-down-line ri-lg"></i>
+              Lihat Proyek{" "}
+              <i
+                className="ri-arrow-down-line ri-lg"
+                aria-hidden="true"
+              />
             </Button>
           </motion.div>
         </div>
