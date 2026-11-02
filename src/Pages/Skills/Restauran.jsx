@@ -94,7 +94,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "#",
+                        "https://www.mporos.my.id/",
                         "_blank",
                         "noopener,noreferrer",
                       )

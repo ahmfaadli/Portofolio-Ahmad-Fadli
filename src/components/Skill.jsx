@@ -22,7 +22,7 @@ const skills = [
     desc: "Lightweight mobile note-taking application for creating, organizing, and managing personal notes with a simple and efficient interface",
     to: "/skills/Dnote",
   },
-    {
+  {
     category: "Web Developer",
     image: "/assets/proyek/bogorcam.webp",
     title: "BogorCam Public CCTV Monitoring",
@@ -153,7 +153,6 @@ export default function Skill() {
       "
     >
       <div className="mx-auto max-w-7xl">
-        {/* Header */}
         <div
           className="
             mb-10
@@ -164,7 +163,6 @@ export default function Skill() {
             lg:mb-20
           "
         >
-
           <h2
             className="
               mt-4
@@ -202,7 +200,6 @@ export default function Skill() {
           </p>
         </div>
 
-        {/* Project Grid */}
         <div
           className="
             grid

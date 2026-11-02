@@ -1,38 +1,44 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
+const INTRO_DURATION = 1400;
+const EASING = [0.22, 1, 0.36, 1];
+
 export default function StarIntro({ onFinish }) {
   const [show, setShow] = useState(true);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const duration = 1400;
-    const intervalDuration = 20;
-    const totalSteps = duration / intervalDuration;
-    let currentStep = 0;
+    const startTime = performance.now();
+    let animationFrame;
+    let finishTimer;
 
-    const progressInterval = setInterval(() => {
-      currentStep += 1;
-
+    const updateProgress = (currentTime) => {
+      const elapsed = currentTime - startTime;
       const nextProgress = Math.min(
-        Math.round((currentStep / totalSteps) * 100),
+        Math.round((elapsed / INTRO_DURATION) * 100),
         100
       );
 
-      setProgress(nextProgress);
+      setProgress((previous) =>
+        previous === nextProgress ? previous : nextProgress
+      );
 
-      if (nextProgress >= 100) {
-        clearInterval(progressInterval);
+      if (elapsed < INTRO_DURATION) {
+        animationFrame = requestAnimationFrame(updateProgress);
       }
-    }, intervalDuration);
+    };
 
-    const timer = setTimeout(() => {
+    animationFrame = requestAnimationFrame(updateProgress);
+
+    finishTimer = setTimeout(() => {
+      setProgress(100);
       setShow(false);
-    }, duration);
+    }, INTRO_DURATION);
 
     return () => {
-      clearInterval(progressInterval);
-      clearTimeout(timer);
+      cancelAnimationFrame(animationFrame);
+      clearTimeout(finishTimer);
     };
   }, []);
 
@@ -54,7 +60,7 @@ export default function StarIntro({ onFinish }) {
           exit={{ opacity: 0 }}
           transition={{
             duration: 0.45,
-            ease: [0.22, 1, 0.36, 1],
+            ease: EASING,
           }}
         >
           {/* Background */}
@@ -118,17 +124,11 @@ export default function StarIntro({ onFinish }) {
               px-6
               text-center
             "
-            initial={{
-              opacity: 0,
-              y: 15,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.55,
-              ease: [0.22, 1, 0.36, 1],
+              ease: EASING,
             }}
           >
             <h1

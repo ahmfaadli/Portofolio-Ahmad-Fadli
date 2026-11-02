@@ -1,4 +1,3 @@
-
 import { motion, useReducedMotion } from "framer-motion";
 import Button from "./Button";
 
@@ -47,11 +46,9 @@ const imageAnimation = {
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
-  // Scroll halus menuju bagian Skills saat tombol diklik.
   const handleProjectsClick = (event) => {
     const skillsSection = document.getElementById("skills");
 
-    // Jika bagian tujuan tidak ditemukan, biarkan anchor bekerja normal.
     if (!skillsSection) return;
 
     event.preventDefault();
@@ -66,22 +63,22 @@ export default function Hero() {
     <section
       id="hero"
       className="
+        flex
         min-h-screen
+        items-center
+        justify-center
+        overflow-hidden
         bg-gradient-to-r
         from-[#4c1d95]
         via-[#6d28d9]
         to-[#7e22ce]
-        flex
-        items-center
-        justify-center
         px-6
+        py-10
+        text-white
         sm:px-10
         lg:px-20
         xl:px-32
-        py-10
         md:py-16
-        text-white
-        overflow-hidden
       "
     >
       <motion.div
@@ -90,21 +87,21 @@ export default function Hero() {
         animate={shouldReduceMotion ? false : "show"}
         className="
           grid
-          grid-cols-1
-          md:grid-cols-2
-          items-center
-          gap-10
           w-full
           max-w-7xl
+          grid-cols-1
+          items-center
+          gap-10
+          md:grid-cols-2
         "
       >
         {/* Konten */}
         <div
           className="
-            space-y-6
             order-2
-            md:order-1
+            space-y-6
             text-center
+            md:order-1
             md:text-left
           "
         >
@@ -112,10 +109,10 @@ export default function Hero() {
             variants={shouldReduceMotion ? undefined : fadeUp}
             className="
               text-4xl
-              sm:text-5xl
-              lg:text-6xl
               font-bold
               leading-tight
+              sm:text-5xl
+              lg:text-6xl
             "
           >
             Hi, Saya
@@ -126,10 +123,10 @@ export default function Hero() {
           <motion.p
             variants={shouldReduceMotion ? undefined : fadeUp}
             className="
-              max-w-xl
               mx-auto
-              md:mx-0
+              max-w-xl
               leading-relaxed
+              md:mx-0
             "
           >
             An individual who has an interest in the development and creation
@@ -141,11 +138,11 @@ export default function Hero() {
             className="
               flex
               flex-col
-              sm:flex-row
-              gap-4
               justify-center
-              md:justify-start
+              gap-4
               pt-4
+              sm:flex-row
+              md:justify-start
             "
           >
             {/* Tombol Lihat CV */}
@@ -161,7 +158,7 @@ export default function Hero() {
               />
             </Button>
 
-            {/* Tombol Lihat Proyek dengan smooth scroll */}
+            {/* Tombol Lihat Proyek */}
             <Button
               href="#skills"
               variant="outline"
@@ -180,13 +177,13 @@ export default function Hero() {
         <motion.div
           variants={shouldReduceMotion ? undefined : imageAnimation}
           className="
-            flex
-            justify-center
-            md:justify-end
             order-1
-            md:order-2
+            flex
             translate-y-4
+            justify-center
+            md:order-2
             md:translate-y-0
+            md:justify-end
           "
         >
           <img
@@ -199,12 +196,12 @@ export default function Hero() {
             decoding="async"
             className="
               w-[320px]
+              select-none
+              object-contain
+              drop-shadow-2xl
               sm:w-[400px]
               lg:w-[480px]
               xl:w-[520px]
-              object-contain
-              drop-shadow-2xl
-              select-none
             "
           />
         </motion.div>

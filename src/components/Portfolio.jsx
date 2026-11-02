@@ -1,39 +1,25 @@
+
 export default function Portfolio() {
   return (
     <section
       id="portfolio"
       className="
-        pt-20
-        pb-20
-        bg-gradient-to-br
-        from-[#0a0118]
-        via-[#18002e]
-        to-[#26006a]
-        max-lg:pt-16
-        max-lg:pb-16
-        max-md:pt-14
-        max-md:pb-14
-        max-sm:pt-12
-        max-sm:pb-12
-        max-[374px]:pt-10
-        max-[374px]:pb-10
+        pt-20 pb-20
+        bg-gradient-to-br from-[#0a0118] via-[#18002e] to-[#26006a]
+        max-lg:pt-16 max-lg:pb-16
+        max-md:pt-14 max-md:pb-14
+        max-sm:pt-12 max-sm:pb-12
+        max-[374px]:pt-10 max-[374px]:pb-10
       "
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6">
-
         {/* Heading */}
         <div className="text-center">
           <h2
             className="
-              mt-4
-              sm:mt-5
-              lg:mt-6
-              text-3xl
-              sm:text-4xl
-              lg:text-5xl
-              xl:text-6xl
-              font-extrabold
-              text-white
+              mt-4 sm:mt-5 lg:mt-6
+              text-3xl sm:text-4xl lg:text-5xl xl:text-6xl
+              font-extrabold text-white
             "
           >
             My Portfolio
@@ -42,15 +28,9 @@ export default function Portfolio() {
           <p
             className="
               text-gray-400
-              mt-4
-              sm:mt-5
-              lg:mt-6
-              text-sm
-              sm:text-base
-              lg:text-lg
-              leading-relaxed
-              max-w-3xl
-              mx-auto
+              mt-4 sm:mt-5 lg:mt-6
+              text-sm sm:text-base lg:text-lg
+              leading-relaxed max-w-3xl mx-auto
             "
           >
             A collection of multimedia works encompassing graphic design,
@@ -60,52 +40,28 @@ export default function Portfolio() {
         </div>
 
         {/* Portfolio Card */}
-        <div
-          className="
-            mt-4
-            sm:mt-5
-            lg:mt-6
-            flex
-            justify-center
-          "
-        >
+        <div className="mt-4 sm:mt-5 lg:mt-6 flex justify-center">
           <div
             className="
-              group
-              w-full
-              max-w-4xl
-              rounded-2xl
-              sm:rounded-3xl
-              overflow-hidden
-              bg-white/5
-              border
-              border-purple-500/20
+              group w-full max-w-4xl
+              rounded-2xl sm:rounded-3xl overflow-hidden
+              bg-white/5 border border-purple-500/20
               shadow-[0_0_40px_rgba(124,58,237,0.12)]
-              transition-all
+              transition-[transform,border-color,box-shadow]
               duration-300
               hover:-translate-y-1
               hover:border-purple-500/50
               hover:shadow-[0_0_50px_rgba(168,85,247,0.25)]
+              motion-reduce:transition-none
             "
           >
             {/* Portfolio Preview */}
-            <div
-              className="
-                relative
-                bg-black/30
-                p-2.5
-                sm:p-4
-                lg:p-5
-              "
-            >
+            <div className="relative bg-black/30 p-2.5 sm:p-4 lg:p-5">
               <div
                 className="
-                  relative
-                  overflow-hidden
-                  rounded-xl
-                  sm:rounded-2xl
-                  border
-                  border-purple-500/20
+                  relative overflow-hidden
+                  rounded-xl sm:rounded-2xl
+                  border border-purple-500/20
                   bg-[#0d061a]
                 "
               >
@@ -114,64 +70,43 @@ export default function Portfolio() {
                   alt="Portfolio Preview"
                   loading="lazy"
                   decoding="async"
+                  width="1200"
+                  height="675"
                   className="
-                    w-full
-                    h-[180px]
-                    sm:h-[250px]
-                    md:h-[320px]
-                    lg:h-[420px]
-                    object-cover
-                    object-top
-                    transition-transform
-                    duration-500
+                    block w-full
+                    h-[180px] sm:h-[250px] md:h-[320px] lg:h-[420px]
+                    object-cover object-top
+                    transition-transform duration-500
                     group-hover:scale-[1.02]
+                    motion-reduce:transition-none
                   "
                 />
 
                 {/* Overlay */}
                 <div
                   className="
-                    absolute
-                    inset-0
+                    absolute inset-0
                     bg-gradient-to-t
-                    from-[#0a0118]/90
-                    via-transparent
-                    to-transparent
-                    opacity-70
-                    pointer-events-none
+                    from-[#0a0118]/90 via-transparent to-transparent
+                    opacity-70 pointer-events-none
                   "
                 />
 
                 {/* PDF Label */}
                 <div
                   className="
-                    absolute
-                    top-2.5
-                    left-2.5
-                    sm:top-4
-                    sm:left-4
-                    lg:top-5
-                    lg:left-5
+                    absolute top-2.5 left-2.5
+                    sm:top-4 sm:left-4
+                    lg:top-5 lg:left-5
                   "
                 >
                   <span
                     className="
                       inline-block
-                      px-2.5
-                      py-1
-                      sm:px-3
-                      sm:py-1.5
-                      lg:px-4
-                      lg:py-2
-                      rounded-full
-                      bg-purple-600/80
-                      text-white
-                      text-[10px]
-                      sm:text-xs
-                      lg:text-sm
-                      font-medium
-                      border
-                      border-purple-400/30
+                      px-2.5 py-1 sm:px-3 sm:py-1.5 lg:px-4 lg:py-2
+                      rounded-full bg-purple-600/80 text-white
+                      text-[10px] sm:text-xs lg:text-sm font-medium
+                      border border-purple-400/30
                     "
                   >
                     PDF Portfolio
@@ -181,47 +116,24 @@ export default function Portfolio() {
             </div>
 
             {/* Information */}
-            <div
-              className="
-                p-4
-                sm:p-5
-                md:p-6
-                lg:p-7
-              "
-            >
+            <div className="p-4 sm:p-5 md:p-6 lg:p-7">
               <div
                 className="
-                  flex
-                  flex-col
-                  md:flex-row
-                  md:items-center
-                  md:justify-between
-                  gap-5
-                  lg:gap-6
+                  flex flex-col md:flex-row
+                  md:items-center md:justify-between
+                  gap-5 lg:gap-6
                 "
               >
                 {/* Text */}
                 <div className="min-w-0">
-                  <h3
-                    className="
-                      text-lg
-                      sm:text-xl
-                      lg:text-2xl
-                      font-bold
-                      text-white
-                    "
-                  >
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
                     My Creative Portfolio
                   </h3>
 
                   <p
                     className="
-                      mt-1.5
-                      sm:mt-2
-                      text-gray-400
-                      text-xs
-                      sm:text-sm
-                      lg:text-base
+                      mt-1.5 sm:mt-2
+                      text-gray-400 text-xs sm:text-sm lg:text-base
                       leading-relaxed
                     "
                   >
@@ -232,42 +144,21 @@ export default function Portfolio() {
                 </div>
 
                 {/* Button */}
-                <div
-                  className="
-                    flex
-                    flex-wrap
-                    gap-2.5
-                    sm:gap-3
-                    shrink-0
-                  "
-                >
+                <div className="flex flex-wrap gap-2.5 sm:gap-3 shrink-0">
                   <a
                     href="https://drive.google.com/file/d/1ci3tKdJ4dHrb59p1d-BKm2WHNt1H1O1H/view?usp=sharing"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
-                      inline-flex
-                      items-center
-                      justify-center
-                      gap-1.5
-                      sm:gap-2
-                      px-4
-                      sm:px-5
-                      lg:px-6
-                      py-2
-                      sm:py-2.5
-                      lg:py-3
-                      rounded-lg
-                      sm:rounded-xl
-                      bg-purple-600
-                      hover:bg-purple-500
-                      text-white
-                      text-xs
-                      sm:text-sm
-                      lg:text-base
+                      inline-flex items-center justify-center
+                      gap-1.5 sm:gap-2
+                      px-4 sm:px-5 lg:px-6
+                      py-2 sm:py-2.5 lg:py-3
+                      rounded-lg sm:rounded-xl
+                      bg-purple-600 hover:bg-purple-500
+                      text-white text-xs sm:text-sm lg:text-base
                       font-semibold
-                      transition-all
-                      duration-300
+                      transition-all duration-300
                       hover:shadow-[0_0_20px_rgba(168,85,247,0.5)]
                       whitespace-nowrap
                     "
@@ -278,6 +169,7 @@ export default function Portfolio() {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
+                      aria-hidden="true"
                     >
                       <path
                         strokeLinecap="round"

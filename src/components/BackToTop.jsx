@@ -5,14 +5,29 @@ export default function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      // Tombol muncul setelah melewati bagian Hero.
-      setIsVisible(window.scrollY > window.innerHeight * 0.5);
+      if (ticking) return;
+
+      ticking = true;
+
+      window.requestAnimationFrame(() => {
+        const shouldShow = window.scrollY > window.innerHeight * 0.5;
+
+        setIsVisible((previous) =>
+          previous === shouldShow ? previous : shouldShow
+        );
+
+        ticking = false;
+      });
     };
 
     handleScroll();
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);

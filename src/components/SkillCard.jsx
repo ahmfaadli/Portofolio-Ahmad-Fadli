@@ -15,14 +15,15 @@ export default function SkillCard({
         block
         overflow-hidden
         rounded-3xl
-        bg-[#170036]/70
         border
         border-purple-700/30
+        bg-[#170036]/70
         transition-transform
         duration-300
         hover:-translate-y-2
         hover:border-purple-500
         hover:shadow-[0_0_30px_rgba(168,85,247,.25)]
+        motion-reduce:transition-none
       "
     >
       {/* Cover */}
@@ -36,25 +37,26 @@ export default function SkillCard({
           height="450"
           className="
             block
-            w-full
             h-full
+            w-full
             object-cover
             transition-transform
             duration-500
             group-hover:scale-105
+            motion-reduce:transition-none
           "
         />
 
         {/* Gradient */}
         <div
           className="
+            pointer-events-none
             absolute
             inset-0
             bg-gradient-to-t
             from-[#170036]
             via-transparent
             to-transparent
-            pointer-events-none
           "
         />
 
@@ -63,24 +65,24 @@ export default function SkillCard({
           <div
             className="
               absolute
-              top-4
               left-4
+              top-4
               z-10
-              px-4
-              py-1.5
               rounded-full
-              bg-[#170036]/90
               border
               border-purple-400/40
-              text-purple-200
+              bg-[#170036]/90
+              px-4
+              py-1.5
               text-xs
-              sm:text-sm
               font-semibold
+              text-purple-200
               shadow-lg
               transition-colors
               duration-300
               group-hover:bg-purple-600/80
               group-hover:text-white
+              sm:text-sm
             "
           >
             {category}
