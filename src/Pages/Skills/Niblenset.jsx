@@ -89,7 +89,11 @@ export default function HTML5() {
                   <button
                     type="button"
                     onClick={() =>
-                      window.open("#", "_blank", "noopener,noreferrer")
+                    window.open(
+                        "https://www.figma.com/design/rTF0PMqNcZr8fTyIV47BtM/Untitled?node-id=0-1&t=PAJKVTnkc5PaY3hA-1",
+                        "_blank",
+                        "noopener,noreferrer",
+                      )
                     }
                     className="cursor-pointer inline-flex items-center gap-3 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl transition-all duration-300"
                   >

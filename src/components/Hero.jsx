@@ -47,6 +47,21 @@ const imageAnimation = {
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
+  // Scroll halus menuju bagian Skills saat tombol diklik.
+  const handleProjectsClick = (event) => {
+    const skillsSection = document.getElementById("skills");
+
+    // Jika bagian tujuan tidak ditemukan, biarkan anchor bekerja normal.
+    if (!skillsSection) return;
+
+    event.preventDefault();
+
+    skillsSection.scrollIntoView({
+      behavior: shouldReduceMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <section
       id="hero"
@@ -133,7 +148,7 @@ export default function Hero() {
               pt-4
             "
           >
-            {/* Tombol Lihat CV: Google Drive */}
+            {/* Tombol Lihat CV */}
             <Button
               href="https://drive.google.com/file/d/1AikjCV3rMnUGEnr6IvNTcq9xaqBbd-7_/view?usp=sharing"
               target="_blank"
@@ -146,8 +161,12 @@ export default function Hero() {
               />
             </Button>
 
-            {/* Tombol Lihat Proyek */}
-            <Button href="#skills" variant="outline">
+            {/* Tombol Lihat Proyek dengan smooth scroll */}
+            <Button
+              href="#skills"
+              variant="outline"
+              onClick={handleProjectsClick}
+            >
               Lihat Proyek{" "}
               <i
                 className="ri-arrow-down-line ri-lg"

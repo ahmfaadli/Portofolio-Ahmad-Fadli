@@ -5,6 +5,7 @@ export default function Button({
   variant = "primary",
   target,
   rel,
+  onClick,
 }) {
   const base =
     "px-7 py-3 sm:px-9 sm:py-3.5 rounded-full font-semibold text-base transition-all duration-300 text-center";
@@ -21,6 +22,7 @@ export default function Button({
       href={href}
       target={target}
       rel={rel}
+      onClick={onClick}
       className={`${base} ${variants[variant]}`}
     >
       {children}
