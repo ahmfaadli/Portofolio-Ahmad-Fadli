@@ -59,7 +59,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://www.figma.com/design/3353JqAoZXN2LaLAgcj3Xb/Untitled?node-id=0-1&t=E9QbU1endLK8f3X7-1",
+                        "https://www.figma.com/design/3353JqAoZXN2LaLAgcj3Xb/Untitled?node-id=0-1&t=m2tt882mCNumdzu8-1",
                         "_blank",
                         "noopener,noreferrer",
                       )
