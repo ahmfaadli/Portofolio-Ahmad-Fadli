@@ -106,6 +106,20 @@ const skills = [
     desc: "Hydro Smart is a mobile app UI/UX design for monitoring water tank usage through a dashboard, consumption statistics, usage history, and notifications",
     to: "/skills/Haydro",
   },
+  {
+    category: "Data Analyst",
+    image: "/assets/proyek/powerbi.webp",
+    title: "Sales Performance Analysis Dashboard",
+    desc: "Coca-Cola Sales Dashboard is a Power BI project for visualizing sales performance, profitability, and regional sales distribution",
+    to: "/skills/Powerbi",
+  },
+  {
+    category: "Data Analyst",
+    image: "/assets/proyek/tableau.webp",
+    title: "Product Sales & Customer Rating Analysis Dashboard",
+    desc: "Tableau Sales & Rating Dashboard is a data visualization project analyzing top-selling products, customer ratings by emotion, and rating distribution across locations using Tableau",
+    to: "/skills/Tableau",
+  },
 ];
 
 export default function Skill() {

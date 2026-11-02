@@ -47,6 +47,12 @@ const Siom = lazy(() =>
 const Haydro = lazy(() =>
   import("./Pages/Skills/Haydro")
 );
+const Powerbi = lazy(() =>
+  import("./Pages/Skills/Powerbi")
+);
+const Tableau = lazy(() =>
+  import("./Pages/Skills/Tableau")
+);
 
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -173,10 +179,21 @@ export default function App() {
           element={<Siom />}
         />
 
-          <Route
+        <Route
           path="/skills/Haydro"
           element={<Haydro />}
         />
+
+        <Route
+          path="/skills/Powerbi"
+          element={<Powerbi />}
+        />
+
+        <Route
+          path="/skills/Tableau"
+          element={<Tableau />}
+        />
+
       </Routes>
     </Suspense>
   );
