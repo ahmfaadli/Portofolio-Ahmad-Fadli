@@ -90,7 +90,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://uasproject-faad.vercel.app/",
+                        "https://covidid-19.vercel.app/",
                         "_blank",
                         "noopener,noreferrer",
                       )
