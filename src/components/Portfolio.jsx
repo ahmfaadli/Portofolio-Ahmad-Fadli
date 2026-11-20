@@ -50,7 +50,7 @@ export default function Portfolio() {
               transition-[transform,border-color,box-shadow]
               duration-300
               hover:-translate-y-1
-              hover:border-purple-500/50
+              hover:border-blue-500/50
               hover:shadow-[0_0_50px_rgba(168,85,247,0.25)]
               motion-reduce:transition-none
             "
@@ -61,7 +61,7 @@ export default function Portfolio() {
                 className="
                   relative overflow-hidden
                   rounded-xl sm:rounded-2xl
-                  border border-purple-500/20
+                  border border-blue-500/20
                   bg-[#0d061a]
                 "
               >
@@ -104,9 +104,9 @@ export default function Portfolio() {
                     className="
                       inline-block
                       px-2.5 py-1 sm:px-3 sm:py-1.5 lg:px-4 lg:py-2
-                      rounded-full bg-purple-600/80 text-white
+                      rounded-full bg-blue-600/80 text-white
                       text-[10px] sm:text-xs lg:text-sm font-medium
-                      border border-purple-400/30
+                      border border-blue-400/30
                     "
                   >
                     PDF Portfolio
@@ -155,7 +155,7 @@ export default function Portfolio() {
                       px-4 sm:px-5 lg:px-6
                       py-2 sm:py-2.5 lg:py-3
                       rounded-lg sm:rounded-xl
-                      bg-purple-600 hover:bg-purple-500
+                      bg-blue-600 hover:bg-blue-500
                       text-white text-xs sm:text-sm lg:text-base
                       font-semibold
                       transition-all duration-300

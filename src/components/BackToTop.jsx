@@ -16,7 +16,7 @@ export default function BackToTop() {
         const shouldShow = window.scrollY > window.innerHeight * 0.5;
 
         setIsVisible((previous) =>
-          previous === shouldShow ? previous : shouldShow
+          previous === shouldShow ? previous : shouldShow,
         );
 
         ticking = false;
@@ -58,35 +58,36 @@ export default function BackToTop() {
       onClick={handleBackToTop}
       aria-label="Kembali ke bagian atas"
       title="Kembali ke atas"
-      className="
-        fixed
-        bottom-6
-        right-6
-        z-40
-        flex
-        h-10
-        w-10
-        cursor-pointer
-        items-center
-        justify-center
-        rounded-full
-        border
-        border-purple-400/30
-        bg-purple-600
-        text-white
-        shadow-lg
-        shadow-purple-900/30
-        transition-all
-        duration-300
-        hover:-translate-y-1
-        hover:bg-purple-500
-        active:scale-95
-        sm:bottom-8
-        sm:right-8
-        sm:h-11
-        sm:w-11
-      "
-    >
+      className="fixed
+                bottom-6
+                right-6
+                z-40
+                flex
+                h-10
+                w-10
+                cursor-pointer
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-white
+                bg-white
+                text-black
+                shadow-lg
+                shadow-black/20
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:border-blue-500
+                hover:bg-blue-500
+                hover:text-white
+                hover:shadow-blue-500/40
+                active:scale-95
+                sm:bottom-8
+                sm:right-8
+                sm:h-11
+                sm:w-11
+                " >
       <ArrowUp size={20} strokeWidth={2.5} />
     </button>
   );

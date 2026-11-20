@@ -166,7 +166,7 @@ const Navbar = () => {
                   handleScroll(e, item.link)
                 }
                 className="
-                  hover:text-purple-500
+                  hover:text-blue-500
                   transition-colors
                   duration-300
                   whitespace-nowrap
@@ -265,8 +265,8 @@ const Navbar = () => {
                 sm:text-base
                 text-gray-700
                 rounded-lg
-                hover:bg-purple-50
-                hover:text-purple-600
+                hover:bg-blue-50
+                hover:text-blue-600
                 transition
                 duration-200
               "

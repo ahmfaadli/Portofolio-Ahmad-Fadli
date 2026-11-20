@@ -117,7 +117,7 @@ export default function Education() {
         ========================== */}
         <div
           className="
-            mt-24
+            mt-12
             flex
             flex-wrap
             justify-center
@@ -180,7 +180,7 @@ export default function Education() {
                   duration-300
                   cursor-pointer
                   group-hover:scale-110
-                  group-hover:drop-shadow-[0_0_25px_rgba(168,85,247,0.9)]
+                  group-hover:drop-shadow-[0_0_25px_rgba(59,130,246,0.9)]
 
                   /* Tablet */
                   max-lg:w-36

@@ -4,45 +4,44 @@ import StarIntro from "./components/StarIntro";
 
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Skill from "./components/Skill";
+import Project from "./components/Project/Project";
+import MyExperience from "./components/MyExperience/MyExperience";
 import Education from "./components/Education";
-import Work from "./components/Work";
-import Certificates from "./components/Certificates";
+import Experiences from "./components/Experiences";
+import Certificate from "./components/Certificate/Certificate";
 import Portfolio from "./components/Portfolio";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
 
-const SenvraManagement = lazy(() =>
-  import("./Pages/Skills/SenvraManagement")
-);
-const Uangqu = lazy(() => import("./Pages/Skills/Uangqu"));
-const Dnote = lazy(() => import("./Pages/Skills/Dnote"));
-const IoT = lazy(() => import("./Pages/Skills/Smartroom"));
-const Bogorcam = lazy(() => import("./Pages/Skills/Bogorcam"));
-const Senvrabuilding = lazy(() =>
-  import("./Pages/Skills/Senvrabuilding")
-);
-const Senvra = lazy(() => import("./Pages/Skills/Senvra"));
-const Iklim = lazy(() => import("./Pages/Skills/Iklim"));
-const Restauran = lazy(() => import("./Pages/Skills/Restauran"));
-const Covidid = lazy(() => import("./Pages/Skills/Covidid"));
-const Sembako = lazy(() => import("./Pages/Skills/Sembako"));
-const Network = lazy(() => import("./Pages/Skills/Niblenset"));
-const Astro = lazy(() => import("./Pages/Skills/Astro"));
-const Siom = lazy(() => import("./Pages/Skills/Siom"));
-const Haydro = lazy(() => import("./Pages/Skills/Haydro"));
-const Powerbi = lazy(() => import("./Pages/Skills/Powerbi"));
-const Tableau = lazy(() => import("./Pages/Skills/Tableau"));
+const SenvraManagement = lazy(() =>import("./Pages/Projects/SenvraManagement"));
+const Uangqu = lazy(() => import("./Pages/Projects/Uangqu"));
+const Dnote = lazy(() => import("./Pages/Projects/Dnote"));
+const IoT = lazy(() => import("./Pages/Projects/Smartroom"));
+const Bogorcam = lazy(() => import("./Pages/Projects/Bogorcam"));
+const Senvrabuilding = lazy(() =>import("./Pages/Projects/Senvrabuilding"));
+const Senvra = lazy(() => import("./Pages/Projects/Senvra"));
+const Iklim = lazy(() => import("./Pages/Projects/Iklim"));
+const Booksure = lazy(() => import("./Pages/Projects/Booksure"));
+const Restauran = lazy(() => import("./Pages/Projects/Restauran"));
+const Covidid = lazy(() => import("./Pages/Projects/Covidid"));
+const Sembako = lazy(() => import("./Pages/Projects/Sembako"));
+const Network = lazy(() => import("./Pages/Projects/Niblenset"));
+const Astro = lazy(() => import("./Pages/Projects/Astro"));
+const Siom = lazy(() => import("./Pages/Projects/Siom"));
+const Haydro = lazy(() => import("./Pages/Projects/Haydro"));
+const Powerbi = lazy(() => import("./Pages/Projects/Powerbi"));
+const Tableau = lazy(() => import("./Pages/Projects/Tableau"));
 
 function Home() {
   return (
     <>
       <Hero />
       <About />
-      <Skill />
+      <Project />
+      <MyExperience />
       <Education />
-      <Work />
-      <Certificates />
+      <Experiences />
+      <Certificate />
       <Portfolio />
       <Footer />
       <BackToTop />
@@ -73,29 +72,24 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route
-          path="/skills/SenvraManagement"
-          element={<SenvraManagement />}
-        />
-        <Route path="/skills/Uangqu" element={<Uangqu />} />
-        <Route path="/skills/Dnote" element={<Dnote />} />
-        <Route path="/skills/Smartroom" element={<IoT />} />
-        <Route path="/skills/Bogorcam" element={<Bogorcam />} />
-        <Route
-          path="/skills/Senvrabuilding"
-          element={<Senvrabuilding />}
-        />
-        <Route path="/skills/Senvra" element={<Senvra />} />
-        <Route path="/skills/Iklim" element={<Iklim />} />
-        <Route path="/skills/Restauran" element={<Restauran />} />
-        <Route path="/skills/Covidid" element={<Covidid />} />
-        <Route path="/skills/Sembako" element={<Sembako />} />
-        <Route path="/skills/Niblenset" element={<Network />} />
-        <Route path="/skills/Astro" element={<Astro />} />
-        <Route path="/skills/Siom" element={<Siom />} />
-        <Route path="/skills/Haydro" element={<Haydro />} />
-        <Route path="/skills/Powerbi" element={<Powerbi />} />
-        <Route path="/skills/Tableau" element={<Tableau />} />
+        <Route path="/Projects/SenvraManagement"element={<SenvraManagement />}/>
+        <Route path="/Projects/Uangqu" element={<Uangqu />} />
+        <Route path="/Projects/Dnote" element={<Dnote />} />
+        <Route path="/Projects/Smartroom" element={<IoT />} />
+        <Route path="/Projects/Bogorcam" element={<Bogorcam />} />
+        <Route path="/Projects/Senvrabuilding" element={<Senvrabuilding />}/>
+        <Route path="/Projects/Senvra" element={<Senvra />} />
+        <Route path="/Projects/Iklim" element={<Iklim />} />
+        <Route path="/Projects/Booksure" element={<Booksure />} />
+        <Route path="/Projects/Restauran" element={<Restauran />} />
+        <Route path="/Projects/Covidid" element={<Covidid />} />
+        <Route path="/Projects/Sembako" element={<Sembako />} />
+        <Route path="/Projects/Niblenset" element={<Network />} />
+        <Route path="/Projects/Astro" element={<Astro />} />
+        <Route path="/Projects/Siom" element={<Siom />} />
+        <Route path="/Projects/Haydro" element={<Haydro />} />
+        <Route path="/Projects/Powerbi" element={<Powerbi />} />
+        <Route path="/Projects/Tableau" element={<Tableau />} />
       </Routes>
     </Suspense>
   );
