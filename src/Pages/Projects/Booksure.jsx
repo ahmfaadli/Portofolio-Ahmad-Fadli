@@ -65,7 +65,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://github.com/ahmfaadli/iklim-indonesia.git",
+                        "https://github.com/ahmfaadli/Book-sure.git",
                         "_blank",
                         "noopener,noreferrer",
                       )
@@ -80,7 +80,7 @@ export default function HTML5() {
                     type="button"
                     onClick={() =>
                       window.open(
-                        "https://iklim-indonesia.vercel.app/",
+                        "https://book-sure-seven.vercel.app/",
                         "_blank",
                         "noopener,noreferrer",
                       )
