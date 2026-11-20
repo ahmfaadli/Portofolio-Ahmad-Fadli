@@ -7,6 +7,7 @@ import ExperienceCard from "./ExperienceCard";
 export default function MyExperiences() {
   const topTrackRef = useRef(null);
   const bottomTrackRef = useRef(null);
+  const experienceMarqueeRef = useRef(null);
 
   const directionRef = useRef(1);
 
@@ -19,6 +20,21 @@ export default function MyExperiences() {
   // Sudut kemiringan saat ini
   const topSkewRef = useRef(0);
   const bottomSkewRef = useRef(0);
+
+  /*
+    =========================================
+    MOBILE CARD DRAG
+    =========================================
+  */
+
+  const mobilePositionRef = useRef(0);
+  const mobileAnimationFrameRef = useRef(null);
+
+  const touchStartXRef = useRef(0);
+  const touchStartPositionRef = useRef(0);
+
+  const isTouchingRef = useRef(false);
+  const isDraggingRef = useRef(false);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -79,25 +95,8 @@ export default function MyExperiences() {
 
       /*
         ================================
-        LOOPING SEAMLESS
-        ================================
-      */
-
-      const topTrack = topTrackRef.current;
-      const bottomTrack = bottomTrackRef.current;
-
-      /*
-        ================================
         KEMIRINGAN TEXT
         ================================
-
-        Scroll ke bawah:
-        ATAS  -> kanan  -> -6deg
-        BAWAH -> kiri   -> +6deg
-
-        Scroll ke atas:
-        ATAS  -> kiri   -> +6deg
-        BAWAH -> kanan  -> -6deg
       */
 
       const topTargetSkew =
@@ -120,6 +119,8 @@ export default function MyExperiences() {
         ATAS
         ================================
       */
+
+      const topTrack = topTrackRef.current;
 
       if (topTrack) {
         const halfWidth = topTrack.scrollWidth / 2;
@@ -148,6 +149,8 @@ export default function MyExperiences() {
         ================================
       */
 
+      const bottomTrack = bottomTrackRef.current;
+
       if (bottomTrack) {
         const halfWidth = bottomTrack.scrollWidth / 2;
 
@@ -172,15 +175,281 @@ export default function MyExperiences() {
       animationFrame = requestAnimationFrame(animateText);
     };
 
+    /*
+      =========================================
+      MOBILE EXPERIENCE CARD ANIMATION
+      =========================================
+
+      Hanya aktif pada layar <= 640px.
+      Desktop tetap menggunakan CSS animation.
+    */
+
+    const isMobile = window.matchMedia(
+      "(max-width: 640px)"
+    ).matches;
+
+    const animateMobileCards = (currentTime) => {
+      const track = experienceMarqueeRef.current;
+
+      if (!track || isTouchingRef.current) {
+        mobileAnimationFrameRef.current =
+          requestAnimationFrame(animateMobileCards);
+
+        return;
+      }
+
+      const delta = Math.min(
+        currentTime - (animateMobileCards.lastTime || currentTime),
+        50
+      );
+
+      animateMobileCards.lastTime = currentTime;
+
+      const halfWidth = track.scrollWidth / 2;
+
+      if (halfWidth <= 0) {
+        mobileAnimationFrameRef.current =
+          requestAnimationFrame(animateMobileCards);
+
+        return;
+      }
+
+      /*
+        Kecepatan dibuat mirip dengan
+        animasi CSS mobile 80s.
+      */
+      const speed =
+        (halfWidth / 80000) * delta;
+
+      mobilePositionRef.current -= speed;
+
+      /*
+        Loop seamless.
+      */
+      if (
+        mobilePositionRef.current <=
+        -halfWidth
+      ) {
+        mobilePositionRef.current += halfWidth;
+      }
+
+      track.style.transform = `
+        translate3d(
+          ${mobilePositionRef.current}px,
+          0,
+          0
+        )
+      `;
+
+      mobileAnimationFrameRef.current =
+        requestAnimationFrame(animateMobileCards);
+    };
+
+    /*
+      =========================================
+      TOUCH START
+      =========================================
+    */
+
+    const handleTouchStart = (event) => {
+      if (!window.matchMedia("(max-width: 640px)").matches) {
+        return;
+      }
+
+      const track = experienceMarqueeRef.current;
+
+      if (!track) return;
+
+      const touch = event.touches[0];
+
+      isTouchingRef.current = true;
+      isDraggingRef.current = false;
+
+      touchStartXRef.current = touch.clientX;
+      touchStartPositionRef.current =
+        mobilePositionRef.current;
+
+      /*
+        Menghentikan gerakan ketika
+        card disentuh / ditekan.
+      */
+      track.style.animationPlayState = "paused";
+    };
+
+    /*
+      =========================================
+      TOUCH MOVE
+      =========================================
+    */
+
+    const handleTouchMove = (event) => {
+      if (
+        !window.matchMedia("(max-width: 640px)").matches ||
+        !isTouchingRef.current
+      ) {
+        return;
+      }
+
+      const track = experienceMarqueeRef.current;
+
+      if (!track) return;
+
+      const touch = event.touches[0];
+
+      const deltaX =
+        touch.clientX - touchStartXRef.current;
+
+      /*
+        Baru dianggap drag jika
+        jari benar-benar bergerak.
+      */
+      if (Math.abs(deltaX) > 3) {
+        isDraggingRef.current = true;
+      }
+
+      if (!isDraggingRef.current) {
+        return;
+      }
+
+      /*
+        Mencegah browser mengambil alih
+        gesture horizontal.
+      */
+      event.preventDefault();
+
+      const halfWidth = track.scrollWidth / 2;
+
+      if (halfWidth <= 0) return;
+
+      let newPosition =
+        touchStartPositionRef.current + deltaX;
+
+      /*
+        Loop ketika digeser manual.
+      */
+      while (newPosition > 0) {
+        newPosition -= halfWidth;
+      }
+
+      while (newPosition <= -halfWidth) {
+        newPosition += halfWidth;
+      }
+
+      mobilePositionRef.current = newPosition;
+
+      track.style.transform = `
+        translate3d(
+          ${newPosition}px,
+          0,
+          0
+        )
+      `;
+    };
+
+    /*
+      =========================================
+      TOUCH END
+      =========================================
+    */
+
+    const handleTouchEnd = () => {
+      if (!window.matchMedia("(max-width: 640px)").matches) {
+        return;
+      }
+
+      const track = experienceMarqueeRef.current;
+
+      isTouchingRef.current = false;
+      isDraggingRef.current = false;
+
+      if (!track) return;
+
+      /*
+        Setelah jari dilepas,
+        animasi berjalan normal lagi.
+      */
+      track.style.animationPlayState = "running";
+    };
+
+    /*
+      =========================================
+      EVENT LISTENER
+      =========================================
+    */
+
     window.addEventListener("scroll", handleScroll, {
       passive: true,
     });
 
-    animationFrame = requestAnimationFrame(animateText);
+    const track = experienceMarqueeRef.current;
+
+    if (track && isMobile) {
+      track.addEventListener(
+        "touchstart",
+        handleTouchStart,
+        { passive: true }
+      );
+
+      track.addEventListener(
+        "touchmove",
+        handleTouchMove,
+        { passive: false }
+      );
+
+      track.addEventListener(
+        "touchend",
+        handleTouchEnd,
+        { passive: true }
+      );
+
+      track.addEventListener(
+        "touchcancel",
+        handleTouchEnd,
+        { passive: true }
+      );
+
+      mobileAnimationFrameRef.current =
+        requestAnimationFrame(animateMobileCards);
+    }
+
+    animationFrame =
+      requestAnimationFrame(animateText);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+
       cancelAnimationFrame(animationFrame);
+
+      if (mobileAnimationFrameRef.current) {
+        cancelAnimationFrame(
+          mobileAnimationFrameRef.current
+        );
+      }
+
+      if (track) {
+        track.removeEventListener(
+          "touchstart",
+          handleTouchStart
+        );
+
+        track.removeEventListener(
+          "touchmove",
+          handleTouchMove
+        );
+
+        track.removeEventListener(
+          "touchend",
+          handleTouchEnd
+        );
+
+        track.removeEventListener(
+          "touchcancel",
+          handleTouchEnd
+        );
+      }
     };
   }, []);
 
@@ -202,6 +471,7 @@ export default function MyExperiences() {
       {/* =========================
           TEXT MARQUEE - ATAS
       ========================== */}
+
       <div className="experience-text-marquee">
         <div
           ref={topTrackRef}
@@ -242,6 +512,7 @@ export default function MyExperiences() {
       {/* =========================
           EXPERIENCE CARDS
       ========================== */}
+
       <div
         className="
           mx-auto
@@ -264,6 +535,7 @@ export default function MyExperiences() {
         >
           <div className="experience-marquee-wrapper">
             <div
+              ref={experienceMarqueeRef}
               className="
                 experience-marquee
                 flex
@@ -275,6 +547,7 @@ export default function MyExperiences() {
               "
             >
               {/* SET PERTAMA */}
+
               {experiences.map((experience, index) => (
                 <ExperienceCard
                   key={`first-${experience.title}-${index}`}
@@ -283,6 +556,7 @@ export default function MyExperiences() {
               ))}
 
               {/* SET KEDUA */}
+
               {experiences.map((experience, index) => (
                 <ExperienceCard
                   key={`second-${experience.title}-${index}`}
@@ -297,6 +571,7 @@ export default function MyExperiences() {
       {/* =========================
           TEXT MARQUEE - BAWAH
       ========================== */}
+
       <div className="experience-text-marquee experience-text-bottom">
         <div
           ref={bottomTrackRef}
@@ -337,7 +612,7 @@ export default function MyExperiences() {
       <style>{`
         /* =========================================
            EXPERIENCE CARD MARQUEE
-           TETAP SAMA
+           DESKTOP TETAP SAMA
         ========================================== */
 
         .experience-marquee {
@@ -365,15 +640,32 @@ export default function MyExperiences() {
           }
         }
 
+        /*
+          =========================================
+          MOBILE
+          =========================================
+
+          CSS animation dimatikan karena pada mobile
+          gerakan dikontrol JavaScript agar touch drag
+          bisa bekerja dengan lancar.
+        */
+
         @media (max-width: 640px) {
           .experience-marquee {
-            animation-duration: 80s;
+            animation: none;
+            animation-play-state: paused;
+            touch-action: pan-y;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            will-change: transform;
           }
         }
 
         @media (max-width: 400px) {
           .experience-marquee {
-            animation-duration: 90s;
+            animation: none;
+            animation-play-state: paused;
           }
         }
 
@@ -426,7 +718,7 @@ export default function MyExperiences() {
         }
 
         /* =========================================
-           MOBILE
+           MOBILE TEXT
         ========================================== */
 
         @media (max-width: 640px) {
