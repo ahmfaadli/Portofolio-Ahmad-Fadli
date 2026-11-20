@@ -1,4 +1,9 @@
 export default function ExperienceCard({ experience }) {
+  const image = experience?.image;
+  const title = experience?.title || "Experience";
+  const year = experience?.year;
+  const description = experience?.description;
+
   return (
     <article
       data-experience-card
@@ -27,7 +32,7 @@ export default function ExperienceCard({ experience }) {
           bg-[#120021]
           shadow-xl
           shadow-black/20
-          transition-all
+          transition-[transform,border-color,box-shadow]
           duration-300
           sm:rounded-[22px]
           lg:rounded-2xl
@@ -50,11 +55,16 @@ export default function ExperienceCard({ experience }) {
             to-[#0d001c]
           "
         >
-          {experience?.image && (
+          {image && (
             <img
-              src={experience.image}
-              alt={experience.title || "Experience"}
+              src={image}
+              alt={title}
               draggable={false}
+              loading="lazy"
+              decoding="async"
+              fetchPriority="low"
+              width="820"
+              height="461"
               className="
                 absolute
                 inset-0
@@ -81,7 +91,7 @@ export default function ExperienceCard({ experience }) {
           />
 
           {/* Year */}
-          {experience?.year && (
+          {year && (
             <div
               className="
                 absolute
@@ -120,7 +130,7 @@ export default function ExperienceCard({ experience }) {
                   lg:text-[10px]
                 "
               >
-                {experience.year}
+                {year}
               </span>
             </div>
           )}
@@ -161,10 +171,10 @@ export default function ExperienceCard({ experience }) {
               xl:text-[21px]
             "
           >
-            {experience?.title}
+            {title}
           </h3>
 
-          {experience?.description && (
+          {description && (
             <p
               className="
                 mt-3
@@ -186,7 +196,7 @@ export default function ExperienceCard({ experience }) {
                 xl:leading-6
               "
             >
-              {experience.description}
+              {description}
             </p>
           )}
         </div>

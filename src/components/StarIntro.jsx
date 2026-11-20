@@ -12,17 +12,21 @@ export default function StarIntro({ onFinish }) {
     const startTime = performance.now();
     let animationFrame;
     let finishTimer;
+    let lastProgress = -1;
 
     const updateProgress = (currentTime) => {
       const elapsed = currentTime - startTime;
+
       const nextProgress = Math.min(
         Math.round((elapsed / INTRO_DURATION) * 100),
         100
       );
 
-      setProgress((previous) =>
-        previous === nextProgress ? previous : nextProgress
-      );
+      // Hanya update React ketika angka persentase benar-benar berubah.
+      if (nextProgress !== lastProgress) {
+        lastProgress = nextProgress;
+        setProgress(nextProgress);
+      }
 
       if (elapsed < INTRO_DURATION) {
         animationFrame = requestAnimationFrame(updateProgress);

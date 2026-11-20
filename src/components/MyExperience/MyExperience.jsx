@@ -5,6 +5,8 @@ import { experiences } from "../../data/experiences";
 import ExperienceCard from "./ExperienceCard";
 
 export default function MyExperiences() {
+  const sectionRef = useRef(null);
+
   const topTrackRef = useRef(null);
   const bottomTrackRef = useRef(null);
   const experienceMarqueeRef = useRef(null);
@@ -14,12 +16,24 @@ export default function MyExperiences() {
   const topPositionRef = useRef(0);
   const bottomPositionRef = useRef(0);
 
-  // Kecepatan dibuat smooth ketika arah scroll berubah
   const velocityRef = useRef(1);
 
-  // Sudut kemiringan saat ini
   const topSkewRef = useRef(0);
   const bottomSkewRef = useRef(0);
+
+  /*
+    =========================================
+    TRACK WIDTH CACHE
+    =========================================
+
+    scrollWidth tidak lagi dibaca setiap frame.
+    Nilainya hanya diperbarui ketika ukuran
+    track berubah.
+  */
+
+  const topHalfWidthRef = useRef(0);
+  const bottomHalfWidthRef = useRef(0);
+  const mobileHalfWidthRef = useRef(0);
 
   /*
     =========================================
@@ -36,213 +50,450 @@ export default function MyExperiences() {
   const isTouchingRef = useRef(false);
   const isDraggingRef = useRef(false);
 
+  /*
+    =========================================
+    ANIMATION STATE
+    =========================================
+  */
+
+  const isVisibleRef = useRef(true);
+  const isMobileRef = useRef(false);
+
   useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    /*
+      =========================================
+      MEDIA QUERY
+      =========================================
+    */
+
+    const mobileQuery = window.matchMedia(
+      "(max-width: 640px)"
+    );
+
+    const updateMobileState = () => {
+      isMobileRef.current = mobileQuery.matches;
+    };
+
+    updateMobileState();
+
+    if (mobileQuery.addEventListener) {
+      mobileQuery.addEventListener(
+        "change",
+        updateMobileState
+      );
+    } else {
+      mobileQuery.addListener(updateMobileState);
+    }
+
+    /*
+      =========================================
+      TRACK WIDTH
+      =========================================
+
+      Hanya membaca scrollWidth ketika diperlukan.
+    */
+
+    const updateTrackWidths = () => {
+      const topTrack = topTrackRef.current;
+      const bottomTrack = bottomTrackRef.current;
+      const mobileTrack =
+        experienceMarqueeRef.current;
+
+      if (topTrack) {
+        topHalfWidthRef.current =
+          topTrack.scrollWidth / 2;
+      }
+
+      if (bottomTrack) {
+        bottomHalfWidthRef.current =
+          bottomTrack.scrollWidth / 2;
+      }
+
+      if (mobileTrack) {
+        mobileHalfWidthRef.current =
+          mobileTrack.scrollWidth / 2;
+      }
+    };
+
+    /*
+      =========================================
+      INITIAL MEASUREMENT
+      =========================================
+    */
+
+    updateTrackWidths();
+
+    /*
+      =========================================
+      RESIZE OBSERVER
+      =========================================
+
+      Tidak perlu menghitung ukuran setiap frame.
+      Hanya dihitung ketika ukuran elemen berubah.
+    */
+
+    let resizeObserver = null;
+
+    if ("ResizeObserver" in window) {
+      resizeObserver = new ResizeObserver(() => {
+        updateTrackWidths();
+      });
+
+      if (topTrackRef.current) {
+        resizeObserver.observe(topTrackRef.current);
+      }
+
+      if (bottomTrackRef.current) {
+        resizeObserver.observe(bottomTrackRef.current);
+      }
+
+      if (experienceMarqueeRef.current) {
+        resizeObserver.observe(
+          experienceMarqueeRef.current
+        );
+      }
+    } else {
+      window.addEventListener(
+        "resize",
+        updateTrackWidths,
+        { passive: true }
+      );
+    }
+
+    /*
+      =========================================
+      INTERSECTION OBSERVER
+      =========================================
+
+      Animasi tidak perlu berjalan ketika
+      section sedang jauh dari viewport.
+    */
+
+    let intersectionObserver = null;
+
+    if ("IntersectionObserver" in window) {
+      intersectionObserver =
+        new IntersectionObserver(
+          (entries) => {
+            const entry = entries[0];
+
+            isVisibleRef.current =
+              entry.isIntersecting;
+          },
+          {
+            threshold: 0.01,
+          }
+        );
+
+      intersectionObserver.observe(section);
+    }
+
+    /*
+      =========================================
+      SCROLL DIRECTION
+      =========================================
+    */
+
     let lastScrollY = window.scrollY;
-    let animationFrame;
-    let lastTime = performance.now();
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY) {
-        // Scroll ke bawah
         directionRef.current = 1;
       } else if (currentScrollY < lastScrollY) {
-        // Scroll ke atas
         directionRef.current = -1;
       }
 
       lastScrollY = currentScrollY;
     };
 
-    const animateText = (currentTime) => {
-      const delta = Math.min(currentTime - lastTime, 50);
-      lastTime = currentTime;
-
-      /*
-        Target kecepatan:
-
-        1  = bergerak ke kanan
-        -1 = bergerak ke kiri
-      */
-      const targetVelocity = directionRef.current;
-
-      /*
-        Membuat perubahan arah smooth.
-        Tidak langsung berubah 180 derajat.
-      */
-      velocityRef.current +=
-        (targetVelocity - velocityRef.current) * 0.08;
-
-      const velocity = velocityRef.current;
-
-      /*
-        Kecepatan dasar text.
-      */
-      const speed = 0.045 * delta;
-
-      /*
-        ================================
-        POSISI TEXT
-        ================================
-      */
-
-      // ATAS
-      topPositionRef.current += speed * velocity;
-
-      // BAWAH berlawanan arah
-      bottomPositionRef.current -= speed * velocity;
-
-      /*
-        ================================
-        KEMIRINGAN TEXT
-        ================================
-      */
-
-      const topTargetSkew =
-        directionRef.current === 1 ? -6 : 6;
-
-      const bottomTargetSkew =
-        directionRef.current === 1 ? 6 : -6;
-
-      /*
-        Smooth transition kemiringan.
-      */
-      topSkewRef.current +=
-        (topTargetSkew - topSkewRef.current) * 0.08;
-
-      bottomSkewRef.current +=
-        (bottomTargetSkew - bottomSkewRef.current) * 0.08;
-
-      /*
-        ================================
-        ATAS
-        ================================
-      */
-
-      const topTrack = topTrackRef.current;
-
-      if (topTrack) {
-        const halfWidth = topTrack.scrollWidth / 2;
-
-        if (topPositionRef.current >= 0) {
-          topPositionRef.current -= halfWidth;
-        }
-
-        if (topPositionRef.current <= -halfWidth) {
-          topPositionRef.current += halfWidth;
-        }
-
-        topTrack.style.transform = `
-          translate3d(
-            ${topPositionRef.current}px,
-            0,
-            0
-          )
-          skewX(${topSkewRef.current}deg)
-        `;
-      }
-
-      /*
-        ================================
-        BAWAH
-        ================================
-      */
-
-      const bottomTrack = bottomTrackRef.current;
-
-      if (bottomTrack) {
-        const halfWidth = bottomTrack.scrollWidth / 2;
-
-        if (bottomPositionRef.current >= 0) {
-          bottomPositionRef.current -= halfWidth;
-        }
-
-        if (bottomPositionRef.current <= -halfWidth) {
-          bottomPositionRef.current += halfWidth;
-        }
-
-        bottomTrack.style.transform = `
-          translate3d(
-            ${bottomPositionRef.current}px,
-            0,
-            0
-          )
-          skewX(${bottomSkewRef.current}deg)
-        `;
-      }
-
-      animationFrame = requestAnimationFrame(animateText);
-    };
-
     /*
       =========================================
-      MOBILE EXPERIENCE CARD ANIMATION
+      TEXT MARQUEE ANIMATION
       =========================================
-
-      Hanya aktif pada layar <= 640px.
-      Desktop tetap menggunakan CSS animation.
     */
 
-    const isMobile = window.matchMedia(
-      "(max-width: 640px)"
-    ).matches;
+    let animationFrame = null;
+    let lastTime = performance.now();
 
-    const animateMobileCards = (currentTime) => {
-      const track = experienceMarqueeRef.current;
+    const animateText = (currentTime) => {
+      /*
+        Kalau section tidak terlihat,
+        jangan melakukan pekerjaan animasi.
+      */
 
-      if (!track || isTouchingRef.current) {
-        mobileAnimationFrameRef.current =
-          requestAnimationFrame(animateMobileCards);
+      if (!isVisibleRef.current) {
+        lastTime = currentTime;
+
+        animationFrame =
+          requestAnimationFrame(animateText);
 
         return;
       }
 
       const delta = Math.min(
-        currentTime - (animateMobileCards.lastTime || currentTime),
+        currentTime - lastTime,
         50
       );
 
-      animateMobileCards.lastTime = currentTime;
+      lastTime = currentTime;
 
-      const halfWidth = track.scrollWidth / 2;
+      /*
+        =========================================
+        SMOOTH DIRECTION
+        =========================================
+      */
 
-      if (halfWidth <= 0) {
+      const targetVelocity =
+        directionRef.current;
+
+      velocityRef.current +=
+        (targetVelocity -
+          velocityRef.current) *
+        0.08;
+
+      const velocity =
+        velocityRef.current;
+
+      const speed = 0.045 * delta;
+
+      /*
+        =========================================
+        POSISI TEXT ATAS
+        =========================================
+      */
+
+      topPositionRef.current +=
+        speed * velocity;
+
+      /*
+        =========================================
+        POSISI TEXT BAWAH
+        =========================================
+      */
+
+      bottomPositionRef.current -=
+        speed * velocity;
+
+      /*
+        =========================================
+        SKEW
+        =========================================
+      */
+
+      const topTargetSkew =
+        directionRef.current === 1
+          ? -6
+          : 6;
+
+      const bottomTargetSkew =
+        directionRef.current === 1
+          ? 6
+          : -6;
+
+      topSkewRef.current +=
+        (topTargetSkew -
+          topSkewRef.current) *
+        0.08;
+
+      bottomSkewRef.current +=
+        (bottomTargetSkew -
+          bottomSkewRef.current) *
+        0.08;
+
+      /*
+        =========================================
+        ATAS
+        =========================================
+      */
+
+      const topTrack =
+        topTrackRef.current;
+
+      const topHalfWidth =
+        topHalfWidthRef.current;
+
+      if (
+        topTrack &&
+        topHalfWidth > 0
+      ) {
+        if (
+          topPositionRef.current >=
+          0
+        ) {
+          topPositionRef.current -=
+            topHalfWidth;
+        }
+
+        if (
+          topPositionRef.current <=
+          -topHalfWidth
+        ) {
+          topPositionRef.current +=
+            topHalfWidth;
+        }
+
+        topTrack.style.transform =
+          `translate3d(${topPositionRef.current}px, 0, 0) skewX(${topSkewRef.current}deg)`;
+      }
+
+      /*
+        =========================================
+        BAWAH
+        =========================================
+      */
+
+      const bottomTrack =
+        bottomTrackRef.current;
+
+      const bottomHalfWidth =
+        bottomHalfWidthRef.current;
+
+      if (
+        bottomTrack &&
+        bottomHalfWidth > 0
+      ) {
+        if (
+          bottomPositionRef.current >=
+          0
+        ) {
+          bottomPositionRef.current -=
+            bottomHalfWidth;
+        }
+
+        if (
+          bottomPositionRef.current <=
+          -bottomHalfWidth
+        ) {
+          bottomPositionRef.current +=
+            bottomHalfWidth;
+        }
+
+        bottomTrack.style.transform =
+          `translate3d(${bottomPositionRef.current}px, 0, 0) skewX(${bottomSkewRef.current}deg)`;
+      }
+
+      animationFrame =
+        requestAnimationFrame(
+          animateText
+        );
+    };
+
+    /*
+      =========================================
+      MOBILE CARD ANIMATION
+      =========================================
+    */
+
+    const animateMobileCards = (
+      currentTime
+    ) => {
+      /*
+        Jika bukan mobile, tidak perlu
+        menjalankan animasi mobile.
+      */
+
+      if (!isMobileRef.current) {
         mobileAnimationFrameRef.current =
-          requestAnimationFrame(animateMobileCards);
+          null;
 
         return;
       }
 
       /*
-        Kecepatan dibuat mirip dengan
-        animasi CSS mobile 80s.
+        Jika section tidak terlihat,
+        hentikan sementara pekerjaan.
       */
-      const speed =
-        (halfWidth / 80000) * delta;
 
-      mobilePositionRef.current -= speed;
+      if (!isVisibleRef.current) {
+        mobileAnimationFrameRef.current =
+          requestAnimationFrame(
+            animateMobileCards
+          );
+
+        return;
+      }
+
+      const track =
+        experienceMarqueeRef.current;
+
+      /*
+        Ketika sedang disentuh,
+        animasi otomatis berhenti.
+      */
+
+      if (
+        !track ||
+        isTouchingRef.current
+      ) {
+        mobileAnimationFrameRef.current =
+          requestAnimationFrame(
+            animateMobileCards
+          );
+
+        return;
+      }
+
+      const previousTime =
+        animateMobileCards.lastTime ||
+        currentTime;
+
+      const delta = Math.min(
+        currentTime - previousTime,
+        50
+      );
+
+      animateMobileCards.lastTime =
+        currentTime;
+
+      const halfWidth =
+        mobileHalfWidthRef.current;
+
+      if (halfWidth <= 0) {
+        mobileAnimationFrameRef.current =
+          requestAnimationFrame(
+            animateMobileCards
+          );
+
+        return;
+      }
+
+      /*
+        Kecepatan tetap mempertahankan
+        feel animasi sebelumnya.
+      */
+
+      const speed =
+        (halfWidth / 80000) *
+        delta;
+
+      mobilePositionRef.current -=
+        speed;
 
       /*
         Loop seamless.
       */
+
       if (
         mobilePositionRef.current <=
         -halfWidth
       ) {
-        mobilePositionRef.current += halfWidth;
+        mobilePositionRef.current +=
+          halfWidth;
       }
 
-      track.style.transform = `
-        translate3d(
-          ${mobilePositionRef.current}px,
-          0,
-          0
-        )
-      `;
+      track.style.transform =
+        `translate3d(${mobilePositionRef.current}px, 0, 0)`;
 
       mobileAnimationFrameRef.current =
-        requestAnimationFrame(animateMobileCards);
+        requestAnimationFrame(
+          animateMobileCards
+        );
     };
 
     /*
@@ -252,28 +503,28 @@ export default function MyExperiences() {
     */
 
     const handleTouchStart = (event) => {
-      if (!window.matchMedia("(max-width: 640px)").matches) {
+      if (!isMobileRef.current) {
         return;
       }
 
-      const track = experienceMarqueeRef.current;
+      const track =
+        experienceMarqueeRef.current;
 
       if (!track) return;
 
-      const touch = event.touches[0];
+      const touch =
+        event.touches[0];
+
+      if (!touch) return;
 
       isTouchingRef.current = true;
       isDraggingRef.current = false;
 
-      touchStartXRef.current = touch.clientX;
+      touchStartXRef.current =
+        touch.clientX;
+
       touchStartPositionRef.current =
         mobilePositionRef.current;
-
-      /*
-        Menghentikan gerakan ketika
-        card disentuh / ditekan.
-      */
-      track.style.animationPlayState = "paused";
     };
 
     /*
@@ -284,25 +535,31 @@ export default function MyExperiences() {
 
     const handleTouchMove = (event) => {
       if (
-        !window.matchMedia("(max-width: 640px)").matches ||
+        !isMobileRef.current ||
         !isTouchingRef.current
       ) {
         return;
       }
 
-      const track = experienceMarqueeRef.current;
+      const track =
+        experienceMarqueeRef.current;
 
       if (!track) return;
 
-      const touch = event.touches[0];
+      const touch =
+        event.touches[0];
+
+      if (!touch) return;
 
       const deltaX =
-        touch.clientX - touchStartXRef.current;
+        touch.clientX -
+        touchStartXRef.current;
 
       /*
-        Baru dianggap drag jika
-        jari benar-benar bergerak.
+        Mulai dianggap drag setelah
+        melewati threshold kecil.
       */
+
       if (Math.abs(deltaX) > 3) {
         isDraggingRef.current = true;
       }
@@ -312,38 +569,49 @@ export default function MyExperiences() {
       }
 
       /*
-        Mencegah browser mengambil alih
-        gesture horizontal.
+        Mencegah browser menggeser
+        halaman secara horizontal.
       */
+
       event.preventDefault();
 
-      const halfWidth = track.scrollWidth / 2;
+      const halfWidth =
+        mobileHalfWidthRef.current;
 
-      if (halfWidth <= 0) return;
+      if (halfWidth <= 0) {
+        return;
+      }
 
       let newPosition =
-        touchStartPositionRef.current + deltaX;
+        touchStartPositionRef.current +
+        deltaX;
 
       /*
-        Loop ketika digeser manual.
+        Normalisasi posisi agar
+        loop tetap seamless.
       */
-      while (newPosition > 0) {
-        newPosition -= halfWidth;
+
+      if (newPosition > 0) {
+        newPosition =
+          -(
+            halfWidth -
+            (newPosition % halfWidth)
+          );
       }
 
-      while (newPosition <= -halfWidth) {
-        newPosition += halfWidth;
+      if (
+        newPosition <=
+        -halfWidth
+      ) {
+        newPosition =
+          newPosition % halfWidth;
       }
 
-      mobilePositionRef.current = newPosition;
+      mobilePositionRef.current =
+        newPosition;
 
-      track.style.transform = `
-        translate3d(
-          ${newPosition}px,
-          0,
-          0
-        )
-      `;
+      track.style.transform =
+        `translate3d(${newPosition}px, 0, 0)`;
     };
 
     /*
@@ -353,11 +621,12 @@ export default function MyExperiences() {
     */
 
     const handleTouchEnd = () => {
-      if (!window.matchMedia("(max-width: 640px)").matches) {
+      if (!isMobileRef.current) {
         return;
       }
 
-      const track = experienceMarqueeRef.current;
+      const track =
+        experienceMarqueeRef.current;
 
       isTouchingRef.current = false;
       isDraggingRef.current = false;
@@ -366,9 +635,19 @@ export default function MyExperiences() {
 
       /*
         Setelah jari dilepas,
-        animasi berjalan normal lagi.
+        requestAnimationFrame mobile
+        akan melanjutkan gerakan normal.
       */
-      track.style.animationPlayState = "running";
+
+      if (
+        mobileAnimationFrameRef.current ===
+        null
+      ) {
+        mobileAnimationFrameRef.current =
+          requestAnimationFrame(
+            animateMobileCards
+          );
+      }
     };
 
     /*
@@ -377,43 +656,71 @@ export default function MyExperiences() {
       =========================================
     */
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
+    window.addEventListener(
+      "scroll",
+      handleScroll,
+      {
+        passive: true,
+      }
+    );
 
-    const track = experienceMarqueeRef.current;
+    const track =
+      experienceMarqueeRef.current;
 
-    if (track && isMobile) {
+    if (track && isMobileRef.current) {
       track.addEventListener(
         "touchstart",
         handleTouchStart,
-        { passive: true }
+        {
+          passive: true,
+        }
       );
 
       track.addEventListener(
         "touchmove",
         handleTouchMove,
-        { passive: false }
+        {
+          passive: false,
+        }
       );
 
       track.addEventListener(
         "touchend",
         handleTouchEnd,
-        { passive: true }
+        {
+          passive: true,
+        }
       );
 
       track.addEventListener(
         "touchcancel",
         handleTouchEnd,
-        { passive: true }
+        {
+          passive: true,
+        }
       );
 
       mobileAnimationFrameRef.current =
-        requestAnimationFrame(animateMobileCards);
+        requestAnimationFrame(
+          animateMobileCards
+        );
     }
 
+    /*
+      Text animation tetap berjalan
+      seperti sebelumnya.
+    */
+
     animationFrame =
-      requestAnimationFrame(animateText);
+      requestAnimationFrame(
+        animateText
+      );
+
+    /*
+      =========================================
+      CLEANUP
+      =========================================
+    */
 
     return () => {
       window.removeEventListener(
@@ -421,12 +728,45 @@ export default function MyExperiences() {
         handleScroll
       );
 
-      cancelAnimationFrame(animationFrame);
+      if (mobileQuery.removeEventListener) {
+        mobileQuery.removeEventListener(
+          "change",
+          updateMobileState
+        );
+      } else {
+        mobileQuery.removeListener(
+          updateMobileState
+        );
+      }
 
-      if (mobileAnimationFrameRef.current) {
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      } else {
+        window.removeEventListener(
+          "resize",
+          updateTrackWidths
+        );
+      }
+
+      if (intersectionObserver) {
+        intersectionObserver.disconnect();
+      }
+
+      if (animationFrame) {
+        cancelAnimationFrame(
+          animationFrame
+        );
+      }
+
+      if (
+        mobileAnimationFrameRef.current
+      ) {
         cancelAnimationFrame(
           mobileAnimationFrameRef.current
         );
+
+        mobileAnimationFrameRef.current =
+          null;
       }
 
       if (track) {
@@ -455,6 +795,7 @@ export default function MyExperiences() {
 
   return (
     <section
+      ref={sectionRef}
       id="my-experiences"
       className="
         relative
@@ -548,21 +889,25 @@ export default function MyExperiences() {
             >
               {/* SET PERTAMA */}
 
-              {experiences.map((experience, index) => (
-                <ExperienceCard
-                  key={`first-${experience.title}-${index}`}
-                  experience={experience}
-                />
-              ))}
+              {experiences.map(
+                (experience, index) => (
+                  <ExperienceCard
+                    key={`first-${experience.title}-${index}`}
+                    experience={experience}
+                  />
+                )
+              )}
 
               {/* SET KEDUA */}
 
-              {experiences.map((experience, index) => (
-                <ExperienceCard
-                  key={`second-${experience.title}-${index}`}
-                  experience={experience}
-                />
-              ))}
+              {experiences.map(
+                (experience, index) => (
+                  <ExperienceCard
+                    key={`second-${experience.title}-${index}`}
+                    experience={experience}
+                  />
+                )
+              )}
             </div>
           </div>
         </div>
