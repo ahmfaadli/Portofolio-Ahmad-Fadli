@@ -45,18 +45,18 @@ export default function HTML5() {
                 {/* Technology */}
                 <div className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    React.js
+                    Next.js
                   </span>
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    JavaScript
+                    TypeScript
                   </span>
                   <span className="px-2.5 sm:px-3 py-1 rounded-full bg-purple-600/30 text-purple-200 text-xs sm:text-sm">
-                    Open-Meteo API
+                    Google Books API
                   </span>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
-                  Dashboard Visualisasi Data Pola Iklim Indonesia Periode 2015–2025
+                  Interactive Book Discovery Platform
                 </h2>
 
                 {/* GitHub */}
@@ -125,17 +125,16 @@ export default function HTML5() {
 
             {/* Description */}
             <p className="text-gray-300 text-sm sm:text-base leading-6 sm:leading-7">
-              Explorer Iklim Nusantara merupakan aplikasi berbasis web yang dikembangkan 
-              untuk menampilkan dan mengeksplorasi data iklim di Indonesia secara visual. 
-              Aplikasi ini menyajikan data historis iklim periode 2015–2025 berdasarkan 
-              lokasi ibu kota provinsi, dilengkapi grafik perubahan suhu, curah hujan, 
-              dan perbandingan data iklim antarwilayah. Pengguna juga dapat memilih lokasi 
-              yang ingin dianalisis serta melihat persebaran lokasi melalui peta interaktif. 
-              Data iklim diperoleh melalui integrasi Open-Meteo API, dengan dukungan informasi 
-              prakiraan cuaca dari BMKG untuk provinsi yang dipilih. Project ini dikembangkan 
-              menggunakan React.js, JavaScript, Vite, dan Leaflet, dengan fokus pada integrasi 
-              API, pengolahan data, visualisasi grafik, serta penyajian informasi iklim melalui 
-              dashboard yang interaktif dan mudah dipahami
+              BookSure merupakan aplikasi berbasis web yang dikembangkan untuk membantu pengguna mencari 
+              dan mengeksplorasi informasi buku dari berbagai kategori dan publikasi. Aplikasi ini menyediakan 
+              fitur pencarian berdasarkan judul, penulis, ISBN, atau kata kunci tertentu, dilengkapi filter 
+              berdasarkan tahun terbit serta tampilan detail buku yang mencakup cover, penulis, penerbit, 
+              tanggal terbit, jumlah halaman, bahasa, kategori, ISBN, rating, deskripsi, dan tautan preview 
+              buku. Data buku diperoleh melalui integrasi Google Books API yang diakses melalui API Route pada 
+              Next.js, dengan penerapan pagination, caching, serta penanganan rate limit untuk mengoptimalkan 
+              proses pengambilan data. Project ini dikembangkan menggunakan Next.js, React.js, TypeScript, 
+              Tailwind CSS, dan Lucide React, dengan fokus pada integrasi API, pengelolaan data, component-
+              based development, serta penyajian informasi buku melalui antarmuka yang responsif dan mudah digunakan.
             </p>
           </div>
         </div>

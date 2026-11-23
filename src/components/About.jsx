@@ -287,12 +287,12 @@ export default function About() {
           >
             <p>
               <span className="font-bold text-white">Technical Skill :</span>{" "}
-              HTML, CSS, Laravel, React.js, Flutter
+              HTML, CSS, Laravel, React.js, Next.js, Flutter
             </p>
 
             <p>
               <span className="font-bold text-white">Programming :</span>{" "}
-              JavaScript, PHP, Python, C++, Dart
+              JavaScript, TypeScript, PHP, Python, C++, Dart
             </p>
 
             <p>
