@@ -142,12 +142,13 @@ export default function About() {
               max-[374px]:leading-5
             "
           >
-            Selama menempuh pendidikan, saya mengembangkan berbagai proyek 
-            teknologi, mulai dari website, aplikasi berbasis web, RESTful API, 
-            sistem pengelolaan data, hingga sistem monitoring berbasis 
-            Internet of Things (IoT). Pengalaman tersebut membantu saya memahami 
-            proses pengembangan sistem mulai dari perancangan, pemrograman, 
-            pengelolaan database, hingga implementasi.
+            Selama menempuh pendidikan, saya mengembangkan berbagai proyek teknologi, 
+            mulai dari UI/UX Design, website, aplikasi berbasis web (web application), 
+            aplikasi mobile (mobile application), RESTful API, sistem pengelolaan data, 
+            hingga sistem monitoring berbasis Internet of Things (IoT). Pengalaman tersebut 
+            membantu saya memahami proses pengembangan sistem secara menyeluruh, mulai dari 
+            perancangan antarmuka dan pengalaman pengguna, pemrograman, pengelolaan database, 
+            integrasi API, hingga implementasi aplikasi.
           </p>
 
           {/* Sub Heading */}

@@ -73,9 +73,8 @@ export default function Project() {
               lg:text-lg
             "
           >
-            Explore my IT projects, showcasing my experience in software
-            development, web development, UI/UX design, Internet of Things,
-            and system development
+            Explore my IT projects, showcasing my experience in software development, 
+            web development, UI/UX design, data visualization, and Internet of Things (IoT).
           </p>
         </div>
 

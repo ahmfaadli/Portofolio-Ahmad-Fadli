@@ -4,6 +4,12 @@ export default function Education() {
       logo: "../assets/work/work-1.webp",
     },
     {
+      logo: "../assets/work/work-8.webp",
+    },
+    {
+      logo: "../assets/work/work-9.webp",
+    },
+    {
       logo: "../assets/work/work-2.webp",
     },
     {
@@ -17,6 +23,9 @@ export default function Education() {
     },
    {
       logo: "../assets/work/work-7.webp",
+    },
+    {
+      logo: "../assets/work/work-10.webp",
     },
     {
       logo: "../assets/work/work-6.webp",
